@@ -1,4 +1,4 @@
-1. Khan Academy ⭐⭐⭐⭐⭐
+# Khan Academy ⭐⭐⭐⭐⭐
 Purpose: Build a solid maths and physics foundation
 
 - Multivariable Calculus – https://www.khanacademy.org/math/multivariable-calculus
