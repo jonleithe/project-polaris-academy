@@ -37,7 +37,7 @@ A note can provide document metadata at the top of the Markdown file:
 ---
 title: Week 28, 2026
 subtitle: Multivariable calculus
-author: Jon
+author: Jon Leithe
 date: July 2026
 ---
 ```

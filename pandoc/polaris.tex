@@ -1,0 +1,78 @@
+% Shared PDF styling for Project Polaris Academy.
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{etoolbox}
+
+% Various commands used in the Polaris Markdown files to apply colors to text.
+\newcommand{\blueD}[1]{\textcolor{blue}{#1}}
+\newcommand{\maroonD}[1]{\textcolor{red!60!black}{#1}}
+\newcommand{\greenD}[1]{\textcolor{green!50!black}{#1}}
+\newcommand{\redD}[1]{\textcolor{red}{#1}}
+
+\definecolor{PolarisBlue}{HTML}{174A75}
+\definecolor{PolarisLightBlue}{HTML}{EAF2F8}
+\definecolor{PolarisRule}{HTML}{9BB7CC}
+
+\titleformat{\section}
+  {\Large\bfseries\color{PolarisBlue}}
+  {\thesection}{0.75em}{}
+\titleformat{\subsection}
+  {\large\bfseries\color{PolarisBlue}}
+  {\thesubsection}{0.75em}{}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textsc{Project Polaris Academy}}
+\fancyhead[R]{\small\nouppercase{\leftmark}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{PolarisRule}\leaders\hrule height \headrulewidth\hfill}}
+\setlength{\headheight}{14pt}
+
+%\AtBeginDocument{%
+%  \hypersetup{%
+%    pdfborder={0 0 0},%
+%    bookmarksnumbered=true%
+%  }%
+%  \renewcommand{\contentsname}{Contents}%
+%}
+
+\makeatletter
+
+\renewcommand{\maketitle}{%
+  \begin{titlepage}
+    \thispagestyle{empty}
+    \centering
+
+    \vspace*{0.18\textheight}
+
+    {\LARGE\bfseries \@title\par}
+
+    \vspace*{45mm}
+
+    {\large \@author\par}
+
+    \vspace{5mm}
+
+    {\large \@date\par}
+
+    \vspace*{0.12\textheight}
+  \end{titlepage}
+}
+
+\makeatother
+
+\AtBeginDocument{%
+  \hypersetup{%
+    pdfborder={0 0 0},%
+    bookmarksnumbered=true%
+  }%
+  \renewcommand{\contentsname}{Contents}%
+
+  % Start Contents on a new page.
+  \pretocmd{\tableofcontents}{\clearpage}{}{}
+
+  % Start the document content on a new page.
+  \apptocmd{\tableofcontents}{\clearpage}{}{}
+}
