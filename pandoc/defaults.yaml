@@ -4,6 +4,8 @@ toc-depth: 3
 number-sections: true
 pdf-engine: xelatex
 highlight-style: tango
+filters:
+  - pandoc/pagebreak.lua
 resource-path:
   - .
   - notes
