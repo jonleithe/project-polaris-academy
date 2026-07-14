@@ -11,205 +11,208 @@ date        : July 2026
 
 Source: [Khan Academy — Vectors and spaces](https://www.khanacademy.org/math/linear-algebra)
 
-Vectors can be thought of as lines in two or more dimensions, having both direction and magnitude(fancy word for length). We use vectors, for instance, to describe the velocity of a moving object.
+Geometrically, a vector can be represented by a directed line segment, or arrow, whose direction indicates the vector’s direction and whose length represents its magnitude. Vectors are used, for example, to describe the velocity of a moving object.
 
-Let's say an object is moving at a certain speed, like $10\,\mathrm{m/s}$, then we'll say it's speed is $10\,\mathrm{m/s}$. And now, let's add to that a certain direction to this movement, say north-east. Now we have an object moving at a known speed in a known direction. With this definition we don't call the objects speed 'speed' anymore, we call it *velocity*. Velocity has both speed and direction, and is used to describe the speed of an object in a certain direction. In physics it is defined as *rate of change of position with respect to time*.
+The zero vector has magnitude zero and no defined direction. Vectors may also belong to a one-dimensional vector space.
+
+## Example
+
+Suppose an object is moving at a speed of $10\,\mathrm{m/s}$. If we also specify that it is moving generally towards north-east, we know both its speed and direction. Together, these define the object’s velocity. In physics, velocity is defined as the rate of change of position with respect to time.
 
 Translate this into a vector, and we get:
 
-- the vectors magnitude(or length) is $10$
+- the vector's magnitude (or length) is $10\,\mathrm{m/s}$
 - its direction is north-east
 
-![Example of a vector running from origo to the point $(8, 6)$.](../../images/vectors-example.png){width=120mm}
+![Example of a vector running from the origin to the point $(8, 6)$.](../../images/vectors-example.png){width=120mm}
 
-The vector's magnitude is calculated using the Pythagorean theorem, so for the vector $\vec{v} = (a, b)$, the magnitude is calculated using
-
-$$
-\sqrt(a^2+b^2)
-$$
-
-In the example given, we have the vector
+For a vector $\vec{v}=(a, b)$, the magnitude is calculated using the Pythagorean theorem:
 
 $$
-\vec{a}= \begin{bmatrix} 8 \\ 6 \end{bmatrix}
+\lVert\vec v\rVert=\sqrt{a^2+b^2}
+$$
+
+In the example given, we have the velocity vector
+
+$$
+\vec{v}
+=
+\begin{bmatrix}
+8 \\
+6
+\end{bmatrix}
+\,\mathrm{m/s}
 $$
 
 that gives us the magnitude
 
 $$
-\| \vec{a} \| = \sqrt(8^2+6^2) = \sqrt(64+36) = \sqrt(100) = 10
+\lVert\vec v\rVert = \sqrt(8^2+6^2) = \sqrt(64+36) = \sqrt(100) = 10\,\mathrm{m/s}
 $$
 
-<!-- A vector's magnitude is denoted $\| \vec{v} \|$ or $| \vec{v} |$. -->
-
-A vector's magnitude is denoted $\lVert \vec{v} \rVert$ or $\lvert \vec{v} \rvert$.
+A vector's magnitude is denoted $\lVert\vec v \rVert$.
 
 ## Notation
 
-Vectors can be written in several ways
+Vectors can be written in several ways:
 
 $$
-\vec{v} \
-= (1, 2, 3) \
-= \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}
-= 1 \blueD{\hat{i}} + 2 \maroonD{\hat{j}} + 3 \greenD{\hat{k}}
+\begin{aligned}
+\vec{v}
+&= (1, 2, 3) \\
+&= \begin{bmatrix}1\\2\\3\end{bmatrix} \\
+&= \blueD{\hat{\imath}}+2\maroonD{\hat{\jmath}}+3\greenD{\hat{k}}
+\end{aligned}
 $$
 
-We denote them with a little arrow on top of the letter, $\vec{v}$, this convention is used to indicate vectors.
+A vector is often denoted by placing a small arrow above its name, as in $\vec v$.
 
-The first notation, $(1, 2, 3)$, is technically referring to a point, but we use it interchangably to indicate vectors. They are usually drawn from origo, but this is not a rule!
+Depending on the context, $(1,2,3)$ can represent either a point or a vector. When it represents a position vector, the vector is drawn from the origin to the corresponding point. A free vector, however, may be translated without changing the vector.
 
-The second notation, $\begin{bmatrix} 1 \\ 2 \end{bmatrix}$, is the matrix notation, and can be extended to as many dimensions as needed $$\begin{bmatrix} 1 \\ 2 \\ \vdots \\ n-1 \\ n \end{bmatrix}$$
+The second representation is called column-vector notation. In $n$ dimensions, a general column vector has the form
+
+$$
+\begin{bmatrix}
+v_1 \\
+v_2 \\
+\vdots \\
+v_n
+\end{bmatrix}
+$$
 
 This notation will be discussed in the coming articles.
 
-The third notation, unlike the previous ones, only works in 2D and 3D. The symbol $\blueD{\hat{\imath}}$ (pronounced "i hat") is the unit $x$ vector, so
+The third notation expresses a vector as a linear combination of standard basis vectors. Each standard basis vector has magnitude one.
 
-$$
-\blueD{\hat{i}} = (1, 0, 0)
-$$
+In two dimensions, the standard basis vectors are
+$\blueD{\hat{\imath}}=(1,0)$ and
+$\maroonD{\hat{\jmath}}=(0,1)$.
+They are pronounced “i-hat” and “j-hat”.
 
-Similarly,
+In three dimensions, the standard basis vectors are
+$\blueD{\hat{\imath}}=(1,0,0)$,
+$\maroonD{\hat{\jmath}}=(0,1,0)$, and
+$\greenD{\hat{k}}=(0,0,1)$.
 
-$$
-‍\maroonD{\hat{j}} = (0, 1, 0)
-$$
-
-and
-
-$$
-\greenD{\hat{k}} = (0, 0, 1)
-$$
+In $\mathbb{R}^n$, the standard basis vectors are usually denoted
+$\mathbf e_1,\ldots,\mathbf e_n$.
 
 This notation might make more sense once we cover vector addition.
-Vectors are not restricted to two- or three-dimensions, they can be expanded into as many dimensions as needed.
+
+Coordinate vectors can have any finite number of components. The space $\mathbb R^n$ has dimension $n$.
 
 ### Real coordinate spaces
 
-Another notation you encounter when working with vectors are *coordinate spaces*. You will see notations like $\mathbb{R}^2$ or $\mathbb{R}^3$. Simply put this just tells us how many dimensions the vector has. $\mathbb{R}^2$ is a two-dimensional vector, meaning it lives in the plane, and $\mathbb{R}^3$ will be a three-dimensional vector living in space.
+When working with vectors, you will often encounter notation such as $\mathbb{R}^2$ and $\mathbb{R}^3$. The symbol $\mathbb{R}$ denotes the set of real numbers, while the exponent specifies the number of coordinates.
+
+For example,
+
+$$
+\mathbb{R}^2
+=
+\{(x_1,x_2) \mid x_1,x_2 \in \mathbb{R}\}
+$$
+
+is the set of all ordered pairs of real numbers. Similarly,
+
+$$
+\mathbb{R}^3
+=
+\{(x_1,x_2,x_3) \mid x_1,x_2,x_3 \in \mathbb{R}\}
+$$
+
+is the set of all ordered triples of real numbers. More generally, $\mathbb{R}^n$ is the set of all ordered $n$-tuples of real numbers.
+
+An element of $\mathbb{R}^n$ is a vector and can be written as either a tuple or a column vector:
+
+$$
+\vec{v}
+=
+(v_1,v_2,\ldots,v_n)
+=
+\begin{bmatrix}
+v_1 \\
+v_2 \\
+\vdots \\
+v_n
+\end{bmatrix}
+$$
+
+The space $\mathbb{R}^2$ is not itself a vector; it is a vector space
+of dimension two. A vector $\vec{v}\in\mathbb{R}^2$ has two components
+and can be represented in the coordinate plane. Likewise, a vector
+$\vec{v}\in\mathbb{R}^3$ has three components and can be represented
+in three-dimensional space.
+
+Depending on the context, the same tuple can describe either a point
+or the position vector from the origin to that point.
 
 ## Addition
 
-Vectors can be added and subtracted, in general we apply arithmetic to their corresponding components so that
+Vectors can be added and subtracted provided that they belong to the same vector space. In $\mathbb R^n$, this means that they must have the same number of components. We add two vectors by adding their corresponding components:
 
 $$
-(a, b, c) + (A, B, C) = (a+A, b+B, c+C)
+\begin{aligned}
+\vec{v} &= (v_1, v_2, \dots, v_n) \\
+\vec{w} &= (w_1, w_2, \dots, w_n)
+\end{aligned}
 $$
 
-This works for any number of dimension, as long as the vectors added (or subtracted) have the same number of dimensions.
+Their sum is:
 
-Graphically, $\greenD{\vec{a}} + \redD{\vec{b}}$ can be seen as sliding the tail of $\redD{\vec{b}}$ to the tip of $\greenD{\vec{a}}$, here's an example in $\mathbb{R}^2$
+$$
+\vec{v}+\vec{w}
+= (v_1+w_1, v_2+w_2, \dots, v_n+w_n)
+$$
 
-![Two-dimensional vector addition.](../../images/vectors-2d-addition.png)
+The result of the addition (or subtraction) is another vector in $\mathbb{R}^n$.
+
+Geometrically, $\greenD{\vec{v}}+\redD{\vec{w}}$ can be visualized by translating $\redD{\vec{w}}$ so that its tail lies at the tip of $\greenD{\vec{v}}$. The resulting vector spans from the tail of $\greenD{\vec{v}}$ to the tip of the translated $\redD{\vec{w}}$. The following example illustrates this.
+
+Suppose we have two vectors:
+
+$$
+\begin{aligned}
+\greenD{\vec{v}} &\greenD{= \begin{bmatrix} 3 \\ 1 \end{bmatrix}} \\
+\redD{\vec{w}} &\redD{= \begin{bmatrix} -2 \\ 3 \end{bmatrix}}
+\end{aligned}
+$$
+
+Then we get:
+
+$$
+\greenD{\vec{v}}+\redD{\vec{w}}
+=
+\left[
+\begin{aligned}
+\greenD{3} &{}+\redD{(-2)} \\
+\greenD{1} &{}+\redD{3}
+\end{aligned}
+\right]
+=
+\begin{bmatrix}
+\goldD{1} \\
+\goldD{4}
+\end{bmatrix}
+$$
+
+![Two-dimensional vector addition.](../../images/vectors-2d-addition.png){width=120mm}
 
 The resulting vector is shown in orange in the figure.
 
 ## Scalar multiplication
 
-Scalar is just a fancy word for number, so by multiplying a vector with a scalar we are just changing its magnitude (length). Scalar multiplication are done by multiplying the scalar with each of the vectors components. Scalars can also be negative.
+A scalar is simply a number. Scalar multiplication means multiplying each component of a vector by the scalar. If $c\in\mathbb R$ and $\vec{v}=(v_1,\ldots,v_n)$, then
 
 $$
-\vec{b} = (1, 2, 3)
-\newline
-\vec{2b} = (2, 4, 6)
+c\vec v=(cv_1,\ldots,cv_n).
 $$
 
-In general
-
+The resulting vector is collinear with the original vector, and its magnitude is
 $$
-n\vec{b} = n(a, b, c) = (na, nb, nc)
-$$
-
-## Magnitude
-
-The magnitude, or length, of a vector is denoted by double or single vertical bars on each side of the vector name, like when we take the absolute value in maths $‍\| \vec{a} \|$ or $| \vec{a} |$.
-
-Thinking of the magnitude as the hypotenuse of a triangle, we calculate it using the Pythagorean theorem. So the magnitude of $ (a, b) $ is $\sqrt{a^2 + b^2}$.
-
-Visually it can be represented like:
-
-![Calculating the magnitude of a vector in two dimensional plane.](../../images/vectors-2d-magnitude.png)
-
-# Dot products
-
-![Unit circle diagram.](../../images/unit-circle-2.jpg)
-
-
-
-
-
-
-
-# Multivariable functions
-
-Source: [Khan Academy — Multivariable functions](https://www.khanacademy.org/math/multivariable-calculus/thinking-about-multivariable-function/introduction-to-multivariable-calculus/v/multivariable-functions)
-
-A single-variable function takes one input, such as $f(x)$. A
-multivariable function takes two or more inputs, such as $f(x,y)$.
-
-A multivariable function can also be vector-valued. For example,
-
-$$
-\mathbf{F}(x,y)
-=
-\begin{bmatrix}
-ax \\
-by
-\end{bmatrix},
-\qquad
-\mathbf{F}:\mathbb{R}^2\rightarrow\mathbb{R}^2.
+\lVert c\vec v\rVert=|c|\lVert\vec v\rVert.
 $$
 
-The domain and codomain describe the dimensions involved. A function may take points from $\mathbb{R}^2$ as input and return either a scalar, a vector in $\mathbb{R}^2$, or a vector in $\mathbb{R}^3$.
+If $c>0$, the direction remains the same; if $c<0$, the direction is reversed. If $c=0$, the result is the zero vector.
 
-The following sections introduce several ways to represent multivariable functions.
-
-## Graphs
-
-![Three-dimensional graph of a scalar-valued function.](../../images/multivariable-functions-graphs.png){height=77mm}
-
-The graph of a scalar-valued function
-
-$$
-f:\mathbb{R}^2\rightarrow\mathbb{R}
-$$
-
-is a surface in $\mathbb{R}^3$ Each input point $(x,y)$ lies in the $xy$-plane, and its output $z=f(x,y)$ determines the height of the surface.
-
-<!-- pagebreak -->
-
-## $\mathbb{R}^2$ Color plots
-
-![Two-dimensional color representation of a scalar field.](../../images/multivariable-functions-2d-colors.png){height=77mm}
-
-A scalar-valued function can also be represented as a color plot. Each  point $(x,y)$ in the domain is assigned a color according to the value $f(x,y)$. Temperature, pressure, and wind-speed fields can be visualized this way.
-
-## Surfaces in $\mathbb{R}^3$, parametric surfaces
-
-![Three-dimensional surface representation of a torus.](../../images/multivariable-functions-3d-surfaces.png){height=77mm}
-
-A parametric surface is described by a vector-valued function
-
-$$
-\mathbf{r}(u,v):\mathbb{R}^2\rightarrow\mathbb{R}^3
-$$
-
-Each parameter pair $(u,v)$ determines a point on the surface. Surface
-integrals can later be used to calculate quantities such as area or flux.
-
-## Vector fields
-
-![Two-dimensional representation of a vector field.](../../images/multivariable-functions-vector-fields.png){height=77mm}
-
-A vector field associates a vector with every point in its domain. For
-example, a two-dimensional vector field can be written as
-
-$$
-\mathbf{F}:\mathbb{R}^2\rightarrow\mathbb{R}^2
-$$
-
-At each point $(x,y)$, the vector $\mathbf{F}(x,y)$ has both a direction
-and a magnitude. Vector fields can represent fluid velocity,
-gravitational fields, and electric or magnetic fields.
-
-A good way to think about multivariable functions, is to take the input space, for instance $\mathbb{R}^2$, and watch them move to their output. If you get the hang of this, you will find it connects nice to linear algebra.
+## Parametric representation
