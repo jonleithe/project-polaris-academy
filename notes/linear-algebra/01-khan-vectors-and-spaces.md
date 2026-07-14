@@ -44,9 +44,6 @@ $$
 
 A vector's magnitude is denoted $\lVert \vec{v} \rVert$ or $\lvert \vec{v} \rvert$.
 
-
-<!-- pagebreak -->
-
 ## Notation
 
 Vectors can be written in several ways

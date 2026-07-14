@@ -216,6 +216,7 @@ int main()
     }
     #endif
 
-    std::cout << "Goodbye.\n";
+    std::cout << "Thank you for using vector-repl - Goodbye\n";
+    std::cout << "/jole 2026\n";
     return EXIT_SUCCESS;
 }
