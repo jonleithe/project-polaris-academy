@@ -179,6 +179,7 @@ int main()
               << "Project Polaris Vector REPL (R2 and R3)\n"
               << "Type 'help' for commands or 'quit' to exit.\n";
 
+    //#define HAVE_READLINE // for debug purposes, remove this line if you want to use readline
     #if defined(HAVE_READLINE)
     const std::string history_file = history_file_path();
     if(!history_file.empty()){
