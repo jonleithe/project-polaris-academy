@@ -11,6 +11,8 @@
 #include <vector>
 
 #if defined(HAVE_READLINE)
+    // CMake defines HAVE_READLINE only when the optional library is found.
+    // The preprocessor removes this code entirely in builds without Readline.
     #include <readline/history.h>
     #include <readline/readline.h>
 #endif
@@ -19,7 +21,12 @@
 
 namespace {
 
+// A type alias gives a domain-specific name to a fairly verbose template type.
+// unordered_map is a hash table owning string keys and RVector values.
 using VectorStore = std::unordered_map<std::string, RVector>;
+
+// This unnamed namespace gives all helpers in it internal linkage: they are
+// private to this translation unit and cannot collide with names in other .cpps.
 
 void print_help()
 {
@@ -42,6 +49,9 @@ void print_help()
 double parse_number(const std::string& text)
 {
     std::size_t parsed = 0;
+    // stod converts the numeric prefix and writes the number of consumed
+    // characters through &parsed. Checking both conditions rejects "12oops",
+    // infinity, and NaN rather than quietly accepting them.
     const double value = std::stod(text, &parsed);
     if(parsed != text.size() || !std::isfinite(value)){
         throw std::invalid_argument("'" + text + "' is not a finite number");
@@ -53,10 +63,14 @@ double parse_number(const std::string& text)
 
 const RVector& find_vector(const VectorStore& vectors, const std::string& name)
 {
+    // auto asks the compiler to infer the iterator's long concrete type.
     const auto found = vectors.find(name);
     if(found == vectors.end()){
         throw std::invalid_argument("no vector named '" + name + "'");
     }
+    // Map iterators point to key/value pairs: first is the key, second the value.
+    // Returning const RVector& avoids a copy and prevents callers from mutation.
+    // The reference remains valid here because the map outlives command handling.
     return found->second;
 }
 
@@ -75,6 +89,8 @@ void require_argument_count(const std::vector<std::string>& arguments,
 
 void run_command(const std::vector<std::string>& arguments, VectorStore& vectors)
 {
+    // arguments is read-only, while vectors is a non-const reference because the
+    // "vector" command may change the caller's store. References cannot be null.
     const std::string& command = arguments.front();
 
     if(command == "help"){
@@ -89,6 +105,8 @@ void run_command(const std::vector<std::string>& arguments, VectorStore& vectors
             components.push_back(parse_number(arguments[index]));
         }
         const std::string name = arguments[1];
+        // insert_or_assign (C++17) handles both a new name and replacement.
+        // Moving components hands off its allocation because it is finished here.
         vectors.insert_or_assign(name, RVector(std::move(components)));
         std::cout << name << " = " << vectors.at(name) << '\n';
     } else if(command == "magnitude"){
@@ -117,6 +135,8 @@ void run_command(const std::vector<std::string>& arguments, VectorStore& vectors
         if(vectors.empty()){
             std::cout << "No vectors stored.\n";
         } else{
+            // Structured binding (C++17) names the two fields in each map entry.
+            // const auto& avoids copying either the stored string or RVector.
             for(const auto& [name, vector] : vectors){
                 std::cout << name << " = " << vector << '\n';
             }
@@ -130,9 +150,15 @@ void run_command(const std::vector<std::string>& arguments, VectorStore& vectors
 
 bool process_line(const std::string& line, VectorStore& vectors)
 {
+    // Streams can tokenize a string using the familiar >> extraction syntax.
+    // Both local containers clean up automatically on every return or exception.
     std::istringstream input(line);
     std::vector<std::string> arguments;
+    // C++ permits a declaration in the for-loop initializer. Extraction is the
+    // condition: the loop ends when there are no more whitespace-delimited words.
     for(std::string argument; input >> argument;){
+        // Each argument is disposable after insertion, so moving may reuse its
+        // character buffer. push_back grows the vector automatically.
         arguments.push_back(std::move(argument));
     }
 
@@ -147,6 +173,9 @@ bool process_line(const std::string& line, VectorStore& vectors)
         return true;
     }
 
+    // Exceptions separate error detection deep in parsing/vector operations from
+    // the single user-facing error boundary here. Catch by const reference avoids
+    // copying and preserves polymorphic exception behavior.
     try {
         run_command(arguments, vectors);
     } catch (const std::exception& error) {
@@ -161,6 +190,8 @@ bool process_line(const std::string& line, VectorStore& vectors)
 #if defined(HAVE_READLINE)
 std::string history_file_path()
 {
+    // getenv is a C API returning a borrowed pointer; it may return nullptr.
+    // We copy its contents into std::string rather than trying to own/free it.
     const char* home = std::getenv("HOME");
     if(home == nullptr || home[0] == '\0'){
         return "";
@@ -174,7 +205,10 @@ std::string history_file_path()
 
 int main()
 {
+    // Automatic objects have deterministic lifetimes. vectors is destroyed and
+    // releases all its memory when main exits, including on ordinary early exits.
     VectorStore vectors;
+    // Stream manipulators such as setprecision configure subsequent output.
     std::cout << std::setprecision(15)
               << "Project Polaris Vector REPL (R2 and R3)\n"
               << "Type 'help' for commands or 'quit' to exit.\n";
@@ -187,12 +221,16 @@ int main()
     }
 
     while(true){
+        // Readline is a C library and returns malloc-allocated char*. This is one
+        // place modern automatic ownership is unavailable, so every successful
+        // call must be paired with free(). nullptr signals end-of-file.
         char* input_line = readline("polaris> ");
         if(input_line == nullptr){
             std::cout << '\n';
             break;
         }
 
+        // First copy into an owning std::string, then release the C allocation.
         const std::string line(input_line);
         std::free(input_line);
 
@@ -210,6 +248,8 @@ int main()
     }
     #else
     std::string line;
+    // operator&& short-circuits. The prompt is written first; getline then reads
+    // a complete line and converts to false on EOF or an input error.
     while(std::cout << "polaris> " && std::getline(std::cin, line)){
         if(process_line(line, vectors)){
             break;
@@ -219,5 +259,6 @@ int main()
 
     std::cout << "Thank you for using vector-repl - Goodbye\n";
     std::cout << "/jole 2026\n";
+    // EXIT_SUCCESS is a portable success status supplied by <cstdlib>.
     return EXIT_SUCCESS;
 }
