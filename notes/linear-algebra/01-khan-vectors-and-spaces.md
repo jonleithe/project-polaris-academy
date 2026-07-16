@@ -24,7 +24,9 @@ Translate this into a vector, and we get:
 - the vector's magnitude (or length) is $10\,\mathrm{m/s}$
 - its direction is north-east
 
-![Example of a vector running from the origin to the point $(8, 6)$.](../../images/vectors-example.png){width=120mm}
+See [@fig:vectors-example] for a vector drawn in standard form.
+
+![Example of a vector running from the origin to the point $(8, 6)$.](../../images/vectors-example.png){#fig:vectors-example width=120mm}
 
 For a vector $\vec{v}=(a, b)$, the magnitude is calculated using the Pythagorean theorem:
 
@@ -215,4 +217,42 @@ $$
 
 If $c>0$, the direction remains the same; if $c<0$, the direction is reversed. If $c=0$, the result is the zero vector.
 
-## Parametric representation
+## Parametric representation of lines
+
+During Algebra I, we learnt that non-vertical lines could be represented by:
+$$
+y=mx+b
+$$
+
+where $m$ is the slope and $b$ is the $y$-intercept. This form cannot represent vertical lines and does not generalise conveniently to higher-dimensional spaces. Parametric representations overcome both limitations.
+
+Suppose we have two position vectors, $\vec{p}$ and $\vec{q}$, representing distinct points. The vector
+
+$$
+\vec{q}-\vec{p}
+$$
+
+gives a direction from $\vec{p}$ to $\vec{q}$.
+
+That naturally leads to:
+
+$$
+\vec{r(t)} = \vec{p}+t(\vec{q}-\vec{p}), \qquad t \in\mathbb{R}
+$$
+
+Suppose we have two position vectors:
+
+$$
+\vec{v} = \begin{bmatrix} 2 \\ 1 \end{bmatrix},
+\vec{w} = \begin{bmatrix} 0 \\ 3 \end{bmatrix}
+$$
+
+Drawn on standard form they look like in [@fig:vectors-projection-002].
+
+Here we have some random text
+
+![Position vectors drawn on standard form.](../../images/vectors-projection-002.png){#fig:vectors-projection-002 width=120mm}
+
+This is just some random text.
+
+\newpage

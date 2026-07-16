@@ -5,7 +5,13 @@ number-sections: true
 pdf-engine: xelatex
 highlight-style: tango
 filters:
+  - pandoc-crossref
   - pandoc/pagebreak.lua
+metadata:
+  figPrefix:
+    - Figure
+    - Figures
+  linkReferences: true
 resource-path:
   - .
   - notes
