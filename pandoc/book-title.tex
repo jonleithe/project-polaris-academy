@@ -6,6 +6,10 @@
 \definecolor{PolarisInk}{HTML}{332F2A}
 \definecolor{PolarisGrid}{HTML}{A9947E}
 
+\newfontfamily\PolarisTitleFont[
+  Path=fonts/playfair-display/
+]{PlayfairDisplay.ttf}
+
 \makeatletter
 
 \providecommand{\subtitle}[1]{}
@@ -55,7 +59,7 @@
 
     \node[anchor=south west,inner sep=0]
       at ($(current page.south west)+(9mm,9mm)$)
-      {\includegraphics[width=0.39\paperwidth]{images/book-cover-bottom-left-hand-drawn.png}};
+      {\includegraphics[width=0.39\paperwidth]{images/book-cover-bottom-left-title.png}};
 
     \node[anchor=south east,inner sep=0]
       at ($(current page.south east)+(-9mm,9mm)$)
@@ -73,7 +77,7 @@
 
     \begin{minipage}{0.52\paperwidth}
       \centering
-      {\rmfamily\bfseries\fontsize{46}{54}\selectfont
+      {\PolarisTitleFont\fontsize{46}{54}\selectfont
        \MakeUppercase{\@title}\par}
     \end{minipage}
 
