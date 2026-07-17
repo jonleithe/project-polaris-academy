@@ -1,15 +1,30 @@
 # Project Polaris Academy
-Engineering notebook and learning companion throughout my Master of Science in Aerospace Engineering.
+
+Engineering notebook and learning companion throughout my Master of Science in
+Aerospace Engineering.
 
 ## Abstract
-Project Polaris Academy is a curated collection of learning resources assembled to support my Master's studies in Aerospace Engineering at UiT Narvik. I was accepted as a student at UiT Narvik at the Aerospace Engineering Master, part-time online programme starting in August 2026. This document must be understood as an aid for me personally, it is never meant to be published and will consist of various courses I find interesting and/or heplfull to achieve a wider understanding in the fields.
+
+Project Polaris Academy is a curated collection of learning resources supporting
+my master's studies in Aerospace Engineering at UiT Narvik. I was accepted into
+the part-time online master's programme beginning in August 2026. This repository
+is a personal study aid containing courses, notes, and resources that help me
+develop a broader understanding of aerospace engineering and related fields. It
+is intended for personal use and is not meant for publication.
 
 /jole
 
 ## Building the notes
 
-The PDF toolchain uses Pandoc and XeLaTeX. Build every weekly note as a
-separate PDF with:
+The PDF toolchain requires:
+
+- GNU Make
+- Pandoc
+- [`pandoc-crossref`](https://lierdakil.github.io/pandoc-crossref/)
+- XeLaTeX with the LaTeX packages used by the templates, including `etoolbox`,
+  `fancyhdr`, `fontspec`, `tikz`, `titlesec`, and `xcolor`
+
+Build every note as a separate PDF with:
 
 ```sh
 make
@@ -27,17 +42,26 @@ only their metadata and content.
 
 ## Helper software
 
-- [Vector REPL](software/vector-repl/README.md) — create vectors in R2 and R3
+- [Vector REPL](software/vector-repl/README.md) — create vectors in ℝ² and ℝ³
   and interactively calculate magnitudes, sums, scalar multiples, dot products,
   and cross products.
 
-A note can provide document metadata at the top of the Markdown file:
+## Writing notes
+
+Structured course notes begin with YAML metadata identifying the topic, its
+place in the course, and the original learning provider. For example:
 
 ```yaml
 ---
-title: Week 28, 2026
-subtitle: Multivariable calculus
-author: Jon Leithe
-date: July 2026
+title       : Vectors and Spaces
+course      : Linear Algebra
+unit        : 1
+provider    : Khan Academy
+author      : Jon Leithe
+date        : July 2026
 ---
 ```
+
+The `title` names the topic covered by the note. The `course`, `unit`, and
+`provider` fields preserve its learning context, while `author` and `date`
+record when it became part of this knowledge base.

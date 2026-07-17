@@ -11,6 +11,8 @@ date        : July 2026
 
 Source: [Khan Academy — Vectors and spaces](https://www.khanacademy.org/math/linear-algebra)
 
+Vectors are used to represent many things around us: from forces like gravity, acceleration, friction, stress and strain on structures, to computer graphics used in almost all modern-day movies and video games. Vectors are an important concept, not just in math, but in physics, engineering, and computer graphics, so you're likely to see them again in other subjects.
+
 Geometrically, a vector can be represented by a directed line segment, or arrow, whose direction indicates the vector’s direction and whose length represents its magnitude. Vectors are used, for example, to describe the velocity of a moving object.
 
 The zero vector has magnitude zero and no defined direction. Vectors may also belong to a one-dimensional vector space.
