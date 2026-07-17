@@ -26,9 +26,9 @@ Translate this into a vector, and we get:
 - the vector's magnitude (or length) is $10\,\mathrm{m/s}$
 - its direction is north-east
 
-See [@fig:vectors-example] for a vector drawn in standard form.
+[@fig:vectors-example] shows a vector drawn in standard form, which means from the origin (0, 0).
 
-![Example of a vector running from the origin to the point $(8, 6)$.](../../images/vectors-example.png){#fig:vectors-example width=120mm}
+![Example of a vector running from the origin to the point $(8, 6)$.](../../images/vectors-example.png){#fig:vectors-example width=70mm}
 
 For a vector $\vec{v}=(a, b)$, the magnitude is calculated using the Pythagorean theorem:
 
@@ -153,7 +153,7 @@ or the position vector from the origin to that point.
 
 ## Addition
 
-Vectors can be added and subtracted provided that they belong to the same vector space. In $\mathbb R^n$, this means that they must have the same number of components. We add two vectors by adding their corresponding components:
+Vectors can be added and subtracted provided that they belong to the same vector space. In $\mathbb R^n$, this means that they must have the same number of components. We add two vectors by adding their corresponding components. Say we have:
 
 $$
 \begin{aligned}
@@ -162,7 +162,7 @@ $$
 \end{aligned}
 $$
 
-Their sum is:
+then their sum is:
 
 $$
 \vec{v}+\vec{w}
@@ -200,9 +200,11 @@ $$
 \end{bmatrix}
 $$
 
-![Two-dimensional vector addition.](../../images/vectors-2d-addition.png){width=120mm}
+The resulting vector is shown in orange in [@fig:vector-add-example]
 
-The resulting vector is shown in orange in the figure.
+![Two-dimensional vector addition.](../../images/vectors-2d-addition.png){#fig:vector-add-example width=70mm}
+
+\newpage
 
 ## Scalar multiplication
 
@@ -222,25 +224,29 @@ If $c>0$, the direction remains the same; if $c<0$, the direction is reversed. I
 ## Parametric representation of lines
 
 During Algebra I, we learnt that non-vertical lines could be represented by:
+
 $$
 y=mx+b
 $$
 
 where $m$ is the slope and $b$ is the $y$-intercept. This form cannot represent vertical lines and does not generalise conveniently to higher-dimensional spaces. Parametric representations overcome both limitations.
 
-Suppose we have two position vectors, $\vec{p}$ and $\vec{q}$, representing distinct points. The vector
+Suppose we have the two position vectors, $\vec{p} = $ and $\vec{q}$, representing distinct points. The vector
 
 $$
 \vec{q}-\vec{p}
 $$
 
-gives a direction from $\vec{p}$ to $\vec{q}$.
+gives a direction from $\vec{p}$ to $\vec{q}$, as seen in [@fig:vectors-subtract-example].
+
+![Subtracting two vectors example](../../images/vectors-subtract-example.png){#fig:vectors-subtract-example width=70mm}
 
 That naturally leads to:
 
 $$
 \vec{r(t)} = \vec{p}+t(\vec{q}-\vec{p}), \qquad t \in\mathbb{R}
 $$
+
 
 Suppose we have two position vectors:
 
@@ -253,7 +259,7 @@ Drawn on standard form they look like in [@fig:vectors-projection-002].
 
 Here we have some random text
 
-![Position vectors drawn on standard form.](../../images/vectors-projection-002.png){#fig:vectors-projection-002 width=120mm}
+![Position vectors drawn on standard form.](../../images/vectors-projection-002.png){#fig:vectors-projection-002 width=70mm}
 
 This is just some random text.
 
