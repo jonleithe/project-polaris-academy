@@ -8,3 +8,5 @@ date        : July 2026
 ---
 
 # Linear Combinations and Span
+
+Source: [Khan Academy — Vectors and spaces](https://www.khanacademy.org/math/linear-algebra)
