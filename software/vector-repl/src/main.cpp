@@ -1,9 +1,11 @@
 #include "RVector.h"
 
+#include <cctype>
 #include <cmath>
 #include <cstdlib>
 #include <iomanip>
 #include <iostream>
+#include <optional>
 #include <sstream>
 #include <stdexcept>
 #include <string>
@@ -39,6 +41,7 @@ void print_help()
         << "  subtract <first> <second>   Subtract the second vector\n"
         << "  dot <first> <second>        Calculate the dot product\n"
         << "  cross <first> <second>      Calculate the R3 cross product\n"
+        << "  <expression>                Example: -4*a + 3*b - c\n"
         << "  list                        Show all stored vectors\n"
         << "  help                        Show this help\n"
         << "  quit                        Exit\n";
@@ -72,6 +75,122 @@ const RVector& find_vector(const VectorStore& vectors, const std::string& name)
     // Returning const RVector& avoids a copy and prevents callers from mutation.
     // The reference remains valid here because the map outlives command handling.
     return found->second;
+}
+
+
+
+std::string trim(const std::string& text)
+{
+    std::size_t first = 0;
+    while(first < text.size() &&
+          std::isspace(static_cast<unsigned char>(text[first]))){
+        ++first;
+    }
+
+    std::size_t last = text.size();
+    while(last > first &&
+          std::isspace(static_cast<unsigned char>(text[last - 1]))){
+        --last;
+    }
+
+    return text.substr(first, last - first);
+}
+
+
+
+RVector evaluate_vector_term(const std::string& text,
+                             double sign,
+                             const VectorStore& vectors)
+{
+    const std::size_t multiply = text.find('*');
+    if(multiply != std::string::npos &&
+       text.find('*', multiply + 1) != std::string::npos){
+        throw std::invalid_argument(
+            "a term must have the form [number *] name");
+    }
+
+    double scalar = sign;
+    std::string vector_name = trim(text);
+    if(multiply != std::string::npos){
+        const std::string scalar_text = trim(text.substr(0, multiply));
+        vector_name = trim(text.substr(multiply + 1));
+        if(scalar_text.empty()){
+            throw std::invalid_argument(
+                "a term must have the form [number *] name");
+        }
+        scalar *= parse_number(scalar_text);
+    }
+
+    if(vector_name.empty()){
+        throw std::invalid_argument(
+            "a term must have the form [number *] name");
+    }
+
+    return scalar * find_vector(vectors, vector_name);
+}
+
+
+
+bool try_run_vector_expression(const std::string& line,
+                               const VectorStore& vectors)
+{
+    // An operator distinguishes an expression from an unknown one-word command.
+    if(line.find('*') == std::string::npos &&
+       line.find('+') == std::string::npos &&
+       line.find('-') == std::string::npos){
+        return false;
+    }
+
+    std::optional<RVector> result;
+    std::size_t position = 0;
+
+    while(position < line.size()){
+        while(position < line.size() &&
+              std::isspace(static_cast<unsigned char>(line[position]))){
+            ++position;
+        }
+
+        double sign = 1.0;
+        if(position < line.size() &&
+           (line[position] == '+' || line[position] == '-')){
+            sign = line[position] == '-' ? -1.0 : 1.0;
+            ++position;
+        }
+
+        const std::size_t term_start = position;
+        while(position < line.size()){
+            const char current = line[position];
+            if((current == '+' || current == '-') && position > term_start){
+                // A sign following e/E belongs to scientific notation, as in
+                // 1e-3*a, rather than separating two vector terms.
+                const char previous = line[position - 1];
+                if(previous != 'e' && previous != 'E'){
+                    break;
+                }
+            }
+            ++position;
+        }
+
+        const std::string term_text = trim(line.substr(term_start,
+                                                       position - term_start));
+        if(term_text.empty()){
+            throw std::invalid_argument("expected a vector term");
+        }
+
+        const RVector term = evaluate_vector_term(term_text, sign, vectors);
+        if(result.has_value()){
+            result = *result + term;
+        } else{
+            result = term;
+        }
+    }
+
+    if(!result.has_value()){
+        throw std::invalid_argument("expected a vector expression");
+    }
+
+    std::cout << *result << '\n';
+    return true;
 }
 
 
@@ -148,6 +267,15 @@ void run_command(const std::vector<std::string>& arguments, VectorStore& vectors
 
 
 
+bool is_command(const std::string& word)
+{
+    return word == "help" || word == "vector" || word == "magnitude" ||
+           word == "scale" || word == "add" || word == "subtract" ||
+           word == "dot" || word == "cross" || word == "list";
+}
+
+
+
 bool process_line(const std::string& line, VectorStore& vectors)
 {
     // Streams can tokenize a string using the familiar >> extraction syntax.
@@ -177,7 +305,11 @@ bool process_line(const std::string& line, VectorStore& vectors)
     // the single user-facing error boundary here. Catch by const reference avoids
     // copying and preserves polymorphic exception behavior.
     try {
-        run_command(arguments, vectors);
+        if(is_command(arguments.front())){
+            run_command(arguments, vectors);
+        } else if(!try_run_vector_expression(line, vectors)){
+            run_command(arguments, vectors);
+        }
     } catch (const std::exception& error) {
         std::cerr << "Error: " << error.what() << '\n';
     }
