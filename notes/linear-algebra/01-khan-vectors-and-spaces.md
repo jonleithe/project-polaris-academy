@@ -151,6 +151,8 @@ in three-dimensional space.
 Depending on the context, the same tuple can describe either a point
 or the position vector from the origin to that point.
 
+\newpage
+
 ## Addition
 
 Vectors can be added and subtracted provided that they belong to the same vector space. In $\mathbb R^n$, this means that they must have the same number of components. We add two vectors by adding their corresponding components. Say we have:
@@ -202,9 +204,9 @@ $$
 
 The resulting vector is shown in orange in [@fig:vector-add-example]
 
-![Two-dimensional vector addition.](../../images/vectors-2d-addition.png){#fig:vector-add-example width=70mm}
+Similarly, looking at [@fig:vector-add-example], we can argue that $\vec{w} = (\vec{v}+\vec{w}) - \vec{v}$. Said in another way: what do I have to add to $\vec{v}$ to get to $(\vec{v}+\vec{w})$?
 
-\newpage
+![Two-dimensional vector addition.](../../images/vectors-2d-addition.png){#fig:vector-add-example width=70mm}
 
 ## Scalar multiplication
 
@@ -221,6 +223,8 @@ $$
 
 If $c>0$, the direction remains the same; if $c<0$, the direction is reversed. If $c=0$, the result is the zero vector.
 
+\newpage
+
 ## Parametric representation of lines
 
 During Algebra I, we learnt that non-vertical lines could be represented by:
@@ -231,36 +235,83 @@ $$
 
 where $m$ is the slope and $b$ is the $y$-intercept. This form cannot represent vertical lines and does not generalise conveniently to higher-dimensional spaces. Parametric representations overcome both limitations.
 
-Suppose we have the two position vectors, $\vec{p} = $ and $\vec{q}$, representing distinct points. The vector
+Looking at [@fig:vector-parametrization-004], suppose $\vec{a}$ and $\vec{b}$ are the position vectors of two distinct points along the dotted line $L$. The displacement vector pointing from $\vec{a}$ to $\vec{b}$ is:
 
 $$
-\vec{q}-\vec{p}
+\vec{c} = {\vec{b} - \vec{a}}
 $$
 
-gives a direction from $\vec{p}$ to $\vec{q}$, as seen in [@fig:vectors-subtract-example].
-
-![Subtracting two vectors example](../../images/vectors-subtract-example.png){#fig:vectors-subtract-example width=70mm}
-
-That naturally leads to:
+Adding every scalar multiple of $\vec{c}$ to $\vec{a}$ gives every point on the line:
 
 $$
-\vec{r(t)} = \vec{p}+t(\vec{q}-\vec{p}), \qquad t \in\mathbb{R}
+L
+=
+\{
+\vec{a}
++
+\lambda
+\cdot
+\vec{c}
+\mid
+\lambda
+\in
+\mathbb{R}
+\}
 $$
 
+This gives:
+$$
+\lambda=0 \Longrightarrow \vec{a},
+\qquad
+\lambda=1 \Longrightarrow \vec{b}
+$$
 
-Suppose we have two position vectors:
+Also:
+
+- $\lambda \in \mathbb{R}$ describes the entire line.
+- $0 \leq \lambda \leq 1$ describes the segment from $\vec{a}$ to $\vec{b}$.
+
+
+The parameter $\lambda$ identifies a position on the line. To describe the vessel’s motion over time, we make this parameter a function of time.
+
+Suppose the vessel is at position $\vec{a}$ at time $t_0$ and at $\vec{b}$ at time $t_1$, where $t_1 > t_0$. Assuming constant velocity, its position at time $t$ is:
 
 $$
-\vec{v} = \begin{bmatrix} 2 \\ 1 \end{bmatrix},
-\vec{w} = \begin{bmatrix} 0 \\ 3 \end{bmatrix}
+\vec{r}(t)
+=
+\vec{a}
++
+\frac{t-t_0}{t_1-t_0}
+(\vec{b}-\vec{a})
 $$
 
-Drawn on standard form they look like in [@fig:vectors-projection-002].
+Here,
 
-Here we have some random text
+$$
+\vec{v}
+=
+\frac{\vec{b}-\vec{a}}{t_1-t_0}
+$$
 
-![Position vectors drawn on standard form.](../../images/vectors-projection-002.png){#fig:vectors-projection-002 width=70mm}
+is the vessel's velocity vector. Therefore, the same equation can be written as:
 
-This is just some random text.
+$$
+\vec{r}(t)
+=
+\vec{a}
++
+(t-t_0)
+\vec{v}
+$$
+
+Note: the interpolation formula describes the observed journey when:
+
+$$
+t_0 \le t \le t_1
+$$
+
+Values of $t$ outside this interval extrapolate the constant-velocity motion.
+
+![Vector parametrization](../../images/vectors-parametrization-004.png){#fig:vector-parametrization-004 width=120mm}
 
 \newpage

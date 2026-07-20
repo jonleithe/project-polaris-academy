@@ -1,0 +1,3 @@
+cmake -S software/vector-repl -B build/vector-repl
+cmake --build build/vector-repl
+

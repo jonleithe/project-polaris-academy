@@ -1,0 +1,2 @@
+/usr/bin/ar qc librvector.a CMakeFiles/rvector.dir/src/RVector.cpp.o
+/usr/bin/ranlib librvector.a
