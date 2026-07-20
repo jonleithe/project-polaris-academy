@@ -11,6 +11,6 @@ date        : 2026
 
 Source: [Khan Academy — Linear Dependence and Independence](https://www.khanacademy.org/math/linear-algebra)
 
-
+$\mathbb{R}^3$
 
 \newpage
