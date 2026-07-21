@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+cmake -S software/r-vec -B build/r-vec
+cmake --build build/r-vec

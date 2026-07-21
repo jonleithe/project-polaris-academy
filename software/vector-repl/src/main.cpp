@@ -345,7 +345,6 @@ int main()
               << "Project Polaris Vector REPL (R2 and R3)\n"
               << "Type 'help' for commands or 'quit' to exit.\n";
 
-    //#define HAVE_READLINE // for debug purposes, remove this line if you want to use readline
     #if defined(HAVE_READLINE)
     const std::string history_file = history_file_path();
     if(!history_file.empty()){
@@ -373,6 +372,7 @@ int main()
         if(process_line(line, vectors)){
             break;
         }
+        std::cout << "Ready for next command.\n";
     }
 
     if(!history_file.empty()){
@@ -384,8 +384,10 @@ int main()
     // a complete line and converts to false on EOF or an input error.
     while(std::cout << "polaris> " && std::getline(std::cin, line)){
         if(process_line(line, vectors)){
+            std::cout << "We break.\n";
             break;
         }
+        std::cout << "Ready for next command.\n";
     }
     #endif
 

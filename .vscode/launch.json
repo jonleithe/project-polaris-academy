@@ -2,6 +2,27 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Debug r-vec",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/build/r-vec/r-vec",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/software/r-vec",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "/usr/bin/gdb",
+            "preLaunchTask": "Build r-vec",
+            "setupCommands": [
+                {
+                    "description": "Enable GDB pretty printing",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
             "name": "Debug vector-repl",
             "type": "cppdbg",
             "request": "launch",
