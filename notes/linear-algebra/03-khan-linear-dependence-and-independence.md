@@ -93,4 +93,61 @@ $$
 
 This set is also linearly dependent because $\vec{r}-\vec{q}-\vec{p}=\vec{0}$.
 
+## Example
+
+As an example of a linearly independent set, suppose we have:
+
+$$
+\vec{a}
+=
+\begin{bmatrix}
+1 \\ 0
+\end{bmatrix}
+,
+\vec{b}
+=
+\begin{bmatrix}
+0 \\ 1
+\end{bmatrix}
+$$
+
+$$
+U
+=
+\left\{
+\vec{a},
+\vec{b}
+\right\}
+$$
+
+To determine whether $U$ is linearly independent, we set a linear combination of its vectors equal to the zero vector:
+
+$$
+c_1\vec{a}+c_2\vec{b}=\vec{0}
+$$
+
+Substituting the vectors gives:
+
+$$
+c_1
+\begin{bmatrix}
+1 \\ 0
+\end{bmatrix}
++
+c_2
+\begin{bmatrix}
+0 \\ 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+c_1 \\ c_2
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 \\ 0
+\end{bmatrix}
+$$
+
+The only solution is $c_1=c_2=0$. Therefore, the set $U$ is linearly independent.
+
 \newpage
