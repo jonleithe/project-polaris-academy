@@ -4,7 +4,7 @@ project(r_vec VERSION 0.1.0 LANGUAGES CXX)
 
 add_library(rvec src/RVec.cpp)
 target_compile_features(rvec PUBLIC cxx_std_17)
-target_include_directories(rvec PUBLIC include)
+target_include_directories(rvec PUBLIC inc)
 
 add_executable(r-vec src/main.cpp)
 target_link_libraries(r-vec PRIVATE rvec)
