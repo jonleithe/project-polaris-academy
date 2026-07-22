@@ -284,6 +284,13 @@ bool process_line(const std::string& line, VectorStore& vectors)
     }
 
     try {
+        /*
+        switch(arguments.front()){
+            case "vector"   : create_vector(line, vectors);
+                              break;
+            default         : break;
+        }
+        */
         if(arguments.front() == "vector"){
             create_vector(line, vectors);
         } else if(line.find('+') != std::string::npos){
@@ -325,7 +332,7 @@ int main()
     }
 
     while(true){
-        char* input_line = readline("polaris> ");
+        char* input_line = readline("polartiss> ");
         if(input_line == nullptr){
             std::cout << '\n';
             break;
