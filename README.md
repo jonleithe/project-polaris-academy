@@ -14,6 +14,11 @@ is intended for personal use and is not meant for publication.
 
 /jole
 
+## Documentation
+
+See the [project documentation](doc/README.md) for setup, repository structure,
+note authoring, build internals, and the `r-vec` command-line tool.
+
 ## Building the notes
 
 The PDF toolchain requires:
@@ -42,8 +47,8 @@ only their metadata and content.
 
 ## Helper software
 
-- [r-vec](software/r-vec) — create vectors in ℝ² and ℝ³ and interactively
-  calculate magnitudes, sums, scalar multiples, dot products, and cross products.
+- [r-vec](software/r-vec) — create vectors in finite-dimensional real
+  coordinate spaces, inspect their dimensions, and evaluate sums and differences.
 
 ## Writing notes
 
