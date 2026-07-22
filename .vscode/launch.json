@@ -21,27 +21,6 @@
                     "ignoreFailures": true
                 }
             ]
-        },
-        {
-            "name": "Debug vector-repl",
-            "type": "cppdbg",
-            "request": "launch",
-            "program": "${workspaceFolder}/build/vector-repl/vector-repl",
-            "args": [],
-            "stopAtEntry": false,
-            "cwd": "${workspaceFolder}/software/vector-repl",
-            "environment": [],
-            "externalConsole": false,
-            "MIMode": "gdb",
-            "miDebuggerPath": "/usr/bin/gdb",
-            "preLaunchTask": "Build vector-repl",
-            "setupCommands": [
-                {
-                    "description": "Enable GDB pretty printing",
-                    "text": "-enable-pretty-printing",
-                    "ignoreFailures": true
-                }
-            ]
         }
     ]
 }

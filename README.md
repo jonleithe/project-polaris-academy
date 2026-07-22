@@ -42,9 +42,8 @@ only their metadata and content.
 
 ## Helper software
 
-- [Vector REPL](software/vector-repl/README.md) — create vectors in ℝ² and ℝ³
-  and interactively calculate magnitudes, sums, scalar multiples, dot products,
-  and cross products.
+- [r-vec](software/r-vec) — create vectors in ℝ² and ℝ³ and interactively
+  calculate magnitudes, sums, scalar multiples, dot products, and cross products.
 
 ## Writing notes
 
