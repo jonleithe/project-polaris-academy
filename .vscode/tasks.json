@@ -9,7 +9,8 @@
                 "-S",
                 "${workspaceFolder}/software/r-vec",
                 "-B",
-                "${workspaceFolder}/build/r-vec"
+                "${workspaceFolder}/build/r-vec",
+                "-DCMAKE_BUILD_TYPE=Debug"
             ],
             "options": {
                 "cwd": "${workspaceFolder}"
