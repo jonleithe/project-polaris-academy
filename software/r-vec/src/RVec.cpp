@@ -46,3 +46,17 @@ RVec RVec::operator+(const RVec& other) const
 
     return RVec(std::move(sum));
 }
+
+RVec RVec::operator-(const RVec& other) const
+{
+    if(dimension() != other.dimension()){
+        throw std::invalid_argument("vectors must have the same dimension");
+    }
+
+    std::vector<double> difference(dimension());
+    for(std::size_t index = 0; index < dimension(); ++index){
+        difference[index] = components_[index] - other.components_[index];
+    }
+
+    return RVec(std::move(difference));
+}

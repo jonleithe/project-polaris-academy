@@ -16,6 +16,7 @@ class RVec{
     [[nodiscard]] std::size_t dimension() const noexcept;
     [[nodiscard]] double operator[](std::size_t index) const;
     [[nodiscard]] RVec operator+(const RVec& other) const;
+    [[nodiscard]] RVec operator-(const RVec& other) const;
 
 private:
     std::vector<double> components_;

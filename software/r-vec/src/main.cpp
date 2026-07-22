@@ -1,11 +1,11 @@
 #include "RVec.h"
+#include "Parser.h"
 
 #include <cctype>
 #include <cmath>
 #include <cstdlib>
 #include <iomanip>
 #include <iostream>
-#include <sstream>
 #include <stdexcept>
 #include <string>
 #include <unordered_map>
@@ -43,47 +43,14 @@ void print_help()
     std::cout
         << "Commands:\n"
         << "  vector v(x1, x2, ..., xn)    Create or replace a vector in R^n\n"
-        << "  a + b + ...                  Add a chain of vectors\n"
-        << "  vector v = a + b + ...       Add vectors and store the result\n"
+        << "  a + b - c ...                Add or subtract vectors\n"
+        << "  vector v = a + b - c ...     Evaluate and store the result\n"
         << "  show <name>                  Display a stored vector\n"
         << "  dimension <name>             Display a vector's dimension\n"
         << "  add <first> <second>         Add two vectors\n"
         << "  list                         Display all stored vectors\n"
         << "  help                         Display this help\n"
         << "  quit                         Exit the REPL\n";
-}
-
-bool is_valid_name(const std::string& name)
-{
-    if(name.empty() ||
-       (!std::isalpha(static_cast<unsigned char>(name.front())) &&
-        name.front() != '_')){
-        return false;
-    }
-
-    for(const char character : name){
-        if(!std::isalnum(static_cast<unsigned char>(character)) &&
-           character != '_'){
-            return false;
-        }
-    }
-    return true;
-}
-
-double parse_number(const std::string& text)
-{
-    std::size_t parsed = 0;
-    double value = 0.0;
-    try {
-        value = std::stod(text, &parsed);
-    } catch(const std::exception&){
-        throw std::invalid_argument("'" + text + "' is not a finite number");
-    }
-
-    if(parsed != text.size() || !std::isfinite(value)){
-        throw std::invalid_argument("'" + text + "' is not a finite number");
-    }
-    return value;
 }
 
 const RVec& find_vector(const VectorStore& vectors, const std::string& name)
@@ -107,150 +74,76 @@ void print_vector(const RVec& vector)
     std::cout << ')';
 }
 
-void require_argument_count(const std::vector<std::string>& arguments,
-                            std::size_t expected,
-                            const std::string& usage)
+RVec evaluate_expression(const VectorExpression& expression,
+                         const VectorStore& vectors)
 {
-    if(arguments.size() != expected){
-        throw std::invalid_argument("usage: " + usage);
-    }
-}
-
-RVec evaluate_addition(const std::string& expression,
-                       const VectorStore& vectors)
-{
-    std::size_t position = 0;
-    const std::size_t first_plus = expression.find('+');
-    const std::string first_name = trim(expression.substr(0, first_plus));
-    if(!is_valid_name(first_name)){
-        throw std::invalid_argument("expected a vector name before '+'");
-    }
-
-    RVec result = find_vector(vectors, first_name);
-    if(first_plus == std::string::npos){
-        return result;
-    }
-    position = first_plus + 1;
-
-    while(true){
-        const std::size_t plus = expression.find('+', position);
-        const std::size_t end = plus == std::string::npos
-                                    ? expression.size()
-                                    : plus;
-        const std::string name = trim(expression.substr(position, end - position));
-        if(!is_valid_name(name)){
-            throw std::invalid_argument("expected a vector name after '+'");
+    RVec result = find_vector(vectors, expression.first);
+    for(const ExpressionTerm& term : expression.remaining){
+        const RVec& operand = find_vector(vectors, term.name);
+        if(term.operation == VectorOperator::add){
+            result = result + operand;
+        } else{
+            result = result - operand;
         }
-
-        result = result + find_vector(vectors, name);
-        if(plus == std::string::npos){
-            break;
-        }
-        position = plus + 1;
     }
-
     return result;
 }
 
-void create_vector(const std::string& line, VectorStore& vectors)
+bool execute_statement(Statement statement, VectorStore& vectors)
 {
-    const std::string declaration = trim(line.substr(std::string("vector").size()));
-    const std::size_t equals = declaration.find('=');
-    if(equals != std::string::npos){
-        if(declaration.find('=', equals + 1) != std::string::npos){
-            throw std::invalid_argument("a vector assignment must contain one '='");
-        }
-
-        const std::string name = trim(declaration.substr(0, equals));
-        if(!is_valid_name(name)){
-            throw std::invalid_argument("'" + name + "' is not a valid vector name");
-        }
-
-        const std::string expression = trim(declaration.substr(equals + 1));
-        if(expression.empty()){
-            throw std::invalid_argument("expected an addition expression after '='");
-        }
-
-        vectors.insert_or_assign(name, evaluate_addition(expression, vectors));
-        std::cout << name << " = ";
-        print_vector(vectors.at(name));
-        std::cout << '\n';
-        return;
+    if(std::holds_alternative<EmptyStatement>(statement)){
+        return false;
     }
-
-    const std::size_t open_parenthesis = declaration.find('(');
-    const std::size_t close_parenthesis = declaration.rfind(')');
-
-    if(open_parenthesis == std::string::npos ||
-       close_parenthesis == std::string::npos ||
-       close_parenthesis < open_parenthesis ||
-       !trim(declaration.substr(close_parenthesis + 1)).empty()){
-        throw std::invalid_argument("usage: vector v(x1, x2, ..., xn)");
+    if(std::holds_alternative<QuitStatement>(statement)){
+        return true;
     }
-
-    const std::string name = trim(declaration.substr(0, open_parenthesis));
-    if(!is_valid_name(name)){
-        throw std::invalid_argument("'" + name + "' is not a valid vector name");
-    }
-
-    const std::string component_text =
-        declaration.substr(open_parenthesis + 1,
-                           close_parenthesis - open_parenthesis - 1);
-    if(trim(component_text).empty()){
-        throw std::invalid_argument("a vector must have at least one component");
-    }
-
-    std::vector<double> components;
-    std::size_t position = 0;
-    while(position <= component_text.size()){
-        const std::size_t comma = component_text.find(',', position);
-        const std::size_t end = comma == std::string::npos
-                                    ? component_text.size()
-                                    : comma;
-        const std::string component =
-            trim(component_text.substr(position, end - position));
-        if(component.empty()){
-            throw std::invalid_argument("vector components cannot be empty");
-        }
-        components.push_back(parse_number(component));
-
-        if(comma == std::string::npos){
-            break;
-        }
-        position = comma + 1;
-    }
-
-    vectors.insert_or_assign(name, RVec(std::move(components)));
-    std::cout << name << " = ";
-    print_vector(vectors.at(name));
-    std::cout << '\n';
-}
-
-void run_command(const std::vector<std::string>& arguments, VectorStore& vectors)
-{
-    const std::string& command = arguments.front();
-
-    if(command == "help"){
-        require_argument_count(arguments, 1, "help");
+    if(std::holds_alternative<HelpStatement>(statement)){
         print_help();
-    } else if(command == "show"){
-        require_argument_count(arguments, 2, "show <name>");
-        print_vector(find_vector(vectors, arguments[1]));
+        return false;
+    }
+    if(const auto* literal = std::get_if<VectorLiteralStatement>(&statement)){
+        vectors.insert_or_assign(literal->name,
+                                 RVec(std::move(literal->components)));
+        std::cout << literal->name << " = ";
+        print_vector(vectors.at(literal->name));
         std::cout << '\n';
-    } else if(command == "dimension"){
-        require_argument_count(arguments, 2, "dimension <name>");
-        std::cout << find_vector(vectors, arguments[1]).dimension() << '\n';
-    } else if(command == "add"){
-        require_argument_count(arguments, 3, "add <first> <second>");
-        const RVec sum = find_vector(vectors, arguments[1]) +
-                         find_vector(vectors, arguments[2]);
+        return false;
+    }
+    if(const auto* assignment =
+           std::get_if<VectorAssignmentStatement>(&statement)){
+        vectors.insert_or_assign(
+            assignment->name,
+            evaluate_expression(assignment->expression, vectors));
+        std::cout << assignment->name << " = ";
+        print_vector(vectors.at(assignment->name));
+        std::cout << '\n';
+        return false;
+    }
+    if(const auto* expression = std::get_if<ExpressionStatement>(&statement)){
+        print_vector(evaluate_expression(expression->expression, vectors));
+        std::cout << '\n';
+        return false;
+    }
+    if(const auto* show = std::get_if<ShowStatement>(&statement)){
+        print_vector(find_vector(vectors, show->name));
+        std::cout << '\n';
+        return false;
+    }
+    if(const auto* dimension = std::get_if<DimensionStatement>(&statement)){
+        std::cout << find_vector(vectors, dimension->name).dimension() << '\n';
+        return false;
+    }
+    if(const auto* add = std::get_if<AddStatement>(&statement)){
+        const RVec sum = find_vector(vectors, add->first) +
+                         find_vector(vectors, add->second);
         print_vector(sum);
         std::cout << '\n';
-    } else if(command == "list"){
-        require_argument_count(arguments, 1, "list");
+        return false;
+    }
+    if(std::holds_alternative<ListStatement>(statement)){
         if(vectors.empty()){
             std::cout << "No vectors stored.\n";
-            return;
+            return false;
         }
 
         for(const auto& [name, vector] : vectors){
@@ -258,47 +151,20 @@ void run_command(const std::vector<std::string>& arguments, VectorStore& vectors
             print_vector(vector);
             std::cout << " in R^" << vector.dimension() << '\n';
         }
-    } else{
-        throw std::invalid_argument("unknown command '" + command +
-                                    "'; type 'help'");
+        return false;
     }
+
+    throw std::logic_error("unhandled parsed statement");
 }
 
 bool process_line(const std::string& line, VectorStore& vectors)
 {
-    std::istringstream input(line);
-    std::vector<std::string> arguments;
-    for(std::string argument; input >> argument;){
-        arguments.push_back(std::move(argument));
-    }
-
-    if(arguments.empty()){
-        return false;
-    }
-    if(arguments.front() == "quit" || arguments.front() == "exit"){
-        if(arguments.size() != 1){
-            std::cerr << "Error: usage: quit\n";
-            return false;
-        }
-        return true;
-    }
-
     try {
-        /*
-        switch(arguments.front()){
-            case "vector"   : create_vector(line, vectors);
-                              break;
-            default         : break;
-        }
-        */
-        if(arguments.front() == "vector"){
-            create_vector(line, vectors);
-        } else if(line.find('+') != std::string::npos){
-            print_vector(evaluate_addition(line, vectors));
-            std::cout << '\n';
-        } else{
-            run_command(arguments, vectors);
-        }
+        const std::vector<Token> tokens = tokenize(line);
+        Parser parser(tokens);
+        Statement statement = parser.parse();
+
+        return execute_statement(std::move(statement), vectors);
     } catch(const std::exception& error){
         std::cerr << "Error: " << error.what() << '\n';
     }
@@ -332,7 +198,7 @@ int main()
     }
 
     while(true){
-        char* input_line = readline("polartiss> ");
+        char* input_line = readline("polaris> ");
         if(input_line == nullptr){
             std::cout << '\n';
             break;
@@ -354,7 +220,7 @@ int main()
     }
 #else
     std::string line;
-    while(std::cout << "polaris> " && std::getline(std::cin, line)){
+    while(std::cout << "polaris (no history)> " && std::getline(std::cin, line)){
         if(process_line(line, vectors)){
             break;
         }

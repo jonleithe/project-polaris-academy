@@ -45,6 +45,15 @@ int main()
     expect(r4[0] == 1.0 && r4[3] == 4.0,
            "addition modified an operand");
 
+    const RVec difference = r4 - r4;
+    expect(difference.dimension() == 4,
+           "subtraction changed the dimension");
+    expect(difference[0] == 0.0 && difference[1] == 0.0 &&
+           difference[2] == 0.0 && difference[3] == 0.0,
+           "subtracting a vector from itself did not produce the null vector");
+    expect(r4[0] == 1.0 && r4[3] == 4.0,
+           "subtraction modified an operand");
+
     const RVec chained_sum = r4 + RVec{1.0, 1.0, 1.0, 1.0} +
                              RVec{2.0, 2.0, 2.0, 2.0};
     expect(chained_sum[0] == 4.0 && chained_sum[3] == 7.0,
@@ -65,6 +74,9 @@ int main()
     expect_exception<std::invalid_argument>(
         [&r1, &r4] { static_cast<void>(r1 + r4); },
         "mixed-dimension addition was accepted");
+    expect_exception<std::invalid_argument>(
+        [&r1, &r4] { static_cast<void>(r1 - r4); },
+        "mixed-dimension subtraction was accepted");
 
     return EXIT_SUCCESS;
 }
