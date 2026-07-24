@@ -136,6 +136,8 @@ We can conclude that $U$ is a valid subspace of $\mathbb{R}^n$.
 
 # Basis of a Subspace
 
-Here goes some random text regarding basis of a subspace.
+A basis is a linearly independent spanning set.
+
+In order for a subspace to be a basis of $\mathbb{R}^n$
 
 \newpage
