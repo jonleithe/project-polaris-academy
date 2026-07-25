@@ -47,7 +47,7 @@ $$
 
 Is this set a subspace of $\mathbb{R}^2$?
 
-Looking at [@fig:vectors-subspace-example-quadrants], if we multiply a vector in $S$ with $x_1>0$ by a negative scalar, its first component becomes negative, so the resulting vector is not in $S$.
+Looking at [@fig:vectors-subspace-example-quadrants], if we multiply a vector in $S$ whose first component satisfies $x_1>0$ by a negative scalar, its first component becomes negative, so the resulting vector is not in $S$.
 
 Therefore $S$ is not a subspace of $\mathbb{R}^2$.
 
@@ -59,37 +59,37 @@ Therefore $S$ is not a subspace of $\mathbb{R}^2$.
 
 One more example just to kind of drive the point home.
 
-Let's say I want to know the span of some vectors, is that a valid subspace?
+Let's say I want to know the span of some vectors. Is the span of a collection of vectors always a subspace?
 
 $$
 \text{Let }
-\vec v_1,\vec v_2,\vec v_3\in\mathbb R^n,
+\vec{v}_1,\vec{v}_2,\vec{v}_3\in\mathbb R^n,
 \qquad
-U=\operatorname{span}(\vec v_1,\vec v_2,\vec v_3)
+U=\operatorname{span}(\vec{v}_1,\vec{v}_2,\vec{v}_3)
 $$
 
 Is $U$ a valid subspace of $\mathbb{R}^n$?
 
 1. First, does it contain the $\vec{0}$?
-   If we multiply with $0$, we get:
+   If we multiply by $0$, we get:
 
    $$
-   0\vec{v_1} + 0\vec{v_2} + 0\vec{v_3} = \vec{0}
+   0\vec{v}_1 + 0\vec{v}_2 + 0\vec{v}_3 = \vec{0}
    $$
 
    So yes, it contains the zero vector.
 
 2. Do we have closure under scalar multiplication?
-   Let's pick a random vector from within the set, say $\vec{x}$. Now, in order to be part of the set, $\vec{x}$ must be a linear combination of $\vec{v_1}, \vec{v_2}, \vec{v_3}$:
+   Let's pick a random vector from within the set, say $\vec{x}$. Now, in order to be part of the set, $\vec{x}$ must be a linear combination of $\vec{v}_1, \vec{v}_2, \vec{v}_3$:
 
    $$
-   \vec{x}=c_1\vec{v_1} + c_2\vec{v_2} + c_3\vec{v_3}
+   \vec{x}=c_1\vec{v}_1 + c_2\vec{v}_2 + c_3\vec{v}_3
    $$
 
-   If we now multiply with another arbitrary constant on both sides of the equation, we get:
+   If we now multiply both sides by another arbitrary constant, we get:
 
    $$
-   a\vec{x}=ac_1\vec{v_1} + ac_2\vec{v_2} + ac_3\vec{v_3}
+   a\vec{x}=ac_1\vec{v}_1 + ac_2\vec{v}_2 + ac_3\vec{v}_3
    ,\qquad
    a\in\mathbb{R}
    $$
@@ -102,7 +102,7 @@ Is $U$ a valid subspace of $\mathbb{R}^n$?
    $$
    \vec{y}
    =
-   d_1\vec{v_1} + d_2\vec{v_2} + d_3\vec{v_3}
+   d_1\vec{v}_1 + d_2\vec{v}_2 + d_3\vec{v}_3
    $$
 
    Now, what is $\vec{x} + \vec{y}$?
@@ -112,9 +112,9 @@ Is $U$ a valid subspace of $\mathbb{R}^n$?
    +
    \vec{y}
    =
-   c_1\vec{v_1} + c_2\vec{v_2} + c_3\vec{v_3}
+   c_1\vec{v}_1 + c_2\vec{v}_2 + c_3\vec{v}_3
    +
-   d_1\vec{v_1} + d_2\vec{v_2} + d_3\vec{v_3}
+   d_1\vec{v}_1 + d_2\vec{v}_2 + d_3\vec{v}_3
    $$
 
    which can be written as:
@@ -124,7 +124,7 @@ Is $U$ a valid subspace of $\mathbb{R}^n$?
    +
    \vec{y}
    =
-   (c_1+d_1)\vec{v_1}+(c_2+d_2)\vec{v_2}+(c_3+d_3)\vec{v_3}
+   (c_1+d_1)\vec{v}_1+(c_2+d_2)\vec{v}_2+(c_3+d_3)\vec{v}_3
    $$
 
    which also must be in the span.
@@ -138,6 +138,85 @@ We can conclude that $U$ is a valid subspace of $\mathbb{R}^n$.
 
 A basis is a linearly independent spanning set.
 
-In order for a subspace to be a basis of $\mathbb{R}^n$
+In mathematics, a set $B$ of elements of a vector space $V$ is called a basis (pl.: bases) if every element of $V$ can be written in a unique way as a finite linear combination of elements of $B$. The coefficients of this linear combination are referred to as components or coordinates of the vector with respect to $B$. The elements of a basis are called basis vectors.
+
+$$
+B=\{\vec{v}_1,\vec{v}_2,\dotsc,\vec{v}_k\},
+\qquad
+V=\operatorname{span}(B),
+\qquad
+\sum_{i=1}^{k} a_i\vec{v}_i=\vec{0}
+\implies
+a_1=\dotsb=a_k=0.
+$$
+
+To state that the vectors $\vec{v}_1,\ldots,\vec{v}_k$ are linearly independent, we must have:
+
+> The only linear combination of the vectors $\vec{v}_1,\ldots,\vec{v}_k$ that equals the zero vector is the one in which every coefficient is zero.
+
+Said in other words:
+
+> A finite set is linearly dependent exactly when at least one of its vectors can be written as a linear combination of the remaining vectors.
+
+## Example
+
+Suppose we have:
+
+$$
+\vec{v}
+=
+\begin{bmatrix}
+2\\3
+\end{bmatrix}
+,
+\vec{w}
+=
+\begin{bmatrix}
+7\\0
+\end{bmatrix}
+\qquad
+S
+=
+\left\{
+\vec{v}
+,
+\vec{w}
+\right\}
+$$
+
+Is the set $S$ a basis for $\mathbb{R}^2$?
+
+We need to figure out whether $S$ spans $\mathbb{R}^2$ and is linearly independent.
+
+We place the vectors into a matrix as its columns and calculate the determinant. If the determinant is nonzero, the columns are linearly independent. Since there are two linearly independent vectors in $\mathbb R^2$, they also span $\mathbb R^2$.
+
+The determinant for a $2\times2$ matrix is defined as:
+
+$$
+\det
+\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}
+=
+ad-bc
+$$
+
+For our example the matrix will be:
+
+$$
+A
+=
+\begin{bmatrix}
+2 & 7 \\
+3 & 0
+\end{bmatrix}
+,\qquad
+\det A
+=
+2\cdot0-7 \cdot 3 = -21
+$$
+
+Since $\det(A)=-21\ne0$, the vectors $\vec{v}$ and $\vec{w}$ are linearly independent and span $\mathbb{R}^2$. Therefore, $S=\{\vec{v},\vec{w}\}$ is a basis for $\mathbb{R}^2$.
 
 \newpage
