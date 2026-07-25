@@ -7,11 +7,11 @@ author      : Jon Leithe
 date        : 2026
 ---
 
-# Vector Dot and Cross Products
+# Vector dot and cross products
 
 Source: [Khan Academy — Vector dot and cross products](https://www.khanacademy.org/math/linear-algebra)
 
-# Dot Product
+# Dot product
 
 The dot product, denoted $\vec{a}\cdot\vec{b}$ and pronounced “vector
 $a$ dot vector $b$,” is a scalar obtained by multiplying corresponding
@@ -67,7 +67,7 @@ $$
 -3
 $$
 
-## Geometric Meaning
+## Geometric meaning
 
 The dot product can also be expressed in terms of the magnitudes of the
 vectors and the angle $\theta$ between them in the two-dimensional plane they describe (see @fig:vectors-in-r3-defining-a-plane):
@@ -106,7 +106,11 @@ or obtuse:
 
 When $\vec{a}\cdot\vec{b}=0$, the vectors are said to be *orthogonal*. The zero vector has a zero dot product with every vector, although it does not have a defined direction or form an angle with another vector.
 
-### Example: Testing for Orthogonality
+### Orthogonal versus perpendicular
+
+Orthogonality is an algebraic concept: two vectors are orthogonal when their dot product is zero. This definition applies in any number of dimensions and does not depend on how the vectors are positioned geometrically. Perpendicularity is primarily a geometric concept, usually describing lines or other objects that meet at a right angle.
+
+### Example: testing for orthogonality
 
 Consider
 
@@ -138,7 +142,7 @@ $$
 
 Therefore, $\vec{u}$ and $\vec{v}$ are orthogonal.
 
-## Dot Product and Magnitude
+## Dot product and magnitude
 
 Taking the dot product of a vector with itself gives the square of its
 magnitude:
@@ -183,17 +187,67 @@ $$
 
 Furthermore, $\vec{a}\cdot\vec{a}=0$ if and only if $\vec{a}=\vec{0}$.
 
-## Vector Projection
+\newpage
+
+## Vector projection
 
 The dot product can be used to find how much one vector points in the
-direction of another. The scalar projection of $\vec{a}$ onto a
-nonzero vector $\vec{b}$ is
+direction of another.
+
+We distinguish between the scalar component and the vector projection. Both are discussed below.
+
+### Signed scalar component
+
+First there is the scalar component of $\vec{a}$ in the direction of a nonzero vector $\vec{b}$. This is obtained by dividing the dot product of $\vec{a}$ and $\vec{b}$ by the magnitude of $\vec{b}$.
 
 $$
 \operatorname{comp}_{\vec{b}}\vec{a}
 =
 \frac{\vec{a}\cdot\vec{b}}{\lVert\vec{b}\rVert}
 $$
+
+The result is a signed scalar measuring how far $\vec a$ extends in the direction of $\vec b$.
+
+In my words, I'd put it like:
+
+> How much vector a pulls in the direction of vector b.
+
+The example in [@fig:scalar_component_a_rel_b] gives:
+
+$$
+\vec{a}
+=
+\begin{bmatrix}
+3\\4
+\end{bmatrix}
+\qquad
+\vec{b}
+=
+\begin{bmatrix}
+4\\0
+\end{bmatrix}
+$$
+
+Calculating the result, we get:
+
+$$
+\operatorname{comp}_{\vec{b}}\vec{a}
+=
+\frac{\vec{a}\cdot\vec{b}}{\lVert\vec{b}\rVert}
+=
+\frac{12}{4}
+=
+3
+$$
+
+In $\mathbb{R}^2$, this is visualized in [@fig:scalar_component_a_rel_b]. The red arrow points in the direction of $\vec{b}$, and its length $3$ represents the scalar component of $\vec{a}$ in that direction.
+
+![The scalar component of $\vec{a}$ in the direction of $\vec{b}$ is $3$](../../images/scalar-component-a-rel-b.png){#fig:scalar_component_a_rel_b width=120mm}
+
+\newpage
+
+### Vector projection
+The second method is the projection that gives us a vector in return.
 
 Multiplying this signed length by the unit vector in the direction of
 $\vec{b}$ gives the vector projection:
@@ -218,7 +272,7 @@ $$
 \begin{bmatrix}
 3\\4
 \end{bmatrix}
-\qquad
+,\qquad
 \vec{b}
 =
 \begin{bmatrix}
@@ -252,6 +306,8 @@ $$
 $$
 
 is orthogonal to $\vec{b}$
+
+################################################################
 
 \newpage
 
