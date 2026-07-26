@@ -11,7 +11,7 @@ date        : 2026
 
 Source: [Khan Academy — Vector dot and cross products](https://www.khanacademy.org/math/linear-algebra)
 
-# Dot product
+## Dot product
 
 The dot product, denoted $\vec{a}\cdot\vec{b}$ and pronounced “vector
 $a$ dot vector $b$,” is a scalar obtained by multiplying corresponding
@@ -37,7 +37,7 @@ $$
 The two vectors must have the same number of components. Unlike vector
 addition, the result is a number rather than another vector.
 
-## Example
+### Example
 
 Let
 
@@ -67,7 +67,7 @@ $$
 -3
 $$
 
-## Geometric meaning
+### Geometric meaning
 
 The dot product can also be expressed in terms of the magnitudes of the
 vectors and the angle $\theta$ between them in the two-dimensional plane they describe (see @fig:vectors-in-r3-defining-a-plane):
@@ -106,11 +106,11 @@ or obtuse:
 
 When $\vec{a}\cdot\vec{b}=0$, the vectors are said to be *orthogonal*. The zero vector has a zero dot product with every vector, although it does not have a defined direction or form an angle with another vector.
 
-### Orthogonal versus perpendicular
+#### Orthogonal versus perpendicular
 
 Orthogonality is an algebraic concept: two vectors are orthogonal when their dot product is zero. This definition applies in any number of dimensions and does not depend on how the vectors are positioned geometrically. Perpendicularity is primarily a geometric concept, usually describing lines or other objects that meet at a right angle.
 
-### Example: testing for orthogonality
+#### Example: testing for orthogonality
 
 Consider
 
@@ -142,7 +142,7 @@ $$
 
 Therefore, $\vec{u}$ and $\vec{v}$ are orthogonal.
 
-## Dot product and magnitude
+### Dot product and magnitude
 
 Taking the dot product of a vector with itself gives the square of its
 magnitude:
@@ -163,7 +163,7 @@ $$
 \sqrt{\vec{a}\cdot\vec{a}}
 $$
 
-## Properties
+### Properties
 
 For $\vec{a},\vec{b},\vec{c}\in\mathbb{R}^n$ and
 $k\in\mathbb{R}$, the dot product satisfies:
@@ -187,16 +187,34 @@ $$
 
 Furthermore, $\vec{a}\cdot\vec{a}=0$ if and only if $\vec{a}=\vec{0}$.
 
+### Cauchy-Schwarz inequality
+
+The Cauchy–Schwarz inequality states that for any two vectors the absolute value of their dot product is less than or equal to the product of their magnitudes:
+
+$$
+|\vec{a}\cdot\vec{b}|
+\le \lVert\vec{a}\rVert\lVert\vec{b}\rVert,
+$$
+
+with equality exactly when the vectors are linearly dependent. If both vectors are nonzero, it explains why
+
+$$
+\frac{\vec a\cdot\vec b}
+{\lVert\vec a\rVert\lVert\vec b\rVert}
+$$
+
+must lie in $[-1,1]$, so the angle formula using $\arccos$ is valid. It also supports the projection material and gives a useful geometric interpretation: the absolute value of the dot product cannot exceed the product of the vectors’ lengths.
+
 \newpage
 
-## Vector projection
+### Projections
 
 The dot product can be used to find how much one vector points in the
 direction of another.
 
 We distinguish between the scalar component and the vector projection. Both are discussed below.
 
-### Signed scalar component
+#### Signed scalar component
 
 First there is the scalar component of $\vec{a}$ in the direction of a nonzero vector $\vec{b}$. This is obtained by dividing the dot product of $\vec{a}$ and $\vec{b}$ by the magnitude of $\vec{b}$.
 
@@ -242,12 +260,13 @@ $$
 
 In $\mathbb{R}^2$, this is visualized in [@fig:scalar_component_a_rel_b]. The red arrow points in the direction of $\vec{b}$, and its length $3$ represents the scalar component of $\vec{a}$ in that direction.
 
-![The scalar component of $\vec{a}$ in the direction of $\vec{b}$ is $3$](../../images/scalar-component-a-rel-b.png){#fig:scalar_component_a_rel_b width=120mm}
+![The scalar component of $\vec{a}$ in the direction of $\vec{b}$ is $3$](../../images/scalar-component-a-rel-b.png){#fig:scalar_component_a_rel_b width=90mm}
 
 \newpage
 
-### Vector projection
-The second method is the projection that gives us a vector in return.
+#### Vector projection
+
+The corresponding vector quantity is the vector projection.
 
 Multiplying this signed length by the unit vector in the direction of
 $\vec{b}$ gives the vector projection:
@@ -262,6 +281,8 @@ $$
 \frac{\vec{a}\cdot\vec{b}}
 {\vec{b}\cdot\vec{b}}
 \vec{b}
+,\qquad
+\vec{b} \ne \vec{0}
 $$
 
 For example, let
@@ -270,13 +291,13 @@ $$
 \vec{a}
 =
 \begin{bmatrix}
-3\\4
+1\\5
 \end{bmatrix}
 ,\qquad
 \vec{b}
 =
 \begin{bmatrix}
-4\\0
+5\\-3
 \end{bmatrix}
 $$
 
@@ -285,13 +306,35 @@ The projection of $\vec{a}$ onto $\vec{b}$ is
 $$
 \operatorname{proj}_{\vec{b}}\vec{a}
 =
-\frac{12}{16}
+\frac{
+        \begin{bmatrix}
+        1\\5
+        \end{bmatrix}
+        \cdot
+        \begin{bmatrix}
+        5\\-3
+        \end{bmatrix}
+     }
+     {
+        \begin{bmatrix}
+        5\\-3
+        \end{bmatrix}
+        \cdot
+        \begin{bmatrix}
+        5\\-3
+        \end{bmatrix}
+     }
 \begin{bmatrix}
-4\\0
+5\\-3
+\end{bmatrix}
+=
+\frac{-5}{17}
+\begin{bmatrix}
+5\\-3
 \end{bmatrix}
 =
 \begin{bmatrix}
-3\\0
+-\frac{25}{17}\\\frac{15}{17}
 \end{bmatrix}
 $$
 
@@ -301,17 +344,19 @@ $$
 \vec{a}-\operatorname{proj}_{\vec{b}}\vec{a}
 =
 \begin{bmatrix}
-0\\4
+\frac{42}{17}\\\frac{70}{17}
 \end{bmatrix}
 $$
 
-is orthogonal to $\vec{b}$
+is orthogonal to $\vec{b}$.
 
-################################################################
+Referring to [@fig:vector_projection_002_hand_drawn], $\vec{a}_1$ represents the projection of $\vec{a}$ onto $\vec{b}$.
+
+![The projection of $\vec{a}$ onto $\vec{b}$, shown as $\vec{a}_1$.](../../images/vector_projection_002_hand_drawn.png){#fig:vector_projection_002_hand_drawn width=90mm}
 
 \newpage
 
-# Cross Product
+## Cross Product
 
 The cross product of two vectors in $\mathbb{R}^3$, denoted
 $\vec{a}\times\vec{b}$ and pronounced “vector $a$ cross vector $b$,”
@@ -369,7 +414,7 @@ $$
 
 The minus sign in the $\hat{\jmath}$ component is important.
 
-## Example
+### Example
 
 Let
 
@@ -417,7 +462,7 @@ $$
 \end{aligned}
 $$
 
-## Magnitude and Direction
+### Magnitude and Direction
 
 If $\theta$ is the angle between $\vec{a}$ and $\vec{b}$, then
 
@@ -456,7 +501,7 @@ $$
 
 Reversing any of these products changes its sign.
 
-## Area
+### Area
 
 The magnitude $\lVert\vec{a}\times\vec{b}\rVert$ equals the area of
 the parallelogram spanned by $\vec{a}$ and $\vec{b}$. The area of the
@@ -480,7 +525,7 @@ $$
 if and only if the vectors are parallel or at least one is the zero
 vector.
 
-## Properties
+### Properties
 
 For $\vec{a},\vec{b},\vec{c}\in\mathbb{R}^3$ and
 $k\in\mathbb{R}$,
@@ -509,7 +554,7 @@ $$
 \vec{a}\times(\vec{b}\times\vec{c})
 $$
 
-## Dot Product Compared with Cross Product
+### Dot Product Compared with Cross Product
 
 The dot product applies to two vectors in $\mathbb{R}^n$ and produces
 a scalar. It measures how strongly the vectors point in the same
