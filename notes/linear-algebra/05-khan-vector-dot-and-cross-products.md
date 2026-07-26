@@ -11,6 +11,21 @@ date        : 2026
 
 Source: [Khan Academy — Vector dot and cross products](https://www.khanacademy.org/math/linear-algebra)
 
+## Intuition
+
+The geometric meanings of the dot product (@eq:dot-x1) and the magnitude of the cross product (@eq:cross-x1) are captured by:
+
+```{=latex}
+\begin{align}
+\vec{a} \cdot \vec{b} &= \lVert\vec{a}\rVert \lVert\vec{b}\rVert \cos(\theta) \label{eq:dot-x1} \\
+\lVert\vec{a} \times \vec{b}\rVert &= \lVert\vec{a}\rVert \lVert\vec{b}\rVert \sin(\theta) \label{eq:cross-x1}
+\end{align}
+```
+
+The dot product, defined for $\mathbb{R}^n$, returns a signed scalar measuring how strongly two vectors point in the same direction, scaled by their lengths.
+
+The standard cross product, defined for vectors in $\mathbb{R}^3$, returns a vector perpendicular to both input vectors. Its direction is determined by the right-hand rule. Its magnitude measures the area of the parallelogram spanned by the two input vectors.
+
 ## Dot product
 
 The dot product, denoted $\vec{a}\cdot\vec{b}$ and pronounced “vector
@@ -390,26 +405,40 @@ a_1b_2-a_2b_1
 \end{bmatrix}
 $$
 
-It can be remembered using the formal determinant
+It can be remembered using the formal determinant:
 
 $$
 \vec{a}\times\vec{b}
 =
-\begin{vmatrix}
-\hat{\imath}&\hat{\jmath}&\hat{k}\\
-a_1&a_2&a_3\\
-b_1&b_2&b_3
-\end{vmatrix}
+\begin{array}{ccc}
+\redD{\cancel{\hat{\imath}}} & \redD{\cancel{\hat{\jmath}}} & \redD{\cancel{\hat{k}}} \\
+\redD{\cancel{a_1}} & \greenD{a_2} & \greenD{a_3} \\
+\redD{\cancel{b_1}} & \greenD{b_2} & \greenD{b_3}
+\end{array}
+-
+\begin{array}{ccc}
+\redD{\cancel{\hat{\imath}}} & \redD{\cancel{\hat{\jmath}}} & \redD{\cancel{\hat{k}}} \\
+\greenD{a_1} & \redD{\cancel{a_2}} & \greenD{a_3} \\
+\greenD{b_1} & \redD{\cancel{b_2}} & \greenD{b_3}
+\end{array}
++
+\begin{array}{ccc}
+\redD{\cancel{\hat{\imath}}} & \redD{\cancel{\hat{\jmath}}} & \redD{\cancel{\hat{k}}} \\
+\greenD{a_1} & \greenD{a_2} & \redD{\cancel{a_3}} \\
+\greenD{b_1} & \greenD{b_2} & \redD{\cancel{b_3}}
+\end{array}
 $$
 
-Expanding along the first row gives
+Cross-multiplying the four green entries in each block—downward product minus upward product—gives:
 
 $$
 \vec{a}\times\vec{b}
 =
-(a_2b_3-a_3b_2)\hat{\imath}
--(a_1b_3-a_3b_1)\hat{\jmath}
-+(a_1b_2-a_2b_1)\hat{k}
+(a_2b_3 - b_2a_3)\hat{\imath}
+-
+(a_1b_3 - b_1a_3)\hat{\jmath}
++
+(a_1b_2 - b_1a_2)\hat{k}
 $$
 
 The minus sign in the $\hat{\jmath}$ component is important.
