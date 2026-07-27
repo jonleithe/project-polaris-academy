@@ -12,7 +12,7 @@ is a personal study aid containing courses, notes, and resources that help me
 develop a broader understanding of aerospace engineering and related fields. It
 is intended for personal use and is not meant for publication.
 
-July'26
+Ny-Ålesund July'26
 /jole
 
 ## Documentation
