@@ -9,7 +9,6 @@ date        : 2026
 
 # Matrices for Solving Systems by Elimination
 
-
 Some random text
 
 \newpage
