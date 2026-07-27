@@ -5,7 +5,7 @@ Aerospace Engineering.
 
 ## Abstract
 
-Project Polaris Academy is a curated collection of learning resources supporting
+Project Polaris Academy is a loosely curated collection of learning resources supporting
 my master's studies in Aerospace Engineering at UiT Narvik. I was accepted into
 the part-time online master's programme beginning in August 2026. This repository
 is a personal study aid containing courses, notes, and resources that help me
