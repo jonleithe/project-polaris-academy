@@ -4,6 +4,13 @@ This file records durable context and decisions from AI-assisted project work.
 It contains concise summaries rather than verbatim chat transcripts. The newest
 entry should be added at the top of the history.
 
+## 2026-07-30 — Adopted a main-first Git workflow
+
+- Merged `agent/add-project-context-and-update-notes` into `main`.
+- Established that routine work should be committed directly to `main`.
+- Separate branches should be created only when the maintainer explicitly
+  requests one.
+
 ## 2026-07-28 — Project context connected across ChatGPT and VS Code
 
 - Established that AI assistants in VS Code do not automatically have access

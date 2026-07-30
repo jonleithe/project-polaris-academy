@@ -220,7 +220,8 @@ Avoid over-engineering.
 
 # Git Workflow
 
-Use feature branches.
+Work directly on `main` unless the maintainer explicitly requests a separate
+branch.
 
 Small commits.
 
@@ -228,7 +229,7 @@ Meaningful commit messages.
 
 Main branch should remain stable.
 
-Rebase is acceptable before merging.
+Do not create branches without an explicit request from the maintainer.
 
 ---
 
