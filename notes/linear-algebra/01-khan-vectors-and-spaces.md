@@ -16,7 +16,7 @@ Vectors are used to represent many things around us: from forces like gravity, a
 
 Geometrically, a vector can be represented by a directed line segment, or arrow, whose direction indicates the vector’s direction and whose length represents its magnitude. Vectors are used, for example, to describe the velocity of a moving object.
 
-The zero vector has magnitude zero and no defined direction. Vectors may also belong to a one-dimensional vector space.
+The zero vector has magnitude zero and no defined direction. Vectors may also belong to a one-dimensional vector space. The zero vector is defined to be orthogonal to any other vector
 
 ### Example
 
