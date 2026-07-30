@@ -7,7 +7,7 @@ author      : Jon Leithe
 date        : 2026
 ---
 
-# Linear Subspaces
+## Linear Subspaces
 
 Source: [Khan Academy — Subspaces and the Basis for a Subspace](https://www.khanacademy.org/math/linear-algebra)
 
@@ -18,8 +18,8 @@ Suppose $V\subseteq\mathbb{R}^n$ (meaning: $V$ is a subset of $\mathbb{R}^n$). F
 - The zero vector belongs to $V$
 - If $\vec{x}\in V$ and $c \in \mathbb{R}$, then $c\vec{x}\in V$ (closure under scalar multiplication)
 - If $\vec{a}, \vec{b}\in V$, then $\vec{a}+\vec{b}\in V$ (closure under addition)
- 
-## Example 1
+
+### Example 1
 
 Suppose we have $V=\left\{\vec{0}\right\}, \vec{0}=\begin{bmatrix}0\\0\\0\end{bmatrix}$. Is $V$ a subspace of $\mathbb{R}^3$? Let's see if it satisfies the three conditions for a subspace:
 
@@ -29,7 +29,7 @@ Suppose we have $V=\left\{\vec{0}\right\}, \vec{0}=\begin{bmatrix}0\\0\\0\end{bm
 
 All three conditions are met, so clearly $V$ is a subspace of $\mathbb{R}^3$.
 
-## Example 2
+### Example 2
 
 Say we have the set $S$ which is the set of all vectors in $\mathbb{R}^2$ such that $x_1$ is greater than or equal to $0$:
 
@@ -55,7 +55,7 @@ Therefore $S$ is not a subspace of $\mathbb{R}^2$.
 
 \newpage
 
-## Example 3
+### Example 3
 
 One more example just to kind of drive the point home.
 
@@ -134,7 +134,7 @@ We can conclude that $U$ is a valid subspace of $\mathbb{R}^n$.
 
 \newpage
 
-# Basis of a Subspace
+## Basis of a Subspace
 
 A basis is a linearly independent spanning set.
 
@@ -158,7 +158,7 @@ Said in other words:
 
 > A finite set is linearly dependent exactly when at least one of its vectors can be written as a linear combination of the remaining vectors.
 
-## Example
+### Example
 
 Suppose we have:
 

@@ -7,7 +7,7 @@ author      : Jon Leithe
 date        : 2026
 ---
 
-# Linear Dependence and Independence
+## Linear Dependence and Independence
 
 Source: [Khan Academy — Linear Dependence and Independence](https://www.khanacademy.org/math/linear-algebra)
 
@@ -93,7 +93,7 @@ $$
 
 This set is also linearly dependent because $\vec{r}-\vec{q}-\vec{p}=\vec{0}$.
 
-## Example
+### Example
 
 As an example of a linearly independent set, suppose we have:
 

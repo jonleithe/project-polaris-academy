@@ -7,7 +7,7 @@ author      : Jon Leithe
 date        : July 2026
 ---
 
-# Linear Combinations and Span
+## Linear Combinations and Span
 
 Source: [Khan Academy — Linear Combinations and Span](https://www.khanacademy.org/math/linear-algebra)
 
@@ -32,7 +32,7 @@ c_i\in\mathbb{R} \text{ for }1\le i\le n
 \right\}
 $$
 
-## Examples with collinear vectors
+### Examples with collinear vectors
 
 As [@fig:vector-linear-combinations-and-span-001] shows, the collinear vectors $\vec{v}$ and $\vec{w}$ lie on the same line through the origin.
 
@@ -40,7 +40,7 @@ As [@fig:vector-linear-combinations-and-span-001] shows, the collinear vectors $
 
 \newpage
 
-## Examples with non-parallel vectors
+### Examples with non-parallel vectors
 
 In comparison, referring to [@fig:vector-linear-combinations-and-span-002], we see that with the vectors
 

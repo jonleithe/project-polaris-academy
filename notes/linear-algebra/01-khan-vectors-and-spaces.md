@@ -4,10 +4,11 @@ course      : Linear Algebra
 unit        : 1
 provider    : Khan Academy
 author      : Jon Leithe
-date        : July 2026
+date        : 2026-07-20
 ---
+# Khan
 
-# Vectors
+## Vectors
 
 Source: [Khan Academy — Vectors and spaces](https://www.khanacademy.org/math/linear-algebra)
 
@@ -17,7 +18,7 @@ Geometrically, a vector can be represented by a directed line segment, or arrow,
 
 The zero vector has magnitude zero and no defined direction. Vectors may also belong to a one-dimensional vector space.
 
-## Example
+### Example
 
 Suppose an object is moving at a speed of $10\,\mathrm{m/s}$. If we also specify that it is moving generally towards north-east, we know both its speed and direction. Together, these define the object’s velocity. In physics, velocity is defined as the rate of change of position with respect to time.
 
@@ -56,7 +57,7 @@ $$
 
 A vector's magnitude is denoted $\lVert\vec v \rVert$.
 
-## Notation
+### Notation
 
 Vectors can be written in several ways:
 
@@ -105,7 +106,7 @@ This notation might make more sense once we cover vector addition.
 
 Coordinate vectors can have any finite number of components. The space $\mathbb R^n$ has dimension $n$.
 
-### Real coordinate spaces
+#### Real coordinate spaces
 
 When working with vectors, you will often encounter notation such as $\mathbb{R}^2$ and $\mathbb{R}^3$. The symbol $\mathbb{R}$ denotes the set of real numbers, while the exponent specifies the number of coordinates.
 
@@ -153,7 +154,7 @@ or the position vector from the origin to that point.
 
 \newpage
 
-## Addition
+### Addition
 
 Vectors can be added and subtracted provided that they belong to the same vector space. In $\mathbb R^n$, this means that they must have the same number of components. We add two vectors by adding their corresponding components. Say we have:
 
@@ -208,7 +209,7 @@ Similarly, looking at [@fig:vector-add-example], we can argue that $\vec{w} = (\
 
 ![Two-dimensional vector addition.](../../images/vectors-2d-addition.png){#fig:vector-add-example width=70mm}
 
-## Scalar multiplication
+### Scalar multiplication
 
 A scalar is simply a number. Scalar multiplication means multiplying each component of a vector by the scalar. If $c\in\mathbb R$ and $\vec{v}=(v_1,\ldots,v_n)$, then
 
@@ -225,7 +226,7 @@ If $c>0$, the direction remains the same; if $c<0$, the direction is reversed. I
 
 \newpage
 
-## Parametric representation of lines
+### Parametric representation of lines
 
 During Algebra I, we learnt that non-vertical lines could be represented by:
 
