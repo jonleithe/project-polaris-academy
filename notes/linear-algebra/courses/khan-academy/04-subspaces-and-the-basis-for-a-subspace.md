@@ -1,10 +1,11 @@
 ---
 title       : Subspaces and the Basis for a Subspace
+subject     : Linear Algebra
 course      : Linear Algebra
 unit        : 1
 provider    : Khan Academy
 author      : Jon Leithe
-date        : 2026
+date        : 2026-07-17
 ---
 
 ## Linear Subspaces
@@ -47,13 +48,13 @@ $$
 
 Is this set a subspace of $\mathbb{R}^2$?
 
-Looking at [@fig:vectors-subspace-example-quadrants], if we multiply a vector in $S$ whose first component satisfies $x_1>0$ by a negative scalar, its first component becomes negative, so the resulting vector is not in $S$.
+Looking at @fig-vectors-subspace-example-quadrants, if we multiply a vector in $S$ whose first component satisfies $x_1>0$ by a negative scalar, its first component becomes negative, so the resulting vector is not in $S$.
 
 Therefore $S$ is not a subspace of $\mathbb{R}^2$.
 
-![Example of failure of closure under scalar multiplication](../../images/vectors-subspace-example-quadrants.png){#fig:vectors-subspace-example-quadrants width=120mm}
+![Example of failure of closure under scalar multiplication](../../../../images/vectors-subspace-example-quadrants.png){#fig-vectors-subspace-example-quadrants width=80%}
 
-\newpage
+<!-- pagebreak -->
 
 ### Example 3
 
@@ -132,7 +133,7 @@ Is $U$ a valid subspace of $\mathbb{R}^n$?
 
 We can conclude that $U$ is a valid subspace of $\mathbb{R}^n$.
 
-\newpage
+<!-- pagebreak -->
 
 ## Basis of a Subspace
 
@@ -219,4 +220,4 @@ $$
 
 Since $\det(A)=-21\ne0$, the vectors $\vec{v}$ and $\vec{w}$ are linearly independent and span $\mathbb{R}^2$. Therefore, $S=\{\vec{v},\vec{w}\}$ is a basis for $\mathbb{R}^2$.
 
-\newpage
+<!-- pagebreak -->

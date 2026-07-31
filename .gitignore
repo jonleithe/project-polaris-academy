@@ -1,1 +1,10 @@
 /build/
+
+/.quarto/
+**/*.quarto_ipynb
+
+/index.aux
+/index.log
+/index.pdf
+/index.tex
+/index.toc

@@ -1,0 +1,34 @@
+project:
+  type: default
+  output-dir: build/quarto
+  render:
+    - notes/linear-algebra/courses/khan-academy/01-vectors-and-spaces.md
+    - notes/linear-algebra/courses/khan-academy/02-linear-combinations-and-span.md
+    - notes/linear-algebra/courses/khan-academy/03-linear-dependence-and-independence.md
+    - notes/linear-algebra/courses/khan-academy/04-subspaces-and-the-basis-for-a-subspace.md
+    - notes/linear-algebra/courses/khan-academy/05-vector-dot-and-cross-products.md
+    - notes/linear-algebra/courses/khan-academy/06-matrices-for-solving-systems-by-elimination.md
+    - notes/linear-algebra/courses/khan-academy/07-null-space-and-column-space.md
+
+format:
+  html:
+    toc: true
+    number-sections: true
+    html-math-method: mathjax
+
+  pdf:
+    toc : true
+    number-sections : true
+    pdf-engine : xelatex
+    documentclass : article
+    papersize : a4
+    fontsize : 11pt
+    geometry : margin=25mm
+    colorlinks : true
+    linkcolor : PolarisBlue
+    urlcolor : PolarisBlue
+    citecolor : PolarisBlue
+    include-in-header : pandoc/polaris.tex
+
+filters:
+  - pandoc/pagebreak.lua

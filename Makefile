@@ -1,36 +1,91 @@
-PANDOC      := pandoc
+QUARTO      := quarto
 
 SOURCE_DIR  := notes
 BUILD_DIR   := build
-PANDOC_DIR  := pandoc
-DEFAULTS    := $(PANDOC_DIR)/defaults.yaml
-STYLE       := $(PANDOC_DIR)/polaris.tex
-BOOK_METADATA := $(PANDOC_DIR)/book.yaml
-BOOK_STYLE  := $(PANDOC_DIR)/book-title.tex
-BOOK_IMAGES := $(sort $(wildcard images/book-cover-*.png))
 
 SOURCES     := $(sort $(shell find $(SOURCE_DIR) -type f -name '*.md' -print))
-PDFS        := $(patsubst $(SOURCE_DIR)/%.md,$(BUILD_DIR)/%.pdf,$(SOURCES))
-RESOURCE_PATH := .:$(SOURCE_DIR):images:$(shell find $(SOURCE_DIR) -type d -print | paste -sd:)
 
-PANDOC_FLAGS := --defaults=$(DEFAULTS) --resource-path=$(RESOURCE_PATH)
+.PHONY: all help note notes linear-algebra book site preview clean list
 
-.PHONY: all book clean list
+all: notes
 
-all: $(PDFS)
+help:
+	@printf '%s\n' \
+		'Project Polaris Academy build targets' \
+		'' \
+		'  make note NOTE=linear-algebra/courses/khan-academy/01-vectors-and-spaces.md' \
+		'      Render one note as PDF with Quarto.' \
+		'      NOTE may be relative to notes/, start with notes/, or be a unique filename.' \
+		'' \
+		'  make notes' \
+		'      Render all notes configured in _quarto.yml as individual PDFs.' \
+		'' \
+		'  make linear-algebra' \
+		'      Render the Khan linear algebra notes as one Quarto book PDF.' \
+		'' \
+		'  make book' \
+		'      Render all notes as the complete Quarto book PDF.' \
+		'' \
+		'  make site' \
+		'      Render the configured notes as HTML in build/site/.' \
+		'' \
+		'  make preview' \
+		'      Start a live Quarto HTML preview.' \
+		'' \
+		'  make list' \
+		'      List all Markdown note sources.' \
+		'' \
+		'  make clean' \
+		'      Remove generated note PDFs and Quarto output.' \
+		'' \
+		'  make help' \
+		'      Show this help.'
 
-$(BUILD_DIR):
-	mkdir -p $(BUILD_DIR)
+note:
+	@if [ -z "$(NOTE)" ]; then \
+		echo 'Error: NOTE is required.' >&2; \
+		echo 'Example: make note NOTE=linear-algebra/courses/khan-academy/01-vectors-and-spaces.md' >&2; \
+		exit 2; \
+	fi
+	@note='$(NOTE)'; \
+	case "$$note" in \
+		notes/*) ;; \
+		*) \
+			if [ -f "$(SOURCE_DIR)/$$note" ]; then \
+				note="$(SOURCE_DIR)/$$note"; \
+			else \
+				matches="$$(find "$(SOURCE_DIR)" -type f -name "$${note##*/}" -print)"; \
+				count="$$(printf '%s\n' "$$matches" | sed '/^$$/d' | wc -l)"; \
+				if [ "$$count" -eq 1 ]; then \
+					note="$$matches"; \
+				elif [ "$$count" -gt 1 ]; then \
+					echo "Error: NOTE '$${note##*/}' matches more than one file:" >&2; \
+					printf '%s\n' "$$matches" >&2; \
+					exit 2; \
+				fi; \
+			fi ;; \
+	esac; \
+	if [ ! -f "$$note" ]; then \
+		echo "Error: note not found: $(NOTE)" >&2; \
+		exit 2; \
+	fi; \
+	echo "Rendering $$note as PDF"; \
+	$(QUARTO) render "$$note" --to pdf
 
-$(BUILD_DIR)/%.pdf: $(SOURCE_DIR)/%.md $(DEFAULTS) $(STYLE)
-	mkdir -p $(@D)
-	$(PANDOC) $< $(PANDOC_FLAGS) -o $@
+notes:
+	$(QUARTO) render --to pdf
 
-book: $(SOURCES) $(DEFAULTS) $(STYLE) $(BOOK_METADATA) $(BOOK_STYLE) $(BOOK_IMAGES) | $(BUILD_DIR)
-	$(PANDOC) $(SOURCES) $(PANDOC_FLAGS) \
-		--defaults=$(BOOK_METADATA) \
-		--include-in-header=$(BOOK_STYLE) \
-		-o $(BUILD_DIR)/project-polaris-notes.pdf
+linear-algebra:
+	$(QUARTO) render --profile linear-algebra --to pdf
+
+book:
+	$(QUARTO) render --profile book --to pdf
+
+site:
+	$(QUARTO) render --to html --output-dir $(BUILD_DIR)/site
+
+preview:
+	$(QUARTO) preview --to html
 
 list:
 	@printf '%s\n' $(SOURCES)
@@ -39,3 +94,4 @@ clean:
 	@if [ -d "$(BUILD_DIR)" ]; then \
 		find "$(BUILD_DIR)" -type f -name '*.pdf' -delete; \
 	fi
+	@rm -rf "$(BUILD_DIR)/quarto" "$(BUILD_DIR)/site" "$(BUILD_DIR)/books"

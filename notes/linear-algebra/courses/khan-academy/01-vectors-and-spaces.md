@@ -1,12 +1,22 @@
 ---
 title       : Vectors and Spaces
+subject     : Linear Algebra
 course      : Linear Algebra
 unit        : 1
 provider    : Khan Academy
 author      : Jon Leithe
 date        : 2026-07-20
 ---
-# Khan
+
+::: {.hidden}
+$$
+\def\blueD#1{\color{blue}{#1}}
+\def\maroonD#1{\color{maroon}{#1}}
+\def\greenD#1{\color{green}{#1}}
+\def\redD#1{\color{red}{#1}}
+\def\goldD#1{\color{orange}{#1}}
+$$
+:::
 
 ## Vectors
 
@@ -27,9 +37,9 @@ Translate this into a vector, and we get:
 - the vector's magnitude (or length) is $10\,\mathrm{m/s}$
 - its direction is north-east
 
-[@fig:vectors-example] shows a vector drawn in standard form, which means from the origin (0, 0).
+@fig-vectors-example shows a vector drawn in standard form, which means from the origin (0, 0).
 
-![Example of a vector running from the origin to the point $(8, 6)$.](../../images/vectors-example.png){#fig:vectors-example width=70mm}
+![Example of a vector running from the origin to the point $(8, 6)$.](../../../../images/vectors-example.png){#fig-vectors-example width=50%}
 
 For a vector $\vec{v}=(a, b)$, the magnitude is calculated using the Pythagorean theorem:
 
@@ -106,7 +116,7 @@ This notation might make more sense once we cover vector addition.
 
 Coordinate vectors can have any finite number of components. The space $\mathbb R^n$ has dimension $n$.
 
-#### Real coordinate spaces
+### Real coordinate spaces
 
 When working with vectors, you will often encounter notation such as $\mathbb{R}^2$ and $\mathbb{R}^3$. The symbol $\mathbb{R}$ denotes the set of real numbers, while the exponent specifies the number of coordinates.
 
@@ -152,7 +162,7 @@ in three-dimensional space.
 Depending on the context, the same tuple can describe either a point
 or the position vector from the origin to that point.
 
-\newpage
+<!-- pagebreak -->
 
 ### Addition
 
@@ -203,11 +213,11 @@ $$
 \end{bmatrix}
 $$
 
-The resulting vector is shown in orange in [@fig:vector-add-example]
+The resulting vector is shown in orange in @fig-vector-add-example.
 
-Similarly, looking at [@fig:vector-add-example], we can argue that $\vec{w} = (\vec{v}+\vec{w}) - \vec{v}$. Said in another way: what do I have to add to $\vec{v}$ to get to $(\vec{v}+\vec{w})$?
+Similarly, looking at @fig-vector-add-example, we can argue that $\vec{w} = (\vec{v}+\vec{w}) - \vec{v}$. Said in another way: what do I have to add to $\vec{v}$ to get to $(\vec{v}+\vec{w})$?
 
-![Two-dimensional vector addition.](../../images/vectors-2d-addition.png){#fig:vector-add-example width=70mm}
+![Two-dimensional vector addition.](../../../../images/vectors-2d-addition.png){#fig-vector-add-example width=50%}
 
 ### Scalar multiplication
 
@@ -224,7 +234,7 @@ $$
 
 If $c>0$, the direction remains the same; if $c<0$, the direction is reversed. If $c=0$, the result is the zero vector.
 
-\newpage
+<!-- pagebreak -->
 
 ### Parametric representation of lines
 
@@ -236,7 +246,7 @@ $$
 
 where $m$ is the slope and $b$ is the $y$-intercept. This form cannot represent vertical lines and does not generalise conveniently to higher-dimensional spaces. Parametric representations overcome both limitations.
 
-Looking at [@fig:vector-parametrization-004], suppose $\vec{a}$ and $\vec{b}$ are the position vectors of two distinct points along the dotted line $L$. The displacement vector pointing from $\vec{a}$ to $\vec{b}$ is:
+Looking at @fig-vector-parametrization-004, suppose $\vec{a}$ and $\vec{b}$ are the position vectors of two distinct points along the dotted line $L$. The displacement vector pointing from $\vec{a}$ to $\vec{b}$ is:
 
 $$
 \vec{c} = {\vec{b} - \vec{a}}
@@ -313,6 +323,6 @@ $$
 
 Values of $t$ outside this interval extrapolate the constant-velocity motion.
 
-![Vector parametrization](../../images/vectors-parametrization-004.png){#fig:vector-parametrization-004 width=120mm}
+![Vector parametrization](../../../../images/vectors-parametrization-004.png){#fig-vector-parametrization-004 width=80%}
 
-\newpage
+<!-- pagebreak -->
