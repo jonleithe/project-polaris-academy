@@ -4,6 +4,64 @@ This file records durable context and decisions from AI-assisted project work.
 It contains concise summaries rather than verbatim chat transcripts. The newest
 entry should be added at the top of the history.
 
+## 2026-07-31 — Organized notes by subject and course
+
+- Introduced the scalable `notes/<subject>/courses/<course>/` hierarchy for
+  course-derived notes and reserved `notes/<subject>/reference/` for future
+  subject-level synthesis.
+- Moved the Khan Academy Linear Algebra notes to
+  `notes/linear-algebra/courses/khan-academy/`.
+- Removed the redundant `khan-` filename prefix and added explicit `subject`
+  metadata while preserving provider and course provenance.
+- Updated Quarto profiles, Make examples, image paths, and documentation for the
+  new hierarchy.
+
+## 2026-07-31 — Completed the combined-PDF migration to Quarto
+
+- Added separate Quarto book profiles for the Linear Algebra volume and the
+  complete Project Polaris Academy volume.
+- Changed `make linear-algebra` and `make book` to render the corresponding
+  Quarto profiles while preserving the established Make interface.
+- Isolated the book output directories so Quarto cannot clean the other book or
+  the CMake output below `build/r-vec/`.
+- Removed the obsolete direct-Pandoc defaults and book metadata, eliminating the
+  project's dependency on `pandoc-crossref`.
+
+## 2026-07-31 — Aligned documentation with the Quarto migration
+
+- Rewrote the note-authoring guide around portable Quarto Markdown, ISO dates,
+  cross-format mathematics, Quarto figure and equation identifiers, portable
+  page breaks, and PDF/HTML validation.
+- Updated the README, documentation index, getting-started guide, and build
+  guide to describe the implemented Make interface and transitional division
+  between Quarto output and combined Pandoc PDFs.
+- Updated repository and author context that still described the project as
+  Pandoc-only.
+- Preserved the future boundary in which the Academy produces a stable HTML
+  artifact and `jonleithe.no` owns website assembly and deployment.
+
+## 2026-07-31 — Added a stable Make interface for multi-format output
+
+- Added `make help` as the discoverable command reference.
+- Added explicit single-note rendering with `make note NOTE=...` and configured
+  batch rendering with `make notes`.
+- Added targets for the combined Linear Algebra PDF, complete Academy PDF, HTML
+  output, and live preview.
+- Initially kept Quarto responsible for individual PDF and HTML documents while
+  retaining the working Pandoc pipeline for combined PDFs during the migration.
+
+## 2026-07-31 — Began the Quarto multi-format publishing migration
+
+- Added a Quarto project configuration for rendering the seven current Khan
+  Academy linear algebra notes as both HTML and PDF.
+- Converted the notes from Pandoc-specific constructs to portable Quarto
+  Markdown, including ISO dates, page breaks, equations, figure labels, and
+  cross-references.
+- Preserved the existing XeLaTeX styling through `pandoc/polaris.tex` and
+  retained MathJax-compatible colour macros in notes that use them.
+- Confirmed successful generation of all seven PDFs and all seven HTML pages,
+  including resolved figure and equation references and copied image assets.
+
 ## 2026-07-30 — Adopted a main-first Git workflow
 
 - Merged `agent/add-project-context-and-update-notes` into `main`.

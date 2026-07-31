@@ -43,7 +43,8 @@ My primary development environment is:
 
 The preferred software baselines are modern C++ (currently C++20), Python
 3.13 or newer, and CMake where it is appropriate. Documentation is written in
-Markdown and built with Pandoc and XeLaTeX.
+portable Markdown and built with Quarto and XeLaTeX. Quarto uses Pandoc as its
+document-conversion engine internally.
 
 ## Working Principles
 

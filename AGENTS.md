@@ -118,22 +118,31 @@ linux/
 
 # Build System
 
-The project builds with Pandoc.
+The notes use Quarto behind a GNU Make interface. Quarto uses Pandoc internally
+and XeLaTeX for PDF output.
 
 Important components:
 
-- Makefile
-- pandoc defaults
-- book.yaml
-- book-title.tex
+- `Makefile` for stable user-facing commands;
+- `_quarto.yml` for configured individual PDF and HTML builds;
+- `_quarto-linear-algebra.yml` and `_quarto-book.yml` for combined PDFs;
+- `book-title.tex` for the complete volume's custom cover.
 
-Generated output:
+Important commands include:
 
 ```
-build/project-polaris-notes.pdf
+make help
+make note NOTE=linear-algebra/courses/khan-academy/01-vectors-and-spaces.md
+make notes
+make linear-algebra
+make book
+make site
+make preview
 ```
 
-Pandoc-crossref is used for automatic numbering.
+Quarto produces individual PDF and HTML documents as well as combined subject
+and complete-book PDFs. Keep the Make target names stable if the underlying
+profiles evolve.
 
 XeLaTeX is used as PDF engine.
 

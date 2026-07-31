@@ -1,53 +1,108 @@
-# PDF build system
+# Notes build system
 
-The root `Makefile` discovers Markdown files recursively below `notes/` and
-maps each one to a PDF below `build/`. The relative directory and base filename
-are preserved.
+Quarto produces individual PDF and HTML documents as well as combined PDF
+books. GNU Make provides one stable command interface for these outputs.
 
-## Individual notes
+Run `make help` from the repository root for the current target summary.
 
-The default `make` target builds every discovered note. Each PDF depends on:
+## Individual PDFs
 
-- its Markdown source;
-- `pandoc/defaults.yaml`; and
-- `pandoc/polaris.tex`.
+Render one note with:
 
-Pandoc uses XeLaTeX, numbered sections, a table of contents, syntax highlighting,
-the `pandoc-crossref` filter, and the page-break Lua filter. The resource search
-path includes the repository root, `notes/`, `images/`, and all note
-subdirectories.
+```sh
+make note NOTE=linear-algebra/courses/khan-academy/01-vectors-and-spaces.md
+```
 
-Because Make tracks these dependencies, an unchanged PDF is not rebuilt unless
-its source or shared presentation configuration is newer.
+`NOTE` may be relative to `notes/`, may begin with `notes/`, or may be a unique
+filename found below `notes/`. Ambiguous or missing names fail with an explicit
+error.
 
-## Combined volume
+Render every note listed in `_quarto.yml` with:
 
-`make book` passes all note sources to one Pandoc invocation in lexical path
-order. It adds:
+```sh
+make notes
+```
 
-- `pandoc/book.yaml` for the volume title, subtitle, author, and date;
-- `pandoc/book-title.tex` for the custom cover; and
-- the `images/book-cover-*.png` artwork.
+The default `make` target is equivalent to `make notes`. Quarto writes these
+PDFs below `build/quarto/` while preserving their paths, for example:
 
-The output is `build/project-polaris-notes.pdf`. Prefix filenames numerically
-inside each subject directory to control their relative order.
+```text
+build/quarto/notes/linear-algebra/courses/khan-academy/01-vectors-and-spaces.pdf
+```
 
-## Presentation files
+## HTML documents
+
+Render all configured notes as HTML with:
+
+```sh
+make site
+```
+
+Output is written below `build/site/`. The current Quarto project type is
+`default`, so this target produces a set of standalone HTML documents rather
+than a fully structured book website. A future Quarto book/site profile will
+provide the stable artifact consumed by `jonleithe.no` at `/notes/`.
+
+Start a live local preview with:
+
+```sh
+make preview
+```
+
+## Combined PDFs
+
+Render the numbered Khan linear algebra notes as one PDF with:
+
+```sh
+make linear-algebra
+```
+
+The Linear Algebra book profile is `_quarto-linear-algebra.yml`. Its output is:
+
+```text
+build/books/linear-algebra/project-polaris-linear-algebra.pdf
+```
+
+Render every Markdown note as the complete Academy volume with:
+
+```sh
+make book
+```
+
+The complete Academy profile is `_quarto-book.yml`. Its output is:
+
+```text
+build/books/academy/project-polaris-notes.pdf
+```
+
+The chapter lists in the two profiles define book order explicitly. Keep them
+in numeric filename order when adding chapters. Separate output directories
+prevent one Quarto book build from cleaning the other book or `build/r-vec/`.
+The root `index.md` provides the shared home page and unnumbered preface required
+by Quarto books.
+
+## Configuration and presentation files
 
 | File | Responsibility |
 | --- | --- |
-| `pandoc/defaults.yaml` | Pandoc, PDF engine, filter, page, color, and resource defaults |
-| `pandoc/polaris.tex` | Shared section styling, headers, footers, title page, and color commands |
-| `pandoc/book.yaml` | Combined-volume metadata |
-| `pandoc/book-title.tex` | Combined-volume cover composition and font selection |
-| `pandoc/pagebreak.lua` | Page-break handling during Pandoc conversion |
+| `_quarto.yml` | Configured note list plus shared HTML and PDF settings |
+| `_quarto-linear-algebra.yml` | Linear Algebra book metadata, chapters, and output |
+| `_quarto-book.yml` | Complete Academy book metadata, chapters, and output |
+| `Makefile` | Stable commands for Quarto outputs |
+| `index.md` | Required home page and shared preface for Quarto books |
+| `pandoc/polaris.tex` | Shared PDF styling, headers, footers, and colour commands |
+| `pandoc/book-title.tex` | Complete-volume cover composition and fonts |
+| `pandoc/pagebreak.lua` | Portable `<!-- pagebreak -->` handling |
 
-Change shared styling in these files so individual notes remain focused on
-content. After changing a template, rebuild both an individual note and the
-book to check headings, cross-references, page breaks, and the cover.
+Keep presentation logic in these shared files. Notes should contain metadata
+and content rather than format-specific page setup.
 
 ## Cleaning
 
-`make clean` deletes only PDF files below `build/`. It intentionally leaves
-CMake output and other generated files intact. The complete `build/` directory
-is ignored by Git.
+```sh
+make clean
+```
+
+This removes PDF files below `build/` and the Quarto `build/quarto/`,
+`build/site/`, and `build/books/` trees. It leaves non-PDF CMake output such as
+`build/r-vec/` intact. The complete `build/` directory is ignored by Git.

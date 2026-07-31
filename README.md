@@ -1,72 +1,67 @@
 # Project Polaris Academy
 
-Engineering notebook and learning companion throughout my Master of Science in
-Aerospace Engineering.
+Project Polaris Academy is Jon Leithe's long-term engineering notebook and
+learning companion for a part-time Master of Science in Aerospace Engineering
+at UiT Narvik, beginning in August 2026.
 
-## Abstract
-
-Project Polaris Academy is a loosely curated collection of learning resources supporting
-my master's studies in Aerospace Engineering at UiT Narvik. I was accepted into
-the part-time online master's programme beginning in August 2026. This repository
-is a personal study aid containing courses, notes, and resources that help me
-develop a broader understanding of aerospace engineering and related fields. It
-is intended for personal use and is not meant for publication.
-
-Ny-Ålesund July'26
-/jole
+The repository combines course notes, worked examples, references, diagrams,
+and educational software. It is primarily a personal study and engineering
+reference, while selected material may also be published on
+[jonleithe.no](https://www.jonleithe.no/).
 
 ## Documentation
 
-See the [project documentation](doc/README.md) for setup, repository structure,
-note authoring, build internals, and the `r-vec` command-line tool.
+See the [project documentation](doc/README.md) for setup, note-authoring
+conventions, build internals, repository structure, and the `r-vec` command-line
+tool.
+
+Repository context is recorded in [AGENTS.md](AGENTS.md), [AUTHOR.md](AUTHOR.md),
+and [PROJECT_HISTORY.md](PROJECT_HISTORY.md).
 
 ## Building the notes
 
-The PDF toolchain requires:
+The notes use Quarto for individual PDF and HTML output and for combined book
+PDFs. Quarto uses Pandoc internally and XeLaTeX as the PDF engine.
 
-- GNU Make
-- Pandoc
-- [`pandoc-crossref`](https://lierdakil.github.io/pandoc-crossref/)
-- XeLaTeX with the LaTeX packages used by the templates, including `etoolbox`,
-  `fancyhdr`, `fontspec`, `tikz`, `titlesec`, and `xcolor`
-
-Build every note as a separate PDF with:
+Show the complete command reference:
 
 ```sh
-make
+make help
 ```
 
-Build the combined knowledge-base volume with:
+Render one note or every configured note as PDF:
 
 ```sh
+make note NOTE=linear-algebra/courses/khan-academy/01-vectors-and-spaces.md
+make notes
+```
+
+Render combined PDFs:
+
+```sh
+make linear-algebra
 make book
 ```
 
-Generated files are written to `build/`. Shared PDF presentation is configured
-in `pandoc/defaults.yaml` and `pandoc/polaris.tex`; note files should contain
-only their metadata and content.
+Render or preview HTML:
 
-## Helper software
+```sh
+make site
+make preview
+```
 
-- [r-vec](software/r-vec) — create vectors in finite-dimensional real
-  coordinate spaces, inspect their dimensions, and evaluate sums and differences.
+Generated files are written below `build/` and are not committed.
 
 ## Writing notes
 
-Structured course notes begin with YAML metadata identifying the topic, its
-place in the course, and the original learning provider. For example:
+Write portable Quarto Markdown that renders correctly as both HTML and PDF. Use
+ISO dates, semantic headings, standard LaTeX mathematics, Quarto `fig-` and
+`eq-` cross-reference identifiers, and the shared page-break marker.
 
-```yaml
----
-title       : Vectors and Spaces
-course      : Linear Algebra
-unit        : 1
-provider    : Khan Academy
-author      : Jon Leithe
-date        : July 2026
----
-```
+See [Authoring notes](doc/authoring-notes.md) for examples and the validation
+checklist.
 
-The `title` names the topic covered by the note. The `course`, `unit`, and
-`provider` fields preserve its learning context, while `author` and `date`
-record when it became part of this knowledge base.
+## Helper software
+
+- [`r-vec`](software/r-vec) creates vectors in finite-dimensional real
+  coordinate spaces, reports their dimensions, and evaluates vector arithmetic.

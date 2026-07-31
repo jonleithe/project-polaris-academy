@@ -2,52 +2,82 @@
 
 Run all commands from the repository root.
 
-## Prerequisites
+## Notes prerequisites
 
-Building the notes requires:
+The multi-format notes toolchain requires:
 
-- GNU Make
-- Pandoc
-- `pandoc-crossref`
-- XeLaTeX
-- the LaTeX packages used by the templates, including `etoolbox`, `fancyhdr`,
-  `fontspec`, `tikz`, `titlesec`, and `xcolor`
+- GNU Make;
+- Quarto;
+- XeLaTeX;
+- the LaTeX packages used by the shared templates, including `cancel`,
+  `etoolbox`, `fancyhdr`, `fontspec`, `tikz`, `titlesec`, and `xcolor`.
 
-Building `r-vec` requires:
-
-- CMake 3.16 or newer
-- a C++17 compiler
-- CTest, normally installed with CMake
-- GNU Readline headers and library for command history and line editing
-  (optional)
-
-Without Readline, `r-vec` still builds and runs with a basic input prompt.
-
-## Common commands
-
-Build every Markdown note as a separate PDF:
+Confirm the available Make targets with:
 
 ```sh
-make
+make help
 ```
 
-Build the combined knowledge-base volume:
+## Common notes commands
+
+Render one PDF:
 
 ```sh
+make note NOTE=linear-algebra/courses/khan-academy/01-vectors-and-spaces.md
+```
+
+Render all configured individual PDFs:
+
+```sh
+make notes
+```
+
+Render the combined Linear Algebra PDF or complete Academy PDF:
+
+```sh
+make linear-algebra
 make book
 ```
 
-List note sources in their build order:
+Render or preview HTML:
+
+```sh
+make site
+make preview
+```
+
+List all Markdown note sources or clean generated note output:
 
 ```sh
 make list
-```
-
-Remove generated PDFs while preserving other build output:
-
-```sh
 make clean
 ```
+
+## Generated notes files
+
+All generated output belongs below `build/`, which Git ignores.
+
+| Output | Path |
+| --- | --- |
+| Individual Quarto PDFs | `build/quarto/notes/<subject>/courses/<course>/<note>.pdf` |
+| Quarto HTML documents | `build/site/notes/<subject>/courses/<course>/<note>.html` |
+| Combined Linear Algebra PDF | `build/books/linear-algebra/project-polaris-linear-algebra.pdf` |
+| Complete Academy PDF | `build/books/academy/project-polaris-notes.pdf` |
+
+The HTML output is not yet the final structured `/notes/` website artifact; see
+[the build-system guide](build-system.md) for the current boundary.
+
+## `r-vec` prerequisites
+
+Building `r-vec` requires:
+
+- CMake 3.16 or newer;
+- a C++17 compiler;
+- CTest, normally installed with CMake;
+- GNU Readline headers and library for command history and line editing
+  (optional).
+
+Without Readline, `r-vec` still builds and runs with a basic input prompt.
 
 Build the vector REPL:
 
@@ -62,20 +92,4 @@ ctest --test-dir build/r-vec --output-on-failure
 ./build/r-vec/r-vec
 ```
 
-## Generated files
-
-All generated output belongs under `build/`, which Git ignores. Individual PDF
-paths mirror their note paths. For example:
-
-```text
-notes/linear-algebra/01-khan-vectors-and-spaces.md
-    -> build/linear-algebra/01-khan-vectors-and-spaces.pdf
-```
-
-The combined volume is written to:
-
-```text
-build/project-polaris-notes.pdf
-```
-
-The CMake build for `r-vec` is written to `build/r-vec/`.
+The CMake build is written to `build/r-vec/`.
