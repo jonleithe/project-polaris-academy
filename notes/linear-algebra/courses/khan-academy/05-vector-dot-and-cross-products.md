@@ -112,7 +112,7 @@ $$
 0\leq\theta\leq\pi
 $$
 
-![Two-dimensional plane in $\mathbb{R}^3$ and the angle $\alpha$ between them ](../../../../images/plane-in-r3.png){#fig-vectors-in-r3-defining-a-plane width=80%}
+![Two-dimensional plane in $\mathbb{R}^3$ and the angle $\alpha$ between them ](../../../../images/plane-in-r3-hand-drawn.png){#fig-vectors-in-r3-defining-a-plane width=50%}
 
 If both vectors are nonzero, this equation allows us to find the angle
 between them:
@@ -290,7 +290,7 @@ $$
 
 In $\mathbb{R}^2$, this is visualized in @fig-scalar-component-a-rel-b. The red arrow points in the direction of $\vec{b}$, and its length $3$ represents the scalar component of $\vec{a}$ in that direction.
 
-![The scalar component of $\vec{a}$ in the direction of $\vec{b}$ is $3$](../../../../images/scalar-component-a-rel-b.png){#fig-scalar-component-a-rel-b width=75%}
+![The scalar component of $\vec{a}$ in the direction of $\vec{b}$ is $3$](../../../../images/scalar-component-a-rel-b-hand-drawn.png){#fig-scalar-component-a-rel-b width=50%}
 
 <!-- pagebreak -->
 #### Vector projection

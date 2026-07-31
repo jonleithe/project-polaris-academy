@@ -35,7 +35,7 @@ $$
 
 As @fig-vector-linear-combinations-and-span-001 shows, the collinear vectors $\vec{v}$ and $\vec{w}$ lie on the same line through the origin.
 
-![Example of collinear vectors](../../../../images/vectors-linear-combinations-and-span-001.png){#fig-vector-linear-combinations-and-span-001 width=80%}
+![Example of collinear vectors](../../../../images/vectors-linear-combinations-and-span-001-hand-drawn.png){#fig-vector-linear-combinations-and-span-001 width=80% fig-pos="H"}
 
 <!-- pagebreak -->
 
@@ -59,7 +59,7 @@ $$
 
 we are able to span all of $\mathbb{R}^2$.
 
-![Example of non-parallel vectors](../../../../images/vectors-linear-combinations-and-span-002.png){#fig-vector-linear-combinations-and-span-002 width=80%}
+![Example of non-parallel vectors](../../../../images/vectors-linear-combinations-and-span-002-hand-drawn.png){#fig-vector-linear-combinations-and-span-002 width=80% fig-pos="H"}
 
 Suppose we want to express the vector
 

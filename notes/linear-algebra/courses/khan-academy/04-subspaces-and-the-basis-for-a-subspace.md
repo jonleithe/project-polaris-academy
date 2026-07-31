@@ -52,7 +52,7 @@ Looking at @fig-vectors-subspace-example-quadrants, if we multiply a vector in $
 
 Therefore $S$ is not a subspace of $\mathbb{R}^2$.
 
-![Example of failure of closure under scalar multiplication](../../../../images/vectors-subspace-example-quadrants.png){#fig-vectors-subspace-example-quadrants width=80%}
+![Example of failure of closure under scalar multiplication](../../../../images/vectors-subspace-example-quadrants-hand-drawn.png){#fig-vectors-subspace-example-quadrants width=50%}
 
 <!-- pagebreak -->
 

@@ -18,8 +18,6 @@ $$
 $$
 :::
 
-## Vectors
-
 Source: [Khan Academy — Vectors and spaces](https://www.khanacademy.org/math/linear-algebra)
 
 Vectors are used to represent many things around us: from forces like gravity, acceleration, friction, stress and strain on structures, to computer graphics used in almost all modern-day movies and video games. Vectors are an important concept, not just in math, but in physics, engineering, and computer graphics, so you're likely to see them again in other subjects.
@@ -28,7 +26,7 @@ Geometrically, a vector can be represented by a directed line segment, or arrow,
 
 The zero vector has magnitude zero and no defined direction. Vectors may also belong to a one-dimensional vector space. The zero vector is defined to be orthogonal to any other vector
 
-### Example
+## Example
 
 Suppose an object is moving at a speed of $10\,\mathrm{m/s}$. If we also specify that it is moving generally towards north-east, we know both its speed and direction. Together, these define the object’s velocity. In physics, velocity is defined as the rate of change of position with respect to time.
 
@@ -39,7 +37,7 @@ Translate this into a vector, and we get:
 
 @fig-vectors-example shows a vector drawn in standard form, which means from the origin (0, 0).
 
-![Example of a vector running from the origin to the point $(8, 6)$.](../../../../images/vectors-example.png){#fig-vectors-example width=50%}
+![Example of a vector $\vec{v}$ running from the origin to the point $(8, 6)$.](../../../../images/vector-example-hand-drawn-polaris-warm.png){#fig-vectors-example width=40% fig-pos="H"}
 
 For a vector $\vec{v}=(a, b)$, the magnitude is calculated using the Pythagorean theorem:
 
@@ -62,12 +60,12 @@ $$
 that gives us the magnitude
 
 $$
-\lVert\vec v\rVert = \sqrt(8^2+6^2) = \sqrt(64+36) = \sqrt(100) = 10\,\mathrm{m/s}
+\lVert\vec v\rVert = \sqrt{8^2+6^2} = \sqrt{64+36} = \sqrt{100} = 10\,\mathrm{m/s}
 $$
 
 A vector's magnitude is denoted $\lVert\vec v \rVert$.
 
-### Notation
+## Notation
 
 Vectors can be written in several ways:
 
@@ -80,7 +78,7 @@ $$
 \end{aligned}
 $$
 
-A vector is often denoted by placing a small arrow above its name, as in $\vec v$.
+A vector is often denoted by placing a small arrow above its name, as in $\vec{v}$.
 
 Depending on the context, $(1,2,3)$ can represent either a point or a vector. When it represents a position vector, the vector is drawn from the origin to the corresponding point. A free vector, however, may be translated without changing the vector.
 
@@ -94,8 +92,6 @@ v_2 \\
 v_n
 \end{bmatrix}
 $$
-
-This notation will be discussed in the coming articles.
 
 The third notation expresses a vector as a linear combination of standard basis vectors. Each standard basis vector has magnitude one.
 
@@ -116,7 +112,7 @@ This notation might make more sense once we cover vector addition.
 
 Coordinate vectors can have any finite number of components. The space $\mathbb R^n$ has dimension $n$.
 
-### Real coordinate spaces
+## Real coordinate spaces
 
 When working with vectors, you will often encounter notation such as $\mathbb{R}^2$ and $\mathbb{R}^3$. The symbol $\mathbb{R}$ denotes the set of real numbers, while the exponent specifies the number of coordinates.
 
@@ -164,7 +160,7 @@ or the position vector from the origin to that point.
 
 <!-- pagebreak -->
 
-### Addition
+## Addition
 
 Vectors can be added and subtracted provided that they belong to the same vector space. In $\mathbb R^n$, this means that they must have the same number of components. We add two vectors by adding their corresponding components. Say we have:
 
@@ -217,9 +213,9 @@ The resulting vector is shown in orange in @fig-vector-add-example.
 
 Similarly, looking at @fig-vector-add-example, we can argue that $\vec{w} = (\vec{v}+\vec{w}) - \vec{v}$. Said in another way: what do I have to add to $\vec{v}$ to get to $(\vec{v}+\vec{w})$?
 
-![Two-dimensional vector addition.](../../../../images/vectors-2d-addition.png){#fig-vector-add-example width=50%}
+![Two-dimensional vector addition.](../../../../images/vector-2d-addition-polaris-hand-drawn.png){#fig-vector-add-example width=50% fig-pos="H"}
 
-### Scalar multiplication
+## Scalar multiplication
 
 A scalar is simply a number. Scalar multiplication means multiplying each component of a vector by the scalar. If $c\in\mathbb R$ and $\vec{v}=(v_1,\ldots,v_n)$, then
 
@@ -236,7 +232,7 @@ If $c>0$, the direction remains the same; if $c<0$, the direction is reversed. I
 
 <!-- pagebreak -->
 
-### Parametric representation of lines
+## Parametric representation of lines
 
 During Algebra I, we learnt that non-vertical lines could be represented by:
 
@@ -323,6 +319,6 @@ $$
 
 Values of $t$ outside this interval extrapolate the constant-velocity motion.
 
-![Vector parametrization](../../../../images/vectors-parametrization-004.png){#fig-vector-parametrization-004 width=80%}
+![Vector parametrization](../../../../images/vectors-parametrization-004-hand-drawn.png){#fig-vector-parametrization-004 width=50% fig-pos="H"}
 
 <!-- pagebreak -->
