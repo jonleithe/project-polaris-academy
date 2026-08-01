@@ -26,6 +26,10 @@ Geometrically, a vector can be represented by a directed line segment, or arrow,
 
 The zero vector has magnitude zero and no defined direction. Vectors may also belong to a one-dimensional vector space. The zero vector is defined to be orthogonal to any other vector
 
+## TL;DR
+
+Some tl;dr related content
+
 ## Example
 
 Suppose an object is moving at a speed of $10\,\mathrm{m/s}$. If we also specify that it is moving generally towards north-east, we know both its speed and direction. Together, these define the object’s velocity. In physics, velocity is defined as the rate of change of position with respect to time.
