@@ -1,0 +1,22 @@
+project:
+  type: website
+  output-dir: build/site
+
+website:
+  title: Project Polaris Academy
+  page-navigation: true
+  sidebar:
+    style: docked
+    search: true
+    contents:
+      - href: index.md
+        text: Home
+      - section: Linear Algebra
+        contents:
+          - notes/linear-algebra/courses/khan-academy/01-vectors-and-spaces.md
+          - notes/linear-algebra/courses/khan-academy/02-linear-combinations-and-span.md
+          - notes/linear-algebra/courses/khan-academy/03-linear-dependence-and-independence.md
+          - notes/linear-algebra/courses/khan-academy/04-subspaces-and-the-basis-for-a-subspace.md
+          - notes/linear-algebra/courses/khan-academy/05-vector-dot-and-cross-products.md
+          - notes/linear-algebra/courses/khan-academy/06-matrices-for-solving-systems-by-elimination.md
+          - notes/linear-algebra/courses/khan-academy/07-null-space-and-column-space.md

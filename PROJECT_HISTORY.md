@@ -4,6 +4,18 @@ This file records durable context and decisions from AI-assisted project work.
 It contains concise summaries rather than verbatim chat transcripts. The newest
 entry should be added at the top of the history.
 
+## 2026-08-01 — Unified reusable math definitions across HTML and PDF
+
+- Added a focused Pandoc filter that retains `\def` for MathJax while promoting
+  definitions in explicitly marked math-definition blocks to `\gdef` for
+  LaTeX, keeping each reusable equation definition in one source location.
+- Added the root `index.md` to the default Quarto render list and introduced a
+  dedicated HTML-site profile with sidebar navigation, search, and previous/next
+  page links. The site and preview targets now use that profile.
+- Verified the navigable eight-page HTML site, the vector
+  dot-and-cross-product note as an individual PDF, and the complete Academy PDF
+  book.
+
 ## 2026-07-31 — Organized notes by subject and course
 
 - Introduced the scalable `notes/<subject>/courses/<course>/` hierarchy for

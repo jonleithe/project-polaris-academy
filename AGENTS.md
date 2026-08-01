@@ -125,8 +125,10 @@ Important components:
 
 - `Makefile` for stable user-facing commands;
 - `_quarto.yml` for configured individual PDF and HTML builds;
+- `_quarto-site.yml` for the navigable local HTML site and live preview;
 - `_quarto-linear-algebra.yml` and `_quarto-book.yml` for combined PDFs;
-- `book-title.tex` for the complete volume's custom cover.
+- `pandoc/book-title.tex` for the complete volume's custom cover;
+- `pandoc/global-math-definitions.lua` for cross-format reusable math macros.
 
 Important commands include:
 
@@ -140,9 +142,11 @@ make site
 make preview
 ```
 
-Quarto produces individual PDF and HTML documents as well as combined subject
-and complete-book PDFs. Keep the Make target names stable if the underlying
-profiles evolve.
+Quarto produces individual PDFs, a navigable local HTML site, and combined
+subject and complete-book PDFs. `make site` writes the HTML site to
+`build/site/`; `make preview` serves the same site profile with sidebar search
+and previous/next navigation. Keep the Make target names stable if the
+underlying profiles evolve.
 
 XeLaTeX is used as PDF engine.
 
@@ -172,6 +176,19 @@ $...$
 ```
 
 Prefer semantic Markdown over raw HTML.
+
+## Reusable Math Definitions
+
+When a note reuses a substantial equation, define the macro once inside a Div
+with the `math-definitions` class and use ordinary `\def` declarations in the
+Markdown source. Keep the declarations within a single display-math block and
+do not insert blank lines between them.
+
+The `pandoc/global-math-definitions.lua` filter leaves `\def` unchanged for
+MathJax and promotes it to `\gdef` for LaTeX output. This distinction is
+required because MathJax and XeLaTeX scope definitions differently. Do not put
+`\gdef` directly in the Markdown source or duplicate definitions in separate
+HTML and PDF blocks.
 
 ---
 
@@ -356,7 +373,11 @@ The repository is expected to expand into
 
 # Website
 
-Public material will eventually be published using
+The Academy repository provides a navigable Quarto HTML build for local review
+and validation. Public website assembly, styling, and deployment belong in the
+separate `jonleithe.no` project.
+
+Public material is expected to use
 
 Hugo + PaperMod
 

@@ -46,6 +46,10 @@ The preferred software baselines are modern C++ (currently C++20), Python
 portable Markdown and built with Quarto and XeLaTeX. Quarto uses Pandoc as its
 document-conversion engine internally.
 
+I use the Academy repository's navigable Quarto HTML output for local review
+and cross-format validation. The separate `jonleithe.no` project owns the
+public website's assembly, presentation, and deployment.
+
 ## Working Principles
 
 I treat this repository as a real engineering project rather than a loose

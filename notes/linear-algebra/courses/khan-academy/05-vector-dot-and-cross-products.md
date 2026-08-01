@@ -8,38 +8,194 @@ author      : Jon Leithe
 date        : 2026-07-31
 ---
 
-::: {.hidden}
+::: {.math-definitions style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%);" aria-hidden="true"}
 $$
 \def\redD#1{\color{red}{#1}}
 \def\greenD#1{\color{green}{#1}}
+\def\eqVectorDotProduct{\vec{a}\cdot\vec{b}=\lVert\vec{a}\rVert \lVert\vec{b}\rVert \cos(\theta)}
+\def\eqVectorCrossProduct{\lVert\vec{a} \times \vec{b}\rVert=\lVert\vec{a}\rVert\lVert\vec{b}\rVert\sin(\theta)}
+\def\eqDotProductGreaterThanZero{\vec{a}\cdot\vec{b}>0,\qquad 0\leq\theta<\frac{\pi}{2}}
+\def\eqDotProductEqualsZero{\vec{a}\cdot\vec{b}=0,\qquad \theta=\frac{\pi}{2}}
+\def\eqDotProductLessThanZero{\vec{a}\cdot\vec{b}<0,\qquad \frac{\pi}{2}<\theta\leq\pi}
+\def\eqDotProductProperties{\begin{aligned}
+   \vec{a}\cdot\vec{b}
+   &=\vec{b}\cdot\vec{a}
+   &&\text{(commutative)}\\
+   \vec{a}\cdot(\vec{b}+\vec{c})
+   &=\vec{a}\cdot\vec{b}+\vec{a}\cdot\vec{c}
+   &&\text{(distributive)}\\
+   (k\vec{a})\cdot\vec{b}
+   &=k(\vec{a}\cdot\vec{b})
+   &&\text{(compatible with scalar multiplication)}\\
+   \vec{a}\cdot\vec{a}
+   &\geq 0
+   &&\text{(nonnegative)}
+   \end{aligned}}
+\def\eqCauchySchwarzInequality{|\vec{a}\cdot\vec{b}|
+   \le \lVert\vec{a}\rVert\lVert\vec{b}\rVert}
+\def\eqSignedScalarComponent{\operatorname{comp}_{\vec{b}}\vec{a}=\frac{\vec{a}\cdot\vec{b}}{\lVert\vec{b}\rVert}}
+\def\eqVectorProjection{\operatorname{proj}_{\vec{b}}\vec{a}
+   =
+   \frac{\vec{a}\cdot\vec{b}}
+   {\lVert\vec{b}\rVert^2}
+   \vec{b}
+   =
+   \frac{\vec{a}\cdot\vec{b}}
+   {\vec{b}\cdot\vec{b}}
+   \vec{b}
+   ,\qquad
+   \vec{b} \ne \vec{0}}
+\def\eqCrossProductDefinition{\vec{a}
+   =
+   \begin{bmatrix}
+   a_1\\a_2\\a_3
+   \end{bmatrix},
+   \qquad
+   \vec{b}
+   =
+   \begin{bmatrix}
+   b_1\\b_2\\b_3
+   \end{bmatrix}
+   ,\qquad
+   \vec{a}\times\vec{b}
+   =
+   \begin{bmatrix}
+   a_2b_3-a_3b_2\\
+   a_3b_1-a_1b_3\\
+   a_1b_2-a_2b_1
+   \end{bmatrix}}
+\def\eqCrossProductFormalDeterminant{\vec{a}\times\vec{b}
+   =
+   \begin{array}{ccc}
+   \redD{\cancel{\hat{\imath}}} & \redD{\cancel{\hat{\jmath}}} & \redD{\cancel{\hat{k}}} \\
+   \redD{\cancel{a_1}} & \greenD{a_2} & \greenD{a_3} \\
+   \redD{\cancel{b_1}} & \greenD{b_2} & \greenD{b_3}
+   \end{array}
+   -
+   \begin{array}{ccc}
+   \redD{\cancel{\hat{\imath}}} & \redD{\cancel{\hat{\jmath}}} & \redD{\cancel{\hat{k}}} \\
+   \greenD{a_1} & \redD{\cancel{a_2}} & \greenD{a_3} \\
+   \greenD{b_1} & \redD{\cancel{b_2}} & \greenD{b_3}
+   \end{array}
+   +
+   \begin{array}{ccc}
+   \redD{\cancel{\hat{\imath}}} & \redD{\cancel{\hat{\jmath}}} & \redD{\cancel{\hat{k}}} \\
+   \greenD{a_1} & \greenD{a_2} & \redD{\cancel{a_3}} \\
+   \greenD{b_1} & \greenD{b_2} & \redD{\cancel{b_3}}
+   \end{array}
+   =
+   (a_2b_3 - b_2a_3)\hat{\imath}
+   -
+   (a_1b_3 - b_1a_3)\hat{\jmath}
+   +
+   (a_1b_2 - b_1a_2)\hat{k}}
+\def\eqCrossProductProperties{\begin{aligned}
+   \vec{a}\times\vec{b}
+   &=-(\vec{b}\times\vec{a})
+   &&\text{(anticommutative)},\\
+   \vec{a}\times(\vec{b}+\vec{c})
+   &=\vec{a}\times\vec{b}+\vec{a}\times\vec{c}
+   &&\text{(distributive)},\\
+   (k\vec{a})\times\vec{b}
+   &=k(\vec{a}\times\vec{b})
+   &&\text{(compatible with scalar multiplication)},\\
+   \vec{a}\times\vec{a}
+   &=\vec{0},
+   \\
+   (\vec{a}\times\vec{b})\times\vec{c}
+   &\neq
+   \vec{a}\times(\vec{b}\times\vec{c})
+   &&\text{(in general not associative)}
+   \end{aligned}}
 $$
 :::
 
 Source: [Khan Academy — Vector dot and cross products](https://www.khanacademy.org/math/linear-algebra)
 
+## TL;DR
+
+::: {.content-visible unless-format="pdf"}
+| Description | Equation |
+|:--|:--|
+| [Vector dot product](#eq-vector-dot-product)           | $\displaystyle \eqVectorDotProduct$ |
+|                                                        | $\displaystyle \eqDotProductGreaterThanZero$ |
+|                                                        | $\displaystyle \eqDotProductEqualsZero$ |
+|                                                        | $\displaystyle \eqDotProductLessThanZero$ |
+|                                                        | $\displaystyle \eqDotProductProperties$ |
+|                                                        | $\displaystyle \eqCauchySchwarzInequality$, Cauchy-Schwarz inequality |
+| [Vector cross product](#eq-cross-product-definition)   | $\displaystyle \eqVectorCrossProduct$ |
+|                                                        | $\displaystyle \eqCrossProductDefinition$ |
+|                                                        | $\displaystyle \eqCrossProductFormalDeterminant$ |
+|                                                        | $\displaystyle \eqCrossProductProperties$ |
+| [Signed scalar component](#eq-signed-scalar-component) | $\displaystyle \eqSignedScalarComponent \qquad$ How much of $\vec{a}$ pulls in $\vec{b}$'s direction |
+| [Vector projection](#eq-vector-projection)              | $\displaystyle \eqVectorProjection$ |
+:::
+
+::: {.content-visible when-format="pdf"}
+
+```{=latex}
+\begingroup
+\small
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.35}
+\begin{longtable}{|>{\raggedright\arraybackslash}p{0.24\linewidth}|>{\raggedright\arraybackslash}p{0.70\linewidth}|}
+\hline
+\textbf{Description} & \textbf{Equation} \\
+\hline
+\hyperref[eq-vector-dot-product]{Vector dot product}
+  & \(\displaystyle \eqVectorDotProduct\) \\
+\cline{2-2}
+  & \(\displaystyle \eqDotProductGreaterThanZero\) \\
+\cline{2-2}
+  & \(\displaystyle \eqDotProductEqualsZero\) \\
+\cline{2-2}
+  & \(\displaystyle \eqDotProductLessThanZero\) \\
+\cline{2-2}
+  & \resizebox{\linewidth}{!}{\(\displaystyle \eqDotProductProperties\)} \\
+\cline{2-2}
+  & \(\displaystyle \eqCauchySchwarzInequality\), Cauchy--Schwarz inequality \\
+\hline
+\hyperref[eq-cross-product-definition]{Vector cross product}
+  & \(\displaystyle \eqVectorCrossProduct\) \\
+\cline{2-2}
+  & \resizebox{\linewidth}{!}{\(\displaystyle \eqCrossProductDefinition\)} \\
+\cline{2-2}
+  & \resizebox{\linewidth}{!}{\(\displaystyle \eqCrossProductFormalDeterminant\)} \\
+\cline{2-2}
+  & \resizebox{\linewidth}{!}{\(\displaystyle \eqCrossProductProperties\)} \\
+\hline
+\hyperref[eq-signed-scalar-component]{Signed scalar component}
+  & \(\displaystyle \eqSignedScalarComponent\) \newline
+  How much of \(\vec{a}\) points in \(\vec{b}\)'s direction. \\
+\hline
+\hyperref[eq-vector-projection]{Vector projection}
+  & \(\displaystyle \eqVectorProjection\) \\
+\hline
+\end{longtable}
+\endgroup
+```
+
+:::
+
 ## Intuition
 
-The geometric meanings of the dot product (@eq-dot-x1) and the magnitude of the cross product (@eq-cross-x1) are captured by:
+Dot product
+
+- The geometric meaning of the dot product, @eq-vector-dot-product is captured by:
 
 $$
-\vec{a} \cdot \vec{b}
-=
-\lVert\vec{a}\rVert
-\lVert\vec{b}\rVert
-\cos(\theta)
-$$ {#eq-dot-x1}
+\eqVectorDotProduct
+$$ {#eq-vector-dot-product}
+
+- Defined for $\mathbb{R}^n$, it returns a signed scalar measuring how strongly two vectors point in the same direction, scaled by their lengths.
+
+Cross product
+
+- The standard cross product, @eq-vector-cross-product defined for vectors in $\mathbb{R}^3$, returns a vector perpendicular to both input vectors. Its direction is determined by the right-hand rule. Its magnitude measures the area of the parallelogram spanned by the two input vectors:
 
 $$
-\lVert\vec{a} \times \vec{b}\rVert
-=
-\lVert\vec{a}\rVert
-\lVert\vec{b}\rVert
-\sin(\theta)
-$$ {#eq-cross-x1}
-
-The dot product, defined for $\mathbb{R}^n$, returns a signed scalar measuring how strongly two vectors point in the same direction, scaled by their lengths.
-
-The standard cross product, defined for vectors in $\mathbb{R}^3$, returns a vector perpendicular to both input vectors. Its direction is determined by the right-hand rule. Its magnitude measures the area of the parallelogram spanned by the two input vectors.
+\eqVectorCrossProduct
+$${#eq-vector-cross-product}
 
 ## Dot product
 
@@ -51,14 +207,18 @@ For two vectors $\vec{a},\vec{b}\in\mathbb{R}^n$,
 
 $$
 \begin{aligned}
-\vec{a}\cdot\vec{b}
+\vec{a}
 &=
 \begin{bmatrix}
 a_1\\a_2\\\vdots\\a_n
 \end{bmatrix}
+,
+\vec{b}
+=
 \begin{bmatrix}
 b_1\\b_2\\\vdots\\b_n
 \end{bmatrix}\\
+\vec{a}\cdot\vec{b}
 &=
 a_1b_1+a_2b_2+\dotsb+a_nb_n
 \end{aligned}
@@ -100,7 +260,7 @@ $$
 ### Geometric meaning
 
 The dot product can also be expressed in terms of the magnitudes of the
-vectors and the angle $\theta$ between them in the two-dimensional plane they describe (see @fig-vectors-in-r3-defining-a-plane):
+vectors and the angle $\theta$ between them in the two-dimensional plane they describe in $\mathbb{R}^3$, (see @fig-vectors-in-r3-defining-a-plane) where two nonparallel vectors are lying on the light-blue plane:
 
 $$
 \vec{a}\cdot\vec{b}
@@ -112,7 +272,9 @@ $$
 0\leq\theta\leq\pi
 $$
 
-![Two-dimensional plane in $\mathbb{R}^3$ and the angle $\alpha$ between them ](../../../../images/plane-in-r3-hand-drawn.png){#fig-vectors-in-r3-defining-a-plane width=50%}
+Two parallel vectors span a line.
+
+![Two vectors in a two-dimensional plane in $\mathbb{R}^3$ and the angle $\theta$ between them](../../../../images/plane-in-r3-hand-drawn.png){#fig-vectors-in-r3-defining-a-plane width=25%}
 
 If both vectors are nonzero, this equation allows us to find the angle
 between them:
@@ -130,17 +292,17 @@ $$
 The sign of the dot product tells us whether the angle is acute, right,
 or obtuse:
 
-- $\vec{a}\cdot\vec{b}>0$ when $0\leq\theta<\frac{\pi}{2}$
-- $\vec{a}\cdot\vec{b}=0$ when $\theta=\frac{\pi}{2}$
-- $\vec{a}\cdot\vec{b}<0$ when $\frac{\pi}{2}<\theta\leq\pi$
+- $\eqDotProductGreaterThanZero$
+- $\eqDotProductEqualsZero$
+- $\eqDotProductLessThanZero$
 
 When $\vec{a}\cdot\vec{b}=0$, the vectors are said to be *orthogonal*. The zero vector has a zero dot product with every vector, although it does not have a defined direction or form an angle with another vector.
 
-## Orthogonal versus perpendicular
+### Orthogonal versus perpendicular
 
 Orthogonality is an algebraic concept: two vectors are orthogonal when their dot product is zero. This definition applies in any number of dimensions and does not depend on how the vectors are positioned geometrically. Perpendicularity is primarily a geometric concept, usually describing lines or other objects that meet at a right angle.
 
-### Example: testing for orthogonality
+#### Example: testing for orthogonality
 
 Consider
 
@@ -199,32 +361,18 @@ For $\vec{a},\vec{b},\vec{c}\in\mathbb{R}^n$ and
 $k\in\mathbb{R}$, the dot product satisfies:
 
 $$
-\begin{aligned}
-\vec{a}\cdot\vec{b}
-&=\vec{b}\cdot\vec{a}
-&&\text{(commutative)}\\
-\vec{a}\cdot(\vec{b}+\vec{c})
-&=\vec{a}\cdot\vec{b}+\vec{a}\cdot\vec{c}
-&&\text{(distributive)}\\
-(k\vec{a})\cdot\vec{b}
-&=k(\vec{a}\cdot\vec{b})
-&&\text{(compatible with scalar multiplication)}\\
-\vec{a}\cdot\vec{a}
-&\geq 0
-&&\text{(nonnegative)}
-\end{aligned}
+\eqDotProductProperties
 $$
 
 Furthermore, $\vec{a}\cdot\vec{a}=0$ if and only if $\vec{a}=\vec{0}$.
 
 ### Cauchy-Schwarz inequality
 
-The Cauchy–Schwarz inequality states that for any two vectors the absolute value of their dot product is less than or equal to the product of their magnitudes:
+The Cauchy–Schwarz inequality, @eq-cauchy-schwarz-inequality, states that for any two vectors the absolute value of their dot product is less than or equal to the product of their magnitudes:
 
 $$
-|\vec{a}\cdot\vec{b}|
-\le \lVert\vec{a}\rVert\lVert\vec{b}\rVert,
-$$
+\eqCauchySchwarzInequality
+$${#eq-cauchy-schwarz-inequality}
 
 with equality exactly when the vectors are linearly dependent. If both vectors are nonzero, it explains why
 
@@ -246,13 +394,11 @@ We distinguish between the scalar component and the vector projection. Both are 
 
 #### Signed scalar component
 
-First there is the scalar component of $\vec{a}$ in the direction of a nonzero vector $\vec{b}$. This is obtained by dividing the dot product of $\vec{a}$ and $\vec{b}$ by the magnitude of $\vec{b}$.
+First there is the scalar component of $\vec{a}$ in the direction of a nonzero vector $\vec{b}$, see @eq-signed-scalar-component. This is obtained by dividing the dot product of $\vec{a}$ and $\vec{b}$ by the magnitude of $\vec{b}$.
 
 $$
-\operatorname{comp}_{\vec{b}}\vec{a}
-=
-\frac{\vec{a}\cdot\vec{b}}{\lVert\vec{b}\rVert}
-$$
+\eqSignedScalarComponent
+$${#eq-signed-scalar-component}
 
 The result is a signed scalar measuring how far $\vec a$ extends in the direction of $\vec b$.
 
@@ -298,21 +444,11 @@ In $\mathbb{R}^2$, this is visualized in @fig-scalar-component-a-rel-b. The red 
 The corresponding vector quantity is the vector projection.
 
 Multiplying this signed length by the unit vector in the direction of
-$\vec{b}$ gives the vector projection:
+$\vec{b}$ gives the vector projection, @eq-vector-projection:
 
 $$
-\operatorname{proj}_{\vec{b}}\vec{a}
-=
-\frac{\vec{a}\cdot\vec{b}}
-{\lVert\vec{b}\rVert^2}
-\vec{b}
-=
-\frac{\vec{a}\cdot\vec{b}}
-{\vec{b}\cdot\vec{b}}
-\vec{b}
-,\qquad
-\vec{b} \ne \vec{0}
-$$
+\eqVectorProjection
+$${#eq-vector-projection}
 
 For example, let
 
@@ -391,69 +527,17 @@ The cross product of two vectors in $\mathbb{R}^3$, denoted
 $\vec{a}\times\vec{b}$ and pronounced “vector $a$ cross vector $b$,”
 is a vector perpendicular to both $\vec{a}$ and $\vec{b}$.
 
-For
+It is defined as:
 
 $$
-\vec{a}
-=
-\begin{bmatrix}
-a_1\\a_2\\a_3
-\end{bmatrix},
-\qquad
-\vec{b}
-=
-\begin{bmatrix}
-b_1\\b_2\\b_3
-\end{bmatrix}
-$$
+\eqCrossProductDefinition
+$${#eq-cross-product-definition}
 
-the cross product is
+It can be remembered using the formal determinant, cross-multiplying the four green entries in each block—downward product minus upward product—gives:
 
 $$
-\vec{a}\times\vec{b}
-=
-\begin{bmatrix}
-a_2b_3-a_3b_2\\
-a_3b_1-a_1b_3\\
-a_1b_2-a_2b_1
-\end{bmatrix}
-$$
-
-It can be remembered using the formal determinant:
-
-$$
-\vec{a}\times\vec{b}
-=
-\begin{array}{ccc}
-\redD{\cancel{\hat{\imath}}} & \redD{\cancel{\hat{\jmath}}} & \redD{\cancel{\hat{k}}} \\
-\redD{\cancel{a_1}} & \greenD{a_2} & \greenD{a_3} \\
-\redD{\cancel{b_1}} & \greenD{b_2} & \greenD{b_3}
-\end{array}
--
-\begin{array}{ccc}
-\redD{\cancel{\hat{\imath}}} & \redD{\cancel{\hat{\jmath}}} & \redD{\cancel{\hat{k}}} \\
-\greenD{a_1} & \redD{\cancel{a_2}} & \greenD{a_3} \\
-\greenD{b_1} & \redD{\cancel{b_2}} & \greenD{b_3}
-\end{array}
-+
-\begin{array}{ccc}
-\redD{\cancel{\hat{\imath}}} & \redD{\cancel{\hat{\jmath}}} & \redD{\cancel{\hat{k}}} \\
-\greenD{a_1} & \greenD{a_2} & \redD{\cancel{a_3}} \\
-\greenD{b_1} & \greenD{b_2} & \redD{\cancel{b_3}}
-\end{array}
-$$
-
-Cross-multiplying the four green entries in each block—downward product minus upward product—gives:
-
-$$
-\vec{a}\times\vec{b}
-=
-(a_2b_3 - b_2a_3)\hat{\imath}
--
-(a_1b_3 - b_1a_3)\hat{\jmath}
-+
-(a_1b_2 - b_1a_2)\hat{k}
-$$
+\eqCrossProductFormalDeterminant
+$${#eq-cross-product-formal-determinant}
 
 The minus sign in the $\hat{\jmath}$ component is important.
 
@@ -509,13 +593,7 @@ $$
 
 If $\theta$ is the angle between $\vec{a}$ and $\vec{b}$, then
 
-$$
-\lVert\vec{a}\times\vec{b}\rVert
-=
-\lVert\vec{a}\rVert
-\lVert\vec{b}\rVert
-\sin\theta
-$$
+$$\eqVectorCrossProduct$$
 
 The direction of $\vec{a}\times\vec{b}$ is determined by the
 right-hand rule: point the fingers of the right hand along $\vec{a}$
@@ -570,32 +648,11 @@ vector.
 
 ### Properties
 
-For $\vec{a},\vec{b},\vec{c}\in\mathbb{R}^3$ and
-$k\in\mathbb{R}$,
+For $\vec{a},\vec{b},\vec{c}\in\mathbb{R}^3$ and $k\in\mathbb{R}$,
 
 $$
-\begin{aligned}
-\vec{a}\times\vec{b}
-&=-(\vec{b}\times\vec{a})
-&&\text{(anticommutative)},\\
-\vec{a}\times(\vec{b}+\vec{c})
-&=\vec{a}\times\vec{b}+\vec{a}\times\vec{c}
-&&\text{(distributive)},\\
-(k\vec{a})\times\vec{b}
-&=k(\vec{a}\times\vec{b})
-&&\text{(compatible with scalar multiplication)},\\
-\vec{a}\times\vec{a}
-&=\vec{0}.
-\end{aligned}
-$$
-
-In general, the cross product is not associative:
-
-$$
-(\vec{a}\times\vec{b})\times\vec{c}
-\neq
-\vec{a}\times(\vec{b}\times\vec{c})
-$$
+\eqCrossProductProperties
+$${#eq-cross-product-properties}
 
 ### Dot Product Compared with Cross Product
 

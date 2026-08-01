@@ -27,10 +27,10 @@ help:
 		'      Render all notes as the complete Quarto book PDF.' \
 		'' \
 		'  make site' \
-		'      Render the configured notes as HTML in build/site/.' \
+		'      Render the navigable HTML site in build/site/.' \
 		'' \
 		'  make preview' \
-		'      Start a live Quarto HTML preview.' \
+		'      Render all configured HTML documents and start a live preview.' \
 		'' \
 		'  make list' \
 		'      List all Markdown note sources.' \
@@ -82,10 +82,10 @@ book:
 	$(QUARTO) render --profile book --to pdf
 
 site:
-	$(QUARTO) render --to html --output-dir $(BUILD_DIR)/site
+	$(QUARTO) render --profile site --to html
 
 preview:
-	$(QUARTO) preview --to html
+	$(QUARTO) preview --profile site --to html --render html
 
 list:
 	@printf '%s\n' $(SOURCES)

@@ -2,6 +2,7 @@ project:
   type: default
   output-dir: build/quarto
   render:
+    - index.md
     - notes/linear-algebra/courses/khan-academy/01-vectors-and-spaces.md
     - notes/linear-algebra/courses/khan-academy/02-linear-combinations-and-span.md
     - notes/linear-algebra/courses/khan-academy/03-linear-dependence-and-independence.md
@@ -32,3 +33,4 @@ format:
 
 filters:
   - pandoc/pagebreak.lua
+  - pandoc/global-math-definitions.lua
