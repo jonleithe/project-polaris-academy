@@ -1,7 +1,9 @@
 QUARTO      := quarto
+PYTHON      := python3
 
 SOURCE_DIR  := notes
 BUILD_DIR   := build
+BOOK_CHAPTER_PROFILE := _quarto-auto-book.yml
 
 SOURCES     := $(sort $(shell find $(SOURCE_DIR) -type f -name '*.md' -print))
 
@@ -24,7 +26,7 @@ help:
 		'      Render the Khan linear algebra notes as one Quarto book PDF.' \
 		'' \
 		'  make book' \
-		'      Render all notes as the complete Quarto book PDF.' \
+		'      Discover all Markdown notes and render the complete Quarto book PDF.' \
 		'' \
 		'  make site' \
 		'      Render the navigable HTML site in build/site/.' \
@@ -79,7 +81,8 @@ linear-algebra:
 	$(QUARTO) render --profile linear-algebra --to pdf
 
 book:
-	$(QUARTO) render --profile book --to pdf
+	$(PYTHON) scripts/generate-book-profile.py --output $(BOOK_CHAPTER_PROFILE)
+	$(QUARTO) render --profile book,auto-book --to pdf
 
 site:
 	$(QUARTO) render --profile site --to html
@@ -95,3 +98,4 @@ clean:
 		find "$(BUILD_DIR)" -type f -name '*.pdf' -delete; \
 	fi
 	@rm -rf "$(BUILD_DIR)/quarto" "$(BUILD_DIR)/site" "$(BUILD_DIR)/books"
+	@rm -f "$(BOOK_CHAPTER_PROFILE)"

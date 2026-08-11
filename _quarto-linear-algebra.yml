@@ -18,6 +18,8 @@ book:
     - notes/linear-algebra/courses/khan-academy/05-vector-dot-and-cross-products.md
     - notes/linear-algebra/courses/khan-academy/06-matrices-for-solving-systems-by-elimination.md
     - notes/linear-algebra/courses/khan-academy/07-null-space-and-column-space.md
+    - notes/linear-algebra/courses/uit-mat3800-linear-algebra-ii/linear-combination-and-span.md
+    - notes/linear-algebra/courses/uit-mat3800-linear-algebra-ii/systems-of-equations.md
 
 format:
   pdf:

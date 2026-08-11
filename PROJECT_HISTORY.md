@@ -4,6 +4,17 @@ This file records durable context and decisions from AI-assisted project work.
 It contains concise summaries rather than verbatim chat transcripts. The newest
 entry should be added at the top of the history.
 
+## 2026-08-10 — Automated complete-book chapter discovery
+
+- Replaced the complete Academy book's manually maintained chapter list with a
+  generated Quarto profile containing every Markdown file below `notes/`.
+- Kept `make book` as the stable interface and made it regenerate the chapter
+  profile in deterministic path order before rendering.
+- Used each note's optional `course` front-matter field to prefix complete-book
+  chapter titles without changing standalone PDF or website titles.
+- Left subject-book chapter lists explicit so their scope and pedagogical order
+  remain intentional.
+
 ## 2026-08-01 — Unified reusable math definitions across HTML and PDF
 
 - Added a focused Pandoc filter that retains `\def` for MathJax while promoting
