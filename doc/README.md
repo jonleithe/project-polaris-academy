@@ -34,7 +34,7 @@ Repository-wide context also lives in:
 | `images/` | Rendered note images and combined-book artwork |
 | `geogebra/` | GeoGebra source files for mathematical diagrams |
 | `pandoc/` | Shared filters, metadata, and LaTeX presentation |
-| `_quarto.yml` | Multi-format configuration and configured note list |
+| `_quarto.yml` and profiles | Shared formatting and output-specific note scopes |
 | `index.md` | Shared Quarto book home page and preface |
 | `software/r-vec/` | C++ vector library, parser, REPL, and tests |
 | `fonts/` | Fonts used by PDF templates |

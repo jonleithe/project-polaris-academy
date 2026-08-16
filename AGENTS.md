@@ -124,8 +124,9 @@ and XeLaTeX for PDF output.
 Important components:
 
 - `Makefile` for stable user-facing commands;
-- `_quarto.yml` for configured individual PDF and HTML builds;
-- `_quarto-site.yml` for the navigable local HTML site and live preview;
+- `_quarto.yml` for shared Quarto settings;
+- `_quarto-notes.yml` for discovering all individual-note PDF sources;
+- `_quarto-site.yml` for the personal-notes HTML site and live preview;
 - `_quarto-linear-algebra.yml` and `_quarto-book.yml` for combined PDFs;
 - `pandoc/book-title.tex` for the complete volume's custom cover;
 - `pandoc/global-math-definitions.lua` for cross-format reusable math macros.
@@ -143,10 +144,11 @@ make preview
 ```
 
 Quarto produces individual PDFs, a navigable local HTML site, and combined
-subject and complete-book PDFs. `make site` writes the HTML site to
-`build/site/`; `make preview` serves the same site profile with sidebar search
-and previous/next navigation. Keep the Make target names stable if the
-underlying profiles evolve.
+subject and book PDFs. The book and site contain `notes/personal/` plus the
+shared root front page; the all-notes and subject builds retain their broader
+scopes. `make site` writes the HTML site to `build/site/`; `make preview` serves
+the same site profile with sidebar search and previous/next navigation. Keep
+the Make target names stable if the underlying profiles evolve.
 
 XeLaTeX is used as PDF engine.
 

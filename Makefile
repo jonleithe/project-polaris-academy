@@ -20,19 +20,19 @@ help:
 		'      NOTE may be relative to notes/, start with notes/, or be a unique filename.' \
 		'' \
 		'  make notes' \
-		'      Render all notes configured in _quarto.yml as individual PDFs.' \
+		'      Render all notes discovered by _quarto-notes.yml as individual PDFs.' \
 		'' \
 		'  make linear-algebra' \
 		'      Render the Khan linear algebra notes as one Quarto book PDF.' \
 		'' \
 		'  make book' \
-		'      Discover all Markdown notes and render the complete Quarto book PDF.' \
+		'      Discover personal notes and render the Quarto book PDF.' \
 		'' \
 		'  make site' \
-		'      Render the navigable HTML site in build/site/.' \
+		'      Render the home page and personal notes as a navigable HTML site.' \
 		'' \
 		'  make preview' \
-		'      Render all configured HTML documents and start a live preview.' \
+		'      Render the personal-notes site and start a live preview.' \
 		'' \
 		'  make list' \
 		'      List all Markdown note sources.' \
@@ -75,7 +75,7 @@ note:
 	$(QUARTO) render "$$note" --to pdf
 
 notes:
-	$(QUARTO) render --to pdf
+	$(QUARTO) render --profile notes --to pdf
 
 linear-algebra:
 	$(QUARTO) render --profile linear-algebra --to pdf

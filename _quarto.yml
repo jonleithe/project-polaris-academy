@@ -3,7 +3,6 @@ project:
   output-dir: build/quarto
   render:
     - index.md
-    - "notes/**/*.md"
 
 format:
   html:

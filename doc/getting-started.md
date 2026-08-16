@@ -32,14 +32,14 @@ Render all configured individual PDFs:
 make notes
 ```
 
-Render the combined Linear Algebra PDF or complete Academy PDF:
+Render the combined Linear Algebra PDF or the personal-notes Academy PDF:
 
 ```sh
 make linear-algebra
 make book
 ```
 
-Render or preview HTML:
+Render or preview the home page and personal-notes HTML site:
 
 ```sh
 make site

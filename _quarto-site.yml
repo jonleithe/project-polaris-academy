@@ -1,6 +1,9 @@
 project:
   type: website
   output-dir: build/site
+  render:
+    - index.md
+    - "notes/personal/**/*.md"
 
 website:
   title: Project Polaris Academy
@@ -11,4 +14,4 @@ website:
     contents:
       - href: index.md
         text: Home
-      - auto: "notes/**"
+      - auto: "notes/personal/**"

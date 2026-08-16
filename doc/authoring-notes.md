@@ -147,15 +147,14 @@ as an invisible comment. Do not place `\newpage` directly in a note.
 
 ## Adding a note to configured builds
 
-The root `_quarto.yml` currently lists rendered notes explicitly. After adding
-a source file:
+The all-notes profile discovers Markdown sources automatically. After adding a
+source file:
 
-1. Add its path to `project.render` in `_quarto.yml`.
-2. Run `make list` to check its lexical position among all note sources.
-3. Render it directly with `make note NOTE=<subject>/<filename>.md`.
-4. Run `make notes` to check every configured PDF.
-5. Run `make site` to check the HTML rendition.
-6. When relevant, run `make linear-algebra` or `make book` to check combined
+1. Run `make list` to check its lexical position among all note sources.
+2. Render it directly with `make note NOTE=<subject>/<filename>.md`.
+3. Run `make notes` to check every configured PDF.
+4. If it is below `notes/personal/`, run `make site` to check the HTML rendition.
+5. When relevant, run `make linear-algebra` or `make book` to check combined
    output.
 
 For example:

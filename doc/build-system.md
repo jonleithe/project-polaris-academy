@@ -17,7 +17,7 @@ make note NOTE=linear-algebra/courses/khan-academy/01-vectors-and-spaces.md
 filename found below `notes/`. Ambiguous or missing names fail with an explicit
 error.
 
-Render every note listed in `_quarto.yml` with:
+Render every note discovered by `_quarto-notes.yml` with:
 
 ```sh
 make notes
@@ -32,16 +32,15 @@ build/quarto/notes/linear-algebra/courses/khan-academy/01-vectors-and-spaces.pdf
 
 ## HTML documents
 
-Render all configured notes as HTML with:
+Render the root home page and the notes below `notes/personal/` as HTML with:
 
 ```sh
 make site
 ```
 
-Output is written below `build/site/`. The current Quarto project type is
-`default`, so this target produces a set of standalone HTML documents rather
-than a fully structured book website. A future Quarto book/site profile will
-provide the stable artifact consumed by `jonleithe.no` at `/notes/`.
+Output is written below `build/site/`. The site profile provides sidebar
+navigation, search, and previous/next page links. Other note trees remain
+available to the individual and subject builds but are excluded from the site.
 
 Start a live local preview with:
 
@@ -63,7 +62,7 @@ The Linear Algebra book profile is `_quarto-linear-algebra.yml`. Its output is:
 build/books/linear-algebra/project-polaris-linear-algebra.pdf
 ```
 
-Render every Markdown note as the complete Academy volume with:
+Render the Markdown notes below `notes/personal/` as the Academy volume with:
 
 ```sh
 make book
@@ -71,15 +70,15 @@ make book
 
 The complete Academy metadata profile is `_quarto-book.yml`. Before rendering,
 `make book` runs `scripts/generate-book-profile.py` to discover every Markdown
-file below `notes/`. The script writes the ordered chapter list to the ignored
-`_quarto-auto-book.yml` profile, which Quarto merges with the metadata profile.
-Its output is:
+file below `notes/personal/`. The script writes the ordered chapter list to the
+ignored `_quarto-auto-book.yml` profile, which Quarto merges with the metadata
+profile. Its output is:
 
 ```text
 build/books/academy/project-polaris-notes.pdf
 ```
 
-Complete-book chapters use deterministic path order, so directory and filename
+Personal-note chapters use deterministic path order, so directory and filename
 prefixes control their sequence without manual configuration. The Linear
 Algebra subject profile keeps an explicit chapter list so its scope and
 pedagogical order remain intentional. Separate output directories prevent one
@@ -94,10 +93,12 @@ titles remain unchanged.
 
 | File | Responsibility |
 | --- | --- |
-| `_quarto.yml` | Automatic note discovery plus shared HTML and PDF settings |
+| `_quarto.yml` | Shared project, HTML, and PDF settings |
+| `_quarto-notes.yml` | Automatic discovery for the all-notes PDF build |
 | `_quarto-linear-algebra.yml` | Linear Algebra book metadata, chapters, and output |
-| `_quarto-book.yml` | Complete Academy book metadata and output |
-| `scripts/generate-book-profile.py` | Generated complete-book chapter discovery |
+| `_quarto-book.yml` | Academy book metadata and output |
+| `_quarto-site.yml` | Personal-notes site scope, navigation, and output |
+| `scripts/generate-book-profile.py` | Generated personal-note book chapter discovery |
 | `pandoc/book-course-chapters.lua` | Complete-book course prefixes for chapter titles |
 | `Makefile` | Stable commands for Quarto outputs |
 | `index.md` | Required home page and shared preface for Quarto books |

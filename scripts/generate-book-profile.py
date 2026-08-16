@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Generate the ordered chapter profile for the complete Academy book."""
+"""Generate the ordered chapter profile for the personal-notes book."""
 
 from __future__ import annotations
 
@@ -55,9 +55,11 @@ def front_matter_course(note_path: Path) -> str:
 
 
 def render_profile(project_root: Path) -> tuple[str, int]:
-    notes_directory = project_root / "notes"
+    notes_directory = project_root / "notes" / "personal"
     if not notes_directory.is_dir():
-        raise FileNotFoundError(f"notes directory not found: {notes_directory}")
+        raise FileNotFoundError(
+            f"personal notes directory not found: {notes_directory}"
+        )
 
     note_paths = sorted(
         (

@@ -4,6 +4,17 @@ This file records durable context and decisions from AI-assisted project work.
 It contains concise summaries rather than verbatim chat transcripts. The newest
 entry should be added at the top of the history.
 
+## 2026-08-16 — Made personal notes the published collection
+
+- Scoped `make book` chapter discovery to Markdown files below
+  `notes/personal/`, while retaining the root `index.md` as the book preface.
+- Scoped `make site` and `make preview` rendering and sidebar discovery to the
+  same personal-notes tree, while retaining the existing home page.
+- Moved all-notes discovery into a dedicated Quarto profile so `make notes`
+  retains its existing scope without leaking course notes into the site build.
+- Left individual-note, all-notes, and subject-book builds unchanged so course
+  and reference material remains available outside the personal collection.
+
 ## 2026-08-10 — Automated complete-book chapter discovery
 
 - Replaced the complete Academy book's manually maintained chapter list with a
