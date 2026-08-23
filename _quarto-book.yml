@@ -18,3 +18,8 @@ format:
 
 filters:
   - pandoc/book-course-chapters.lua
+
+language:
+  callout-note-title: "Theorem"
+  crossref-nte-title: "Theorem"
+  crossref-nte-prefix: "Theorem"
