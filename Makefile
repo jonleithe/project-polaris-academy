@@ -83,6 +83,7 @@ linear-algebra:
 book:
 	$(PYTHON) scripts/generate-book-profile.py --output $(BOOK_CHAPTER_PROFILE)
 	$(QUARTO) render --profile book,auto-book --to pdf
+	./copy-book-to-jotta
 
 site:
 	$(QUARTO) render --profile site --to html
