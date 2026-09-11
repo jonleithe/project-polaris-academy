@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="390" viewBox="0 0 800 390">
+  <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto-start-reverse"><path d="M0,0 L7,3 L0,6" fill="#263746"/></marker></defs>
+  <rect width="800" height="390" fill="white"/>
+  <g stroke-width="3"><path d="M80,85 H710 M80,305 H710" stroke="#b96b32"/><path d="M80,195 H710" stroke="#3876a5"/></g>
+  <g stroke="#263746" fill="none" stroke-width="2">
+    <path d="M210,195 V35" marker-end="url(#arrow)"/>
+    <path d="M450,91 V189" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <path d="M450,201 V299" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+    <path d="M210,181 H224 V195"/>
+  </g>
+  <g font-family="sans-serif" font-size="20" fill="#263746">
+    <text x="85" y="70" fill="#b96b32">Π₊: x − 2y + z = 6</text>
+    <text x="85" y="225" fill="#3876a5">Π₀: x − 2y + z = 0</text>
+    <text x="85" y="335" fill="#b96b32">Π₋: x − 2y + z = −6</text>
+    <text x="231" y="39">n = (1, −2, 1)</text>
+    <text x="467" y="148">√6</text><text x="467" y="258">√6</text>
+    <text x="145" y="375">Cross-section through the common normal direction</text>
+  </g>
+</svg>

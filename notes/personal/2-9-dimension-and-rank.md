@@ -194,6 +194,14 @@ $$
 \end{bmatrix}.
 $$
 
+@fig-dimension-and-rank-basis-coordinates illustrates these coordinates:
+starting at the origin, two steps in the $\vec{v}_1$ direction and three in
+the $\vec{v}_2$ direction reach $\vec{x}$. Although $H$ lies in
+$\mathbb{R}^3$, only two basis coordinates are needed to describe a vector
+in $H$, so $\dim(H)=2$.
+
+![Schematic of the plane $H$ with basis $B=\{\vec{v}_1,\vec{v}_2\}$ and the vector $\vec{x}=2\vec{v}_1+3\vec{v}_2$.](../../images/dimension-and-rank-basis-coordinates-hand-drawn-warm-crosshatched.png){#fig-dimension-and-rank-basis-coordinates width=85% fig-pos="H" fig-align="center"}
+
 The basis defines a coordinate system on $H$. Its basis vectors form the
 columns of the matrix
 
@@ -281,25 +289,25 @@ The rank theorem is one part of the larger **Invertible Matrix Theorem**. Let
 $A$ be an $n\times n$ matrix. The following statements are equivalent: for a
 given $A$, either all are true or all are false.
 
-1. $A$ is invertible.
-2. $A$ is row equivalent to the $n\times n$ identity matrix.
-3. $A$ has $n$ pivot positions.
-4. The equation $A\vec{x}=\vec{0}$ has only the trivial solution.
-5. The columns of $A$ form a linearly independent set.
-6. The linear transformation $\vec{x}\mapsto A\vec{x}$ is one-to-one.
-7. For every $\vec{b}\in\mathbb{R}^n$, the equation
+a. $A$ is invertible.
+b. $A$ is row equivalent to the $n\times n$ identity matrix.
+c. $A$ has $n$ pivot positions.
+d. The equation $A\vec{x}=\vec{0}$ has only the trivial solution.
+e. The columns of $A$ form a linearly independent set.
+f. The linear transformation $\vec{x}\mapsto A\vec{x}$ is one-to-one.
+g. For every $\vec{b}\in\mathbb{R}^n$, the equation
    $A\vec{x}=\vec{b}$ has at least one solution.
-8. The columns of $A$ span $\mathbb{R}^n$.
-9. The linear transformation $\vec{x}\mapsto A\vec{x}$ maps
+h. The columns of $A$ span $\mathbb{R}^n$.
+i. The linear transformation $\vec{x}\mapsto A\vec{x}$ maps
    $\mathbb{R}^n$ onto $\mathbb{R}^n$.
-10. There is an $n\times n$ matrix $C$ such that $CA=I$.
-11. There is an $n\times n$ matrix $D$ such that $AD=I$.
-12. $A^T$ is invertible.
-13. The columns of $A$ form a basis for $\mathbb{R}^n$.
-14. $\operatorname{Col}(A)=\mathbb{R}^n$.
-15. $\operatorname{rank}(A)=n$.
-16. $\dim\bigl(\operatorname{Nul}(A)\bigr)=0$.
-17. $\operatorname{Nul}(A)=\{\vec{0}\}$.
+j. There is an $n\times n$ matrix $C$ such that $CA=I$.
+k. There is an $n\times n$ matrix $D$ such that $AD=I$.
+l. $A^T$ is invertible.
+m. The columns of $A$ form a basis for $\mathbb{R}^n$.
+n. $\operatorname{Col}(A)=\mathbb{R}^n$.
+o. $\operatorname{rank}(A)=n$.
+p. $\dim\bigl(\operatorname{Nul}(A)\bigr)=0$.
+q. $\operatorname{Nul}(A)=\{\vec{0}\}$.
 
 For a square matrix, full rank therefore means that the matrix has no lost
 input directions and reaches every vector in its codomain.

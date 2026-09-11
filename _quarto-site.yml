@@ -5,6 +5,10 @@ project:
     - index.md
     - "notes/personal/**/*.md"
 
+format:
+  html:
+    format-links: false
+
 website:
   title: Project Polaris Academy
   page-navigation: true
