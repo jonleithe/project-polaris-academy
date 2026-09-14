@@ -20,7 +20,7 @@ This chapter serves as an index to all the theorems found in the textbook, *6th 
 
 ## Chapter 1.2 – Row Reduction and Echelon Forms
 
-::: {#nte-uniqueness-ref .callout-note title="Uniqueness of the Reduced Echelon Form"}
+::: {#theorem-1-2-1 .callout-note title="Theorem 1.2.1 — Uniqueness of the Reduced Echelon Form"}
 
 **Textbook reference:** p.38
 
@@ -28,7 +28,7 @@ Each matrix is row equivalent to one and only one reduced echelon matrix.
 
 :::
 
-::: {#nte-existence-and-uniqueness .callout-note title="Existence and Uniqueness Theorem"}
+::: {#theorem-1-2-2 .callout-note title="Theorem 1.2.2 — Existence and Uniqueness Theorem"}
 
 **Textbook reference:** p.46
 
@@ -59,7 +59,7 @@ If a linear system is consistent, then the solution set contains either:
 
 :::
 
-A system of linear equations is said to be **homogeneous** if it can be written on the form $A\vec{x}=\vec{0}$, where $A$ is an $m \times n$ matrix and $\vec{0}$ is the zero vector in $\mathbb{R}^n$. Such a system $A\vec{x}=\vec{0}$ *always* has at least one solution, namely $\vec{x}=\vec{0}$ (the zero vector in $\mathbb{R}^n$). This zero solution is usually called the **trivial solution**. For a given equation $A\vec{x}=\vec{0}$, the important question is whether there exists a **nontrivial solution**, that is, a nonzero vector $\vec{x}$ that satisfies $A\vec{x}=\vec{0}$. @nte-existence-and-uniqueness leads to the following fact:
+A system of linear equations is said to be **homogeneous** if it can be written on the form $A\vec{x}=\vec{0}$, where $A$ is an $m \times n$ matrix and $\vec{0}$ is the zero vector in $\mathbb{R}^n$. Such a system $A\vec{x}=\vec{0}$ *always* has at least one solution, namely $\vec{x}=\vec{0}$ (the zero vector in $\mathbb{R}^n$). This zero solution is usually called the **trivial solution**. For a given equation $A\vec{x}=\vec{0}$, the important question is whether there exists a **nontrivial solution**, that is, a nonzero vector $\vec{x}$ that satisfies $A\vec{x}=\vec{0}$. [Theorem 1.2.2](#theorem-1-2-2) leads to the following fact:
 
 > The homogeneous equation $A\vec{x}=\vec{0}$ has a nontrivial solution if and only if the equation has at least one free variable.
 
@@ -95,7 +95,7 @@ $$
 
 ## Chapter 1.4 – The Matrix Equation $A\vec{x}=\vec{b}$
 
-::: {#nte-theorem-3 .callout-note title="Matrix, Vector, and System Equivalence"}
+::: {#theorem-1-4-1 .callout-note title="Theorem 1.4.1 — Matrix, Vector, and System Equivalence"}
 
 **Textbook reference:** p.62
 
@@ -138,7 +138,7 @@ $$
 
 :::
 
-::: {#nte-theorem-4 .callout-note title="Equivalent Conditions for Spanning $\mathbb{R}^m$"}
+::: {#theorem-1-4-2 .callout-note title="Theorem 1.4.2 — Equivalent Conditions for Spanning $\mathbb{R}^m$"}
 
 **Textbook reference:** p.63
 
@@ -151,7 +151,7 @@ d. $A$ has a pivot position in every row.
 
 :::
 
-::: {#nte-theorem-5 .callout-note title="Linearity of Matrix-Vector Multiplication"}
+::: {#theorem-1-4-3 .callout-note title="Theorem 1.4.3 — Linearity of Matrix-Vector Multiplication"}
 
 **Textbook reference:** p.65
 
@@ -164,7 +164,7 @@ b. $A(c\vec{u}) = c(A\vec{u})$
 
 ## Chapter 1.5 – Solution Sets of Linear Systems
 
-::: {#nte-theorem-6 .callout-note title="Solution Set of a Consistent Linear System"}
+::: {#theorem-1-5-1 .callout-note title="Theorem 1.5.1 — Solution Set of a Consistent Linear System"}
 
 **Textbook reference:** p.73
 
@@ -174,7 +174,7 @@ Suppose the equation $A\vec{x}=\vec{b}$ is consistent for some given $\vec{b}$, 
 
 ## Chapter 1.7 – Linear Independence
 
-::: {#nte-theorem-7 .callout-note title="Characterization of Linearly Dependent Sets"}
+::: {#theorem-1-7-1 .callout-note title="Theorem 1.7.1 — Characterization of Linearly Dependent Sets"}
 
 **Textbook reference:** p.86
 
@@ -182,7 +182,7 @@ An indexed set $S= \{ \vec{v}_1, \cdots, \vec{v}_p \}$ of two or more vectors is
 
 :::
 
-::: {#nte-theorem-8 .callout-note title="Theorem 8"}
+::: {#theorem-1-7-2 .callout-note title="Theorem 1.7.2"}
 
 **Textbook reference:** p.87
 
@@ -190,7 +190,7 @@ If a set contains more vectors than there are entries in each vector, then the s
 
 :::
 
-::: {#nte-theorem-9 .callout-note title="Theorem 9"}
+::: {#theorem-1-7-3 .callout-note title="Theorem 1.7.3"}
 
 **Textbook reference:** p.87
 
@@ -237,6 +237,156 @@ $$
 \vec{0}
 $$
 
-Because one coefficient is nonzero, this is a nontrivial (see @nte-existence-and-uniqueness) linear combination that equals $\vec{0}$. Therefore the set is linearly dependent.
+Because one coefficient is nonzero, this is a nontrivial (see [Theorem 1.2.2](#theorem-1-2-2)) linear combination that equals $\vec{0}$. Therefore the set is linearly dependent.
+
+:::
+
+## Chapter 2.9 – Dimension and Rank
+
+::: {#theorem-2-9-1 .callout-note title="Theorem 2.9.1 — Rank Theorem"}
+
+**Source note:** [Dimension and Rank](2-9-dimension-and-rank.md)
+
+If a matrix $A$ has $n$ columns, then
+
+$$
+\operatorname{rank}(A)+\dim\bigl(\operatorname{Nul}(A)\bigr)=n.
+$$
+
+:::
+
+::: {#theorem-2-9-2 .callout-note title="Theorem 2.9.2 — Basis Theorem"}
+
+**Source note:** [Dimension and Rank](2-9-dimension-and-rank.md)
+
+Let $H$ be a $p$-dimensional subspace of $\mathbb{R}^n$.
+
+- Any linearly independent set of exactly $p$ vectors in $H$ is a basis for
+  $H$.
+- Any set of exactly $p$ vectors that spans $H$ is a basis for $H$.
+
+:::
+
+::: {#theorem-2-9-3 .callout-note title="Theorem 2.9.3 — Invertible Matrix Theorem"}
+
+**Source note:** [Dimension and Rank](2-9-dimension-and-rank.md)
+
+Let $A$ be an $n\times n$ matrix. The following statements are equivalent:
+for a given $A$, either they are all true or they are all false.
+
+a. $A$ is invertible.
+b. $A$ is row equivalent to the $n\times n$ identity matrix.
+c. $A$ has $n$ pivot positions.
+d. The equation $A\vec{x}=\vec{0}$ has only the trivial solution.
+e. The columns of $A$ form a linearly independent set.
+f. The linear transformation $\vec{x}\mapsto A\vec{x}$ is one-to-one.
+g. For every $\vec{b}\in\mathbb{R}^n$, the equation
+   $A\vec{x}=\vec{b}$ has at least one solution.
+h. The columns of $A$ span $\mathbb{R}^n$.
+i. The linear transformation $\vec{x}\mapsto A\vec{x}$ maps
+   $\mathbb{R}^n$ onto $\mathbb{R}^n$.
+j. There is an $n\times n$ matrix $C$ such that $CA=I$.
+k. There is an $n\times n$ matrix $D$ such that $AD=I$.
+l. $A^T$ is invertible.
+m. The columns of $A$ form a basis for $\mathbb{R}^n$.
+n. $\operatorname{Col}(A)=\mathbb{R}^n$.
+o. $\operatorname{rank}(A)=n$.
+p. $\dim\bigl(\operatorname{Nul}(A)\bigr)=0$.
+q. $\operatorname{Nul}(A)=\{\vec{0}\}$.
+
+:::
+
+## Chapter 3.1 – Introduction to Determinants
+
+::: {#theorem-3-1-1 .callout-note title="Theorem 3.1.1 — Cofactor Expansion"}
+
+**Source note:** [Introduction to Determinants](3-1-introduction-to-determinants.md)
+
+The determinant of an $n\times n$ matrix can be computed by expanding along
+any row $i$ or any column $j$:
+
+$$
+\det(A)=\sum_{k=1}^{n}a_{ik}C_{ik}
+\qquad\text{or}\qquad
+\det(A)=\sum_{k=1}^{n}a_{kj}C_{kj}.
+$$
+
+Here, $C_{ij}=(-1)^{i+j}\det(A_{ij})$ is the cofactor of $a_{ij}$.
+
+:::
+
+::: {#theorem-3-1-2 .callout-note title="Theorem 3.1.2 — Triangular-Matrix Determinant"}
+
+**Source note:** [Introduction to Determinants](3-1-introduction-to-determinants.md)
+
+If $A$ is an upper- or lower-triangular matrix, then its determinant is the
+product of the entries on its main diagonal:
+
+$$
+\det(A)=a_{11}a_{22}\cdots a_{nn}.
+$$
+
+:::
+
+## Chapter 3.2 – Properties of Determinants
+
+::: {#theorem-3-2-3 .callout-note title="Theorem 3.2.3 — Effects of Row Operations"}
+
+**Source note:** [Properties of Determinants](3-2-properties-of-determinants.md)
+
+Let $A$ be a square matrix, and let $B$ be obtained from $A$ by one row
+operation.
+
+1. Adding a multiple of one row to another row leaves the determinant
+   unchanged: $\det(B)=\det(A)$.
+2. Interchanging two rows reverses the sign: $\det(B)=-\det(A)$.
+3. Multiplying one row by $k$ multiplies the determinant by $k$:
+   $\det(B)=k\det(A)$.
+
+:::
+
+::: {#theorem-3-2-4 .callout-note title="Theorem 3.2.4 — Invertibility Test"}
+
+**Source note:** [Properties of Determinants](3-2-properties-of-determinants.md)
+
+A square matrix $A$ is invertible if and only if
+
+$$
+\det(A)\ne0.
+$$
+
+:::
+
+::: {#theorem-3-2-5 .callout-note title="Theorem 3.2.5 — Transpose Invariance"}
+
+**Source note:** [Properties of Determinants](3-2-properties-of-determinants.md)
+
+If $A$ is an $n\times n$ matrix, then
+
+$$
+\det(A)=\det(A^T).
+$$
+
+:::
+
+::: {#theorem-3-2-6 .callout-note title="Theorem 3.2.6 — Determinant of a Product"}
+
+**Source note:** [Properties of Determinants](3-2-properties-of-determinants.md)
+
+If $A$ and $B$ are $n\times n$ matrices, then
+
+$$
+\det(AB)=\det(A)\det(B).
+$$
+
+:::
+
+## Chapter 4.1
+
+::: {#theorem-4-1-1 .callout-note title="Theorem 4.1.1"}
+
+**Textbook reference:** p.38
+
+Each matrix is row equivalent to one and only one reduced echelon matrix.
 
 :::

@@ -4,6 +4,11 @@ project:
   render:
     - index.md
     - "notes/personal/**/*.md"
+    - notes/linear-algebra/courses/khan-academy/01-vectors-and-spaces.md
+    - notes/linear-algebra/courses/khan-academy/02-linear-combinations-and-span.md
+    - notes/linear-algebra/courses/khan-academy/03-linear-dependence-and-independence.md
+    - notes/linear-algebra/courses/khan-academy/04-subspaces-and-the-basis-for-a-subspace.md
+    - notes/linear-algebra/courses/khan-academy/05-vector-dot-and-cross-products.md
 
 format:
   html:
@@ -12,10 +17,10 @@ format:
 website:
   title: Project Polaris Academy
   page-navigation: true
+  navbar:
+    left:
+      - text: Jon Leithe
+        href: https://www.jonleithe.no/
   sidebar:
     style: docked
     search: true
-    contents:
-      - href: index.md
-        text: Home
-      - auto: "notes/personal/**"

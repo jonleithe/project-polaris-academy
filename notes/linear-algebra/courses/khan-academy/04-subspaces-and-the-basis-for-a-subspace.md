@@ -90,7 +90,7 @@ Is $U$ a valid subspace of $\mathbb{R}^n$?
    If we now multiply both sides by another arbitrary constant, we get:
 
    $$
-   a\vec{x}=ac_1\vec{v}_1 + ac_2\vec{v}_2 + ac_3\vec{v}_3
+   a\vec{x}=ac_1\vec{v}_1 + ac_2\vec{v}_2 + ac_3\vec{v}_3  
    ,\qquad
    a\in\mathbb{R}
    $$

@@ -515,9 +515,11 @@ $$
 
 is orthogonal to $\vec{b}$.
 
-Referring to @fig-vector-projection-002-hand-drawn, $\vec{a}_1$ represents the projection of $\vec{a}$ onto $\vec{b}$.
+Referring to @fig-vector-projection-002, the red vector represents the
+projection of $\vec{a}$ onto $\vec{b}$. The dashed red segment is the
+remaining component, which is orthogonal to $\vec{b}$.
 
-![The projection of $\vec{a}$ onto $\vec{b}$, shown as $\vec{a}_1$.](../../../../images/vector_projection_002_hand_drawn.png){#fig-vector-projection-002-hand-drawn width=75%}
+![The projection of $\vec{a}$ onto $\vec{b}$, with the orthogonal residual shown as a dashed red segment.](../../../../images/vector-projection-002-polaris.png){#fig-vector-projection-002 width=75%}
 
 <!-- pagebreak -->
 

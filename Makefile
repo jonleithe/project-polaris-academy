@@ -4,10 +4,11 @@ PYTHON      := python3
 SOURCE_DIR  := notes
 BUILD_DIR   := build
 BOOK_CHAPTER_PROFILE := _quarto-auto-book.yml
+SITE_NAVIGATION_PROFILE := _quarto-auto-site.yml
 
 SOURCES     := $(sort $(shell find $(SOURCE_DIR) -type f -name '*.md' -print))
 
-.PHONY: all help note notes linear-algebra book site preview clean list
+.PHONY: all help note notes linear-algebra profiles book site preview clean list
 
 all: notes
 
@@ -26,13 +27,13 @@ help:
 		'      Render the Khan linear algebra notes as one Quarto book PDF.' \
 		'' \
 		'  make book' \
-		'      Discover personal notes and render the Quarto book PDF.' \
+		'      Render the theorem index, Khan Academy units 01–05, and personal notes as a Quarto book PDF.' \
 		'' \
 		'  make site' \
-		'      Render the home page and personal notes as a navigable HTML site.' \
+		'      Render the home page, theorem index, Khan Academy units 01–05, and personal notes as a navigable HTML site.' \
 		'' \
 		'  make preview' \
-		'      Render the personal-notes site and start a live preview.' \
+		'      Render the Academy site and start a live preview.' \
 		'' \
 		'  make list' \
 		'      List all Markdown note sources.' \
@@ -72,7 +73,7 @@ note:
 		exit 2; \
 	fi; \
 	echo "Rendering $$note as PDF"; \
-	$(QUARTO) render "$$note" --to pdf
+	$(QUARTO) render --profile notes "$$note" --to pdf
 
 notes:
 	$(QUARTO) render --profile notes --to pdf
@@ -80,16 +81,18 @@ notes:
 linear-algebra:
 	$(QUARTO) render --profile linear-algebra --to pdf
 
-book:
-	$(PYTHON) scripts/generate-book-profile.py --output $(BOOK_CHAPTER_PROFILE)
+profiles:
+	$(PYTHON) scripts/generate-book-profile.py --output $(BOOK_CHAPTER_PROFILE) --site-output $(SITE_NAVIGATION_PROFILE)
+
+book: profiles
 	$(QUARTO) render --profile book,auto-book --to pdf
 	./copy-book-to-jotta
 
-site:
-	$(QUARTO) render --profile site --to html
+site: profiles
+	$(QUARTO) render --profile site,auto-site --to html
 
-preview:
-	$(QUARTO) preview --profile site --to html --render html
+preview: profiles
+	$(QUARTO) preview --profile site,auto-site --to html --render html
 
 list:
 	@printf '%s\n' $(SOURCES)
@@ -99,4 +102,4 @@ clean:
 		find "$(BUILD_DIR)" -type f -name '*.pdf' -delete; \
 	fi
 	@rm -rf "$(BUILD_DIR)/quarto" "$(BUILD_DIR)/site" "$(BUILD_DIR)/books"
-	@rm -f "$(BOOK_CHAPTER_PROFILE)"
+	@rm -f "$(BOOK_CHAPTER_PROFILE)" "$(SITE_NAVIGATION_PROFILE)"

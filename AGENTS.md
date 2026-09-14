@@ -144,11 +144,13 @@ make preview
 ```
 
 Quarto produces individual PDFs, a navigable local HTML site, and combined
-subject and book PDFs. The book and site contain `notes/personal/` plus the
-shared root front page; the all-notes and subject builds retain their broader
-scopes. `make site` writes the HTML site to `build/site/`; `make preview` serves
-the same site profile with sidebar search and previous/next navigation. Keep
-the Make target names stable if the underlying profiles evolve.
+subject and book PDFs. The book and site contain the root front page, the
+theorem index at `notes/personal/00-theorems.md`, Khan Academy Linear Algebra
+units 01–05, and the remaining personal notes in that order. The all-notes and
+subject builds retain their broader scopes. `make site` writes the HTML site to
+`build/site/`; `make preview` serves the same site profile with sidebar search
+and previous/next navigation. Keep the Make target names stable if the
+underlying profiles evolve.
 
 XeLaTeX is used as PDF engine.
 

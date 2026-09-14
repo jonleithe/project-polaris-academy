@@ -6,6 +6,12 @@ author      : Jon Leithe
 date        : 2026-09-12
 ---
 
+::: {.math-definitions style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%);" aria-hidden="true"}
+$$
+\def\goldD#1{{\color{orange}#1}}
+$$
+:::
+
 The determinant is a single number associated with a square matrix. It is an
 important test for invertibility: a square matrix is invertible exactly when
 its determinant is nonzero. This note introduces a general method for
@@ -47,7 +53,7 @@ $$
 
 This base case makes the following recursive definition complete.
 
-::: {.callout-note title="Cofactor expansion"}
+::: {#nte-cofactor-expansion .callout-note title="Theorem 1: Cofactor Expansion"}
 
 The determinant of an $n\times n$ matrix can be computed by expanding along
 any row $i$ or any column $j$:
@@ -131,31 +137,32 @@ For larger matrices, expand repeatedly along sparse rows or columns. Consider
 $$
 A=
 \begin{bmatrix}
-3 & -7 & 8 & 9 & -6 \\
-0 & 2 & -5 & 7 & 3 \\
-0 & 0 & 1 & 5 & 0 \\
-0 & 0 & 2 & 4 & -1 \\
-0 & 0 & 0 & -2 & 0
+\goldD{3} & -7 & 8 & 9 & -6 \\
+\goldD{0} & 2 & -5 & 7 & 3 \\
+\goldD{0} & 0 & 1 & 5 & 0 \\
+\goldD{0} & 0 & 2 & 4 & -1 \\
+\goldD{0} & 0 & 0 & -2 & 0
 \end{bmatrix}.
 $$
 
 Only the first entry in the first column is nonzero. Expanding down that
-column, and then down the first column of the resulting matrix, gives
+orange-highlighted column, and then down the next highlighted column, gives
 
 $$
 \begin{aligned}
 \det(A)
-&=3\begin{vmatrix}
-2 & -5 & 7 & 3 \\
-0 & 1 & 5 & 0 \\
-0 & 2 & 4 & -1 \\
-0 & 0 & -2 & 0
+&=\goldD{3}
+\begin{vmatrix}
+\goldD{2} & -5 & 7 & 3 \\
+\goldD{0} & 1 & 5 & 0 \\
+\goldD{0} & 2 & 4 & -1 \\
+\goldD{0} & 0 & -2 & 0
 \end{vmatrix} \\
-&=3(2)
+&=\goldD{3}\goldD{(2)}
 \begin{vmatrix}
 1 & 5 & 0 \\
 2 & 4 & -1 \\
-0 & -2 & 0
+\goldD{0} & \goldD{-2} & \goldD{0}
 \end{vmatrix}.
 \end{aligned}
 $$
@@ -165,7 +172,7 @@ Expanding the remaining determinant along its third row yields
 $$
 \begin{aligned}
 \det(A)
-&=6\left[-(-2)
+&=6\left[-\goldD{(-2)}
 \begin{vmatrix}
 1 & 0 \\
 2 & -1
@@ -177,7 +184,7 @@ $$
 
 ## Determinants of triangular matrices
 
-::: {.callout-note title="Triangular-matrix determinant"}
+::: {#nte-triangular-determinant .callout-note title="Theorem 2: Triangular-Matrix Determinant"}
 
 If $A$ is an upper- or lower-triangular matrix, then its determinant is the
 product of the entries on its main diagonal:
@@ -199,32 +206,33 @@ Compute the determinant of
 $$
 A=
 \begin{bmatrix}
-5 & -7 & 2 & 2 \\
-0 & 3 & 0 & -4 \\
--5 & -8 & 0 & 3 \\
-0 & 5 & 0 & -6
+5 & -7 & \goldD{2} & 2 \\
+0 & 3 & \goldD{0} & -4 \\
+-5 & -8 & \goldD{0} & 3 \\
+0 & 5 & \goldD{0} & -6
 \end{bmatrix}.
 $$
 
-Column $3$ has only one nonzero entry, so cofactor expansion down that column
-immediately reduces the problem to a three-by-three determinant:
+The orange-highlighted column $3$ has only one nonzero entry, so cofactor
+expansion down that column immediately reduces the problem to a three-by-three
+determinant:
 
 $$
 \det(A)
-=2
+=\goldD{2}
 \begin{vmatrix}
-0 & 3 & -4 \\
--5 & -8 & 3 \\
-0 & 5 & -6
+\goldD{0} & 3 & -4 \\
+\goldD{-5} & -8 & 3 \\
+\goldD{0} & 5 & -6
 \end{vmatrix}.
 $$
 
-Next, expand down the first column. Again, only one term remains:
+Next, expand down the highlighted first column. Again, only one term remains:
 
 $$
 \begin{aligned}
 \det(A)
-&=2(-1)(-5)
+&=\goldD{2}(-1)\goldD{(-5)}
 \begin{vmatrix}
 3 & -4 \\
 5 & -6

@@ -4,6 +4,19 @@ This file records durable context and decisions from AI-assisted project work.
 It contains concise summaries rather than verbatim chat transcripts. The newest
 entry should be added at the top of the history.
 
+## 2026-09-12 — Added the foundational Khan Academy sequence to published outputs
+
+- Expanded the complete Academy book and navigable site to include Khan Academy
+  Linear Algebra units 01–05 alongside the personal collection.
+- Established the shared order: root front page, theorem index, the five Khan
+  Academy units, then the remaining personal notes. This keeps the theorem
+  reference at the beginning while presenting foundational course material
+  before personal extensions.
+- Generate both the book chapter list and site sidebar from the same ordered
+  source list, so new personal notes remain discoverable without the two
+  outputs drifting apart. Khan Academy units 06–07 remain outside this published
+  collection for now.
+
 ## 2026-08-16 — Made personal notes the published collection
 
 - Scoped `make book` chapter discovery to Markdown files below
