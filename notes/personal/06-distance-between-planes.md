@@ -67,7 +67,7 @@ These vectors are not scalar multiples, so the three points are not
 collinear and determine a unique plane. @fig-planes-construction shows
 the points and the two directions.
 
-![Construction of the plane from three points. The arrows from P to Q and P to R give two independent directions within the plane; the drawing is a schematic projection.](../../images/distance-between-planes-construction-hand-drawn-warm-crosshatched.png){#fig-planes-construction width=95% fig-align="center"}
+![Construction of the plane from three points. The arrows from P to Q and P to R give two independent directions within the plane; the drawing is a schematic projection.](../../images/distance-between-planes-construction-white-grid.png){#fig-planes-construction width=95% fig-align="center"}
 
 We should also check that this plane contains the *whole* second line,
 not just $R$. Its direction is
@@ -183,7 +183,7 @@ Both $d=6$ and $d=-6$ satisfy the condition. They describe planes on
 opposite sides of $\Pi_0$. @fig-planes-separation illustrates the $d=6$
 case; the other solution lies at the same distance on the opposite side.
 
-![The blue plane $-x+2y-z=0$ and the red plane $x-2y+z=6$ are parallel, with perpendicular separation $\sqrt{6}$. This illustrates one of the two possible solutions.](../../images/distance-between-planes-separation-hand-drawn-warm-crosshatched.png){#fig-planes-separation width=85% fig-align="center"}
+![The blue plane $-x+2y-z=0$ and the red plane $x-2y+z=6$ are parallel, with perpendicular separation $\sqrt{6}$. This illustrates one of the two possible solutions.](../../images/distance-between-planes-separation-white-grid.png){#fig-planes-separation width=85% fig-align="center"}
 
 ## General rule and summary
 

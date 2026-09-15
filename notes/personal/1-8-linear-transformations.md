@@ -31,7 +31,7 @@ For each input vector $\vec{x}\in\mathbb{R}^n$, the transformation assigns one o
 
 The range is a subset of the codomain. A transformation need not reach every vector in its codomain, as illustrated in @fig-linear-transformations-domain-codomain-range.
 
-![Domain, codomain, and range of a transformation.](../../images/linear-transformations-domain-codomain-range.png){#fig-linear-transformations-domain-codomain-range width=50% fig-pos="H" fig-align="center"}
+![Domain, codomain, and range of a transformation.](../../images/linear-transformations-domain-codomain-range-white-grid.png){#fig-linear-transformations-domain-codomain-range width=50% fig-pos="H" fig-align="center"}
 
 ## Matrix transformations
 
@@ -264,7 +264,7 @@ $$
 
 It leaves the $x_1$- and $x_2$-coordinates unchanged and replaces the $x_3$-coordinate with zero. Thus, it projects every vector onto the $x_1x_2$-plane, as shown in @fig-linear-transformations-plane-and-vectors.
 
-![Projection onto the $x_1x_2$-plane.](../../images/linear-transformations-plane-and-vectors.png){#fig-linear-transformations-plane-and-vectors width=40% fig-pos="H" fig-align="center"}
+![Projection onto the $x_1x_2$-plane.](../../images/linear-transformations-plane-and-vectors-white-grid.png){#fig-linear-transformations-plane-and-vectors width=40% fig-pos="H" fig-align="center"}
 
 The range is exactly that plane:
 
@@ -310,7 +310,7 @@ $$
 
 The $y$-coordinate remains fixed, while the $x$-coordinate shifts by an amount proportional to $y$. For $k=1$, the rectangle with vertices $(0,0)$, $(3,0)$, $(0,5)$, and $(3,5)$ maps to the parallelogram with vertices $(0,0)$, $(3,0)$, $(5,5)$, and $(8,5)$; see @fig-linear-transformations-horizontal-shear. The $x$-axis remains fixed because points on it have $y=0$.
 
-![A horizontal shear with $k=1$. The orange rectangle maps to the green parallelogram.](../../images/linear-transformations-horizontal-shear.png){#fig-linear-transformations-horizontal-shear width=75% fig-pos="H" fig-align="center"}
+![A horizontal shear with $k=1$. The orange rectangle maps to the green parallelogram.](../../images/linear-transformations-horizontal-shear-white-grid.png){#fig-linear-transformations-horizontal-shear width=75% fig-pos="H" fig-align="center"}
 
 ## Linearity and superposition
 

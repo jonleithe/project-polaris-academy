@@ -381,6 +381,41 @@ $$
 
 :::
 
+## Chapter 3.3 – Cramer's Rule
+
+::: {#theorem-3-3-7 .callout-note title="Theorem 3.3.7 — Cramer's Rule"}
+
+**Source note:** [Cramer's Rule](3-3-cramers-rule.md)
+
+Let $A$ be an invertible $n\times n$ matrix. For every
+$\vec{b}\in\mathbb{R}^n$, the unique solution of $A\vec{x}=\vec{b}$ has
+entries
+
+$$
+x_i=\frac{\det(A_i(\vec{b}))}{\det(A)},
+\qquad i=1,2,\ldots,n,
+$$
+
+where $A_i(\vec{b})$ is obtained by replacing column $i$ of $A$ with
+$\vec{b}$.
+
+:::
+
+::: {#theorem-3-3-8 .callout-note title="Theorem 3.3.8 — An Inverse Formula"}
+
+**Source note:** [Cramer's Rule](3-3-cramers-rule.md)
+
+If $A$ is an invertible $n\times n$ matrix, then
+
+$$
+A^{-1}=\frac{1}{\det(A)}\operatorname{adj}(A),
+$$
+
+where $\operatorname{adj}(A)=[C_{ij}]^T$ is the transpose of the cofactor
+matrix of $A$.
+
+:::
+
 ## Chapter 4.1
 
 ::: {#theorem-4-1-1 .callout-note title="Theorem 4.1.1"}

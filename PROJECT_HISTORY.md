@@ -4,6 +4,21 @@ This file records durable context and decisions from AI-assisted project work.
 It contains concise summaries rather than verbatim chat transcripts. The newest
 entry should be added at the top of the history.
 
+## 2026-09-15 — Standardized book illustration backgrounds
+
+- Revised all seven diagrams referenced by personal notes to use white paper
+  and a very faint square grid, with roughly centimetre-scale spacing in PDF.
+- Retained the hand-drawn diagrams and original assets, updated note references,
+  and recorded the edit prompts in `images/source/personal-white-grid-prompts.md`.
+- Documented the convention in the authoring guide; reproduced textbook covers
+  and photographs keep their original appearance.
+- Extended the same hand-drawn, white-paper treatment to all nine diagrams in
+  Khan Academy units 01–05 and the book's four cover sketches. Coordinate grids
+  follow mathematical ticks; the cover grid uses 10 mm spacing.
+- Corrected the 3D angle marker to sit between its two vectors and removed an
+  incorrect guide line from the vector-projection illustration. Recorded the
+  book-wide review and final prompts in `images/source/book-white-grid-prompts.md`.
+
 ## 2026-09-12 — Added the foundational Khan Academy sequence to published outputs
 
 - Expanded the complete Academy book and navigable site to include Khan Academy

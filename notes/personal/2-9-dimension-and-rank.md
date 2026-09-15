@@ -200,7 +200,7 @@ the $\vec{v}_2$ direction reach $\vec{x}$. Although $H$ lies in
 $\mathbb{R}^3$, only two basis coordinates are needed to describe a vector
 in $H$, so $\dim(H)=2$.
 
-![Schematic of the plane $H$ with basis $B=\{\vec{v}_1,\vec{v}_2\}$ and the vector $\vec{x}=2\vec{v}_1+3\vec{v}_2$.](../../images/dimension-and-rank-basis-coordinates-hand-drawn-warm-crosshatched.png){#fig-dimension-and-rank-basis-coordinates width=85% fig-pos="H" fig-align="center"}
+![Schematic of the plane $H$ with basis $B=\{\vec{v}_1,\vec{v}_2\}$ and the vector $\vec{x}=2\vec{v}_1+3\vec{v}_2$.](../../images/dimension-and-rank-basis-coordinates-white-grid.png){#fig-dimension-and-rank-basis-coordinates width=85% fig-pos="H" fig-align="center"}
 
 The basis defines a coordinate system on $H$. Its basis vectors form the
 columns of the matrix

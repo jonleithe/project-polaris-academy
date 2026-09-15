@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="550" viewBox="0 0 800 550" role="img" aria-labelledby="title desc">
+<title id="title">A counterclockwise quarter-turn creates perpendicular vectors</title>
+<desc id="desc">Equal-scale coordinate axes show v from the origin to (2,1) and w from the origin to (-1,2). A counterclockwise arc and right-angle marker show the 90 degree rotation.</desc>
+<rect width="800" height="550" fill="white"/>
+<defs>
+ <marker id="axis-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#393632" stroke-width="1.5" stroke-linejoin="round"/></marker>
+ <marker id="blue-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto"><path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#24678d" stroke-width="1.8" stroke-linejoin="round"/></marker>
+ <marker id="red-arrow" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="8" markerHeight="8" orient="auto"><path d="M 1 1 L 11 6 L 1 11" fill="none" stroke="#a34f36" stroke-width="1.8" stroke-linejoin="round"/></marker>
+</defs>
+<!-- One coordinate unit is exactly 100 pixels in both directions. -->
+<g stroke="#eeeeee" stroke-width="1">
+<path d="M150 60 V460"/>
+<path d="M250 60 V460"/>
+<path d="M350 60 V460"/>
+<path d="M450 60 V460"/>
+<path d="M550 60 V460"/>
+<path d="M650 60 V460"/>
+<path d="M750 60 V460"/>
+<path d="M100 60 H750"/>
+<path d="M100 160 H750"/>
+<path d="M100 260 H750"/>
+<path d="M100 360 H750"/>
+<path d="M100 460 H750"/>
+</g>
+<g fill="none" stroke="#393632" stroke-width="1.8" stroke-linecap="round">
+ <path d="M100 360 Q400 359.4 746 360" marker-end="url(#axis-arrow)"/>
+ <path d="M350 480 Q349.4 260 350 40" marker-end="url(#axis-arrow)"/>
+</g>
+<g font-family="DejaVu Serif, serif" font-size="21" fill="#393632" text-anchor="middle">
+<path d="M150 355 V365" stroke="#393632" stroke-width="1.4"/><text x="150" y="389">−2</text>
+<path d="M250 355 V365" stroke="#393632" stroke-width="1.4"/><text x="250" y="389">−1</text>
+<path d="M450 355 V365" stroke="#393632" stroke-width="1.4"/><text x="450" y="389">1</text>
+<path d="M550 355 V365" stroke="#393632" stroke-width="1.4"/><text x="550" y="389">2</text>
+<path d="M650 355 V365" stroke="#393632" stroke-width="1.4"/><text x="650" y="389">3</text>
+<path d="M345 460 H355" stroke="#393632" stroke-width="1.4"/><text x="329" y="467">−1</text>
+<path d="M345 260 H355" stroke="#393632" stroke-width="1.4"/><text x="329" y="267">1</text>
+<path d="M345 160 H355" stroke="#393632" stroke-width="1.4"/><text x="329" y="167">2</text>
+<path d="M345 60 H355" stroke="#393632" stroke-width="1.4"/><text x="329" y="67">3</text>
+<text x="331" y="389">0</text>
+</g>
+<g font-family="DejaVu Serif, serif" font-style="italic" font-size="27" fill="#393632">
+ <text x="756" y="374">x</text><text x="366" y="43">y</text>
+</g>
+<!-- Endpoints are exact; the slight bow and faint companion stroke suggest pencil. -->
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+ <path d="M350 360 Q449.6 309.3 550 260" stroke="#24678d" stroke-width="2.8" marker-end="url(#blue-arrow)"/>
+ <path d="M350 360 Q450.6 311 550 260" stroke="#24678d" stroke-width="0.6" opacity="0.35"/>
+ <path d="M350 360 Q299.3 260.4 250 160" stroke="#a34f36" stroke-width="2.8" marker-end="url(#red-arrow)"/>
+ <path d="M350 360 Q301 259.4 250 160" stroke="#a34f36" stroke-width="0.6" opacity="0.35"/>
+ <path d="M369.677 350.161 L359.839 330.484 L340.161 340.323" stroke="#393632" stroke-width="1.6"/>
+ <path d="M417.082 326.459 A75 75 0 0 0 316.459 292.918" stroke="#68635c" stroke-width="1.4" marker-end="url(#axis-arrow)"/>
+</g>
+<g font-family="DejaVu Serif, serif" font-size="26">
+ <text x="568" y="252" fill="#24678d"><tspan font-style="italic">v</tspan> = (2, 1)</text>
+ <text x="145" y="126" fill="#a34f36"><tspan font-style="italic">w</tspan> = (−1, 2)</text>
+ <text x="369" y="236" fill="#393632">90° CCW</text>
+</g>
+</svg>
