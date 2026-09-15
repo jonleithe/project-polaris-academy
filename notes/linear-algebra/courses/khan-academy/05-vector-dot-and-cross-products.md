@@ -274,7 +274,7 @@ $$
 
 Two parallel vectors span a line.
 
-![Two vectors in a two-dimensional plane in $\mathbb{R}^3$ and the angle $\theta$ between them](../../../../images/plane-in-r3-hand-drawn.png){#fig-vectors-in-r3-defining-a-plane width=25%}
+![Two vectors in a two-dimensional plane in $\mathbb{R}^3$ and the angle $\theta$ between them](../../../../images/plane-in-r3-hand-drawn-white-grid.png){#fig-vectors-in-r3-defining-a-plane width=40%}
 
 If both vectors are nonzero, this equation allows us to find the angle
 between them:
@@ -436,7 +436,7 @@ $$
 
 In $\mathbb{R}^2$, this is visualized in @fig-scalar-component-a-rel-b. The red arrow points in the direction of $\vec{b}$, and its length $3$ represents the scalar component of $\vec{a}$ in that direction.
 
-![The scalar component of $\vec{a}$ in the direction of $\vec{b}$ is $3$](../../../../images/scalar-component-a-rel-b-hand-drawn.png){#fig-scalar-component-a-rel-b width=50%}
+![The scalar component of $\vec{a}$ in the direction of $\vec{b}$ is $3$](../../../../images/scalar-component-a-rel-b-hand-drawn-white-grid.png){#fig-scalar-component-a-rel-b width=50%}
 
 <!-- pagebreak -->
 #### Vector projection
@@ -519,7 +519,7 @@ Referring to @fig-vector-projection-002, the red vector represents the
 projection of $\vec{a}$ onto $\vec{b}$. The dashed red segment is the
 remaining component, which is orthogonal to $\vec{b}$.
 
-![The projection of $\vec{a}$ onto $\vec{b}$, with the orthogonal residual shown as a dashed red segment.](../../../../images/vector-projection-002-polaris.png){#fig-vector-projection-002 width=75%}
+![The projection of $\vec{a}$ onto $\vec{b}$, with the orthogonal residual shown as a dashed red segment.](../../../../images/vector-projection-002-polaris-white-grid.png){#fig-vector-projection-002 width=75%}
 
 <!-- pagebreak -->
 

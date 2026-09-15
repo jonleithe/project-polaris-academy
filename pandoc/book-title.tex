@@ -2,9 +2,9 @@
 \usepackage{tikz}
 \usetikzlibrary{calc}
 
-\definecolor{PolarisPaper}{HTML}{E7D6C4}
+\definecolor{PolarisPaper}{HTML}{FFFFFF}
 \definecolor{PolarisInk}{HTML}{332F2A}
-\definecolor{PolarisGrid}{HTML}{A9947E}
+\definecolor{PolarisGrid}{HTML}{EEEEEE}
 
 \newfontfamily\PolarisTitleFont[
   Path=fonts/playfair-display/
@@ -42,28 +42,28 @@
     \fill[PolarisPaper]
       (current page.south west) rectangle (current page.north east);
 
-    \draw[
-      step=5mm,
-      draw=PolarisGrid,
-      line width=0.16pt,
-      opacity=0.10
-    ] (current page.south west) grid (current page.north east);
-
     \node[anchor=north west,inner sep=0]
       at ($(current page.north west)+(9mm,-9mm)$)
-      {\includegraphics[width=0.39\paperwidth]{images/book-cover-top-left.png}};
+      {\includegraphics[width=0.39\paperwidth]{images/book-cover-top-left-white.png}};
 
     \node[anchor=north east,inner sep=0]
       at ($(current page.north east)+(-9mm,-9mm)$)
-      {\includegraphics[width=0.39\paperwidth]{images/book-cover-top-right.png}};
+      {\includegraphics[width=0.39\paperwidth]{images/book-cover-top-right-white.png}};
 
     \node[anchor=south west,inner sep=0]
       at ($(current page.south west)+(9mm,9mm)$)
-      {\includegraphics[width=0.39\paperwidth]{images/book-cover-bottom-left-title.png}};
+      {\includegraphics[width=0.39\paperwidth]{images/book-cover-bottom-left-title-white.png}};
 
     \node[anchor=south east,inner sep=0]
       at ($(current page.south east)+(-9mm,9mm)$)
-      {\includegraphics[width=0.39\paperwidth]{images/book-cover-bottom-right-hand-drawn.png}};
+      {\includegraphics[width=0.39\paperwidth]{images/book-cover-bottom-right-hand-drawn-white.png}};
+
+    \draw[
+      step=10mm,
+      draw=PolarisGrid,
+      line width=0.16pt,
+      opacity=0.55
+    ] (current page.south west) grid (current page.north east);
   \end{tikzpicture}%
 }
 

@@ -134,6 +134,24 @@ Relative image paths are resolved from the note's directory. Percentage widths
 are generally portable between HTML and PDF; use format-specific sizing only
 when the two outputs genuinely require it.
 
+### Book illustration style
+
+Diagrams used in `notes/personal/` and the Khan Academy chapters included in
+the book retain their hand-drawn style and use a white background with a very
+faint square grid. Aim for roughly 1 cm squares at the intended PDF
+figure size; screen size and responsive HTML scaling will change the apparent
+spacing. Use thin neutral light-gray lines (approximately `#EEEEEE`), with no
+paper grain, yellow tint, or decorative diagonal crosshatching.
+
+Keep mathematical labels and arrows clear, with restrained colors and light
+shading inside planes or other objects. The background grid is decorative and
+does not imply coordinate units. On coordinate plots, use the existing grid
+aligned with axis ticks instead of adding a competing decorative grid;
+mathematical scale takes precedence over centimetre spacing.
+Photographs and reproduced book covers retain their original appearance.
+Preserve original artwork when creating revised assets and record image-edit
+prompts in `images/source/`.
+
 ## Page breaks
 
 Use the portable page-break marker:

@@ -41,7 +41,7 @@ Translate this into a vector, and we get:
 
 @fig-vectors-example shows a vector drawn in standard form, which means from the origin (0, 0).
 
-![Example of a vector $\vec{v}$ running from the origin to the point $(8, 6)$.](../../../../images/vector-example-hand-drawn-polaris-warm.png){#fig-vectors-example width=40% fig-pos="H"}
+![Example of a vector $\vec{v}$ running from the origin to the point $(8, 6)$.](../../../../images/vector-example-hand-drawn-polaris-warm-white-grid.png){#fig-vectors-example width=40% fig-pos="H"}
 
 For a vector $\vec{v}=(a, b)$, the magnitude is calculated using the Pythagorean theorem:
 
@@ -217,7 +217,7 @@ The resulting vector is shown in orange in @fig-vector-add-example.
 
 Similarly, looking at @fig-vector-add-example, we can argue that $\vec{w} = (\vec{v}+\vec{w}) - \vec{v}$. Said in another way: what do I have to add to $\vec{v}$ to get to $(\vec{v}+\vec{w})$?
 
-![Two-dimensional vector addition.](../../../../images/vector-2d-addition-polaris-hand-drawn.png){#fig-vector-add-example width=50% fig-pos="H"}
+![Two-dimensional vector addition.](../../../../images/vector-2d-addition-polaris-hand-drawn-white-grid.png){#fig-vector-add-example width=50% fig-pos="H"}
 
 ## Scalar multiplication
 
@@ -323,6 +323,6 @@ $$
 
 Values of $t$ outside this interval extrapolate the constant-velocity motion.
 
-![Vector parametrization](../../../../images/vectors-parametrization-004-hand-drawn.png){#fig-vector-parametrization-004 width=50% fig-pos="H"}
+![Vector parametrization](../../../../images/vectors-parametrization-004-hand-drawn-white-grid.png){#fig-vector-parametrization-004 width=50% fig-pos="H"}
 
 <!-- pagebreak -->

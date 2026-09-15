@@ -51,7 +51,7 @@ that nearest point by $H$, the **perpendicular foot** of $F$ on $\Pi$.
 component. We use $\delta$ for the distance, keeping it distinct from the
 constant $D$ in the plane equation.
 
-![The displacement $\vec f$ runs from P to F. Its component along the normal determines the perpendicular distance $\delta=\|F-H\|$. The angle $\theta$ is between $\vec n$ and $\vec f$.](../../images/point-distance-to-plane-hand-drawn-warm-crosshatched.png){#fig-point-plane-projection width=90% fig-align="center"}
+![The displacement $\vec f$ runs from P to F. Its component along the normal determines the perpendicular distance $\delta=\|F-H\|$. The angle $\theta$ is between $\vec n$ and $\vec f$.](../../images/point-distance-to-plane-white-grid.png){#fig-point-plane-projection width=90% fig-align="center"}
 
 ## Why the perpendicular component gives the shortest distance
 
