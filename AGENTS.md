@@ -131,6 +131,17 @@ Important components:
 - `pandoc/book-title.tex` for the complete volume's custom cover;
 - `pandoc/global-math-definitions.lua` for cross-format reusable math macros.
 
+## Legacy Cross-Reference Migration
+
+The combined-PDF build migrated from direct Pandoc to Quarto on 2026-07-31.
+It no longer depends on the `pandoc-crossref` filter. The `crossref-*` metadata
+in Quarto profiles configures Quarto's built-in cross-referencing and is not a
+reason to restore or install `pandoc-crossref`.
+
+On every workstation, use the repository's Make targets and Quarto profiles.
+Do not reintroduce the obsolete direct-Pandoc defaults, book metadata, or
+`pandoc-crossref` dependency.
+
 Important commands include:
 
 ```
