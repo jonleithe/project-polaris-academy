@@ -6,7 +6,9 @@ date        : 2026-08-16
 ---
 
 An inverse matrix reverses the transformation performed by a matrix. This is
-the matrix analogue of multiplying a nonzero scalar by its reciprocal
+the matrix analogue of multiplying a nonzero scalar by its reciprocal. For
+example, the inverse of $3$ is $\frac{1}{3}$, since multiplying in either
+order returns $1$.
 
 An $n\times n$ matrix $A$ is **invertible** if there is an $n\times n$ matrix
 $C$ such that
@@ -25,6 +27,24 @@ A^{-1}A=I_n
 \qquad\text{and}\qquad
 AA^{-1}=I_n
 $$
+
+To see why the inverse is unique, suppose that $B$ and $C$ are both inverses
+of $A$. Then
+
+$$
+\begin{aligned}
+B
+&= BI_n \\
+&= B(AC) \\
+&= (BA)C \\
+&= I_nC \\
+&= C.
+\end{aligned}
+$$
+
+There is no general operation of matrix division. Matrix multiplication is not
+commutative, so the order in which an inverse is applied matters. A two-sided
+inverse also requires $A$ to be square.
 
 A matrix that is not invertible is called **singular**. An invertible matrix
 is also called **nonsingular**
@@ -144,6 +164,10 @@ $$
 
 If $ad-bc=0$, division by the determinant is impossible and $A$ is singular
 
+The determinant therefore acts as a quick test for invertibility in the
+two-by-two case. A zero determinant means that the transformation collapses
+the plane into a lower-dimensional set, so no transformation can undo it.
+
 <!-- pagebreak -->
 
 ## Solving a linear system with an inverse
@@ -240,6 +264,58 @@ $$
 \end{bmatrix}
 \end{aligned}
 $$
+
+<!-- pagebreak -->
+
+## Engineering interpretation: flexibility and stiffness
+
+Inverse matrices appear naturally in structural models. Consider a horizontal
+elastic beam supported at both ends, with forces applied at three points.
+@fig-elastic-beam-deflection shows the force and deflection coordinates used
+in this model. Let
+
+![A horizontal elastic beam supported at both ends. The downward forces $f_1$, $f_2$, and $f_3$ produce the vertical deflections $y_1$, $y_2$, and $y_3$ at the three measurement points.](../../images/elastic-beam-deflection-hand-drawn-white-grid.png){#fig-elastic-beam-deflection width=85% fig-pos="H" fig-align="center"}
+
+$$
+\vec{f}=
+\begin{bmatrix}
+f_1 \\
+f_2 \\
+f_3
+\end{bmatrix}
+\qquad\text{and}\qquad
+\vec{y}=
+\begin{bmatrix}
+y_1 \\
+y_2 \\
+y_3
+\end{bmatrix}
+$$
+
+list the applied forces and the corresponding vertical deflections. In a
+linear elastic model, a **flexibility matrix** $D$ relates them by
+
+$$
+\vec{y}=D\vec{f}.
+$$
+
+Each column of $D$ describes the deflections caused by a unit force at one
+point while the other applied forces are zero. If $D$ is invertible, its
+inverse is the **stiffness matrix**
+
+$$
+\vec{f}=D^{-1}\vec{y}.
+$$
+
+The columns of $D^{-1}$ have the complementary interpretation: the $i$th
+column gives the forces required to produce a unit deflection at point $i$ and
+zero deflection at the other measured points. The units also reflect the
+physical meaning: flexibility may be measured in deflection per unit force,
+whereas stiffness is measured in force per unit deflection.
+
+This is a useful engineering view of an inverse. The same model can answer two
+different questions: “what deflection results from these loads?” and “what
+loads are needed to obtain this deflection?”
 
 ## Finding an inverse by row reduction
 
