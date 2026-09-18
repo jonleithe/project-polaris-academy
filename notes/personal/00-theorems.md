@@ -325,6 +325,33 @@ reduces $A$ to $I_n$ also transforms $I_n$ into $A^{-1}$.
 
 :::
 
+## Chapter 2.8 – Column and Null Space
+
+**Source note:** [Column and Null Space](2-8-column-and-null-space.md)
+
+::: {.callout-note title="Column space and consistency"}
+
+For $A\in\mathbb{R}^{m\times n}$, the column space is a subspace of
+$\mathbb{R}^m$. The system $A\vec{x}=\vec{b}$ is consistent if and only if
+$\vec{b}\in\operatorname{Col}(A)$.
+
+:::
+
+::: {.callout-note title="Pivot columns give a column-space basis"}
+
+The columns of the original matrix $A$ corresponding to pivot columns in
+its row-echelon form constitute a basis for $\operatorname{Col}(A)$.
+
+:::
+
+::: {.callout-note title="The null space is a subspace"}
+
+For $A\in\mathbb{R}^{m\times n}$, the set
+$\operatorname{Nul}(A)=\{\vec{x}\in\mathbb{R}^n:A\vec{x}=\vec{0}\}$
+is a subspace of $\mathbb{R}^n$.
+
+:::
+
 ## Chapter 2.9 – Dimension and Rank
 
 ::: {#theorem-2-9-1 .callout-note title="Theorem 2.9.1 — Rank Theorem"}

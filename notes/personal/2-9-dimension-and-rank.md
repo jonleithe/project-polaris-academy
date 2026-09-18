@@ -11,6 +11,9 @@ For a matrix, the corresponding idea is its rank: the number of independent
 columns, or equivalently the dimension of its column space. Together with the
 nullity, rank accounts for every input direction of a matrix transformation.
 
+For definitions and step-by-step basis calculations, see
+[Column and Null Space](2-8-column-and-null-space.md).
+
 ## Dimension of a vector space
 
 The **dimension** of a nonzero vector space $V$ is the number of vectors in

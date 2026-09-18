@@ -4,6 +4,15 @@ This file records durable context and decisions from AI-assisted project work.
 It contains concise summaries rather than verbatim chat transcripts. The newest
 entry should be added at the top of the history.
 
+## 2026-09-18 — Incorporated handwritten column and null space notes
+
+- Converted the eight-page `notes/hand-written/column-and-null-space.pdf`
+  into the personal chapter `2-8-column-and-null-space.md`, automatically
+  included before Dimension and Rank in the book and site.
+- Consolidated repeated examples, corrected arithmetic and notation slips,
+  and retained the original scan. Added the principal results to the theorem
+  index and linked the related Dimension and Rank chapter.
+
 ## 2026-09-15 — Standardized book illustration backgrounds
 
 - Revised all seven diagrams referenced by personal notes to use white paper
