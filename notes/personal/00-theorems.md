@@ -241,6 +241,90 @@ Because one coefficient is nonzero, this is a nontrivial (see [Theorem 1.2.2](#t
 
 :::
 
+## Chapter 2.2 – The Inverse of a Matrix
+
+::: {#theorem-2-2-4 .callout-note title="Theorem 2.2.4 — Inverse of a Two-by-Two Matrix"}
+
+**Textbook reference:** p.135
+
+**Source note:** [The Inverse of a Matrix](2-2-the-inverse-of-a-matrix.md)
+
+Let
+
+$$
+A=
+\begin{bmatrix}
+a & b \\
+c & d
+\end{bmatrix}.
+$$
+
+If $ad-bc\ne0$, then $A$ is invertible and
+
+$$
+A^{-1}=
+\frac{1}{ad-bc}
+\begin{bmatrix}
+d & -b \\
+-c & a
+\end{bmatrix}.
+$$
+
+If $ad-bc=0$, then $A$ is not invertible.
+
+:::
+
+::: {#theorem-2-2-5 .callout-note title="Theorem 2.2.5 — Solving a System with an Inverse"}
+
+**Textbook reference:** p.136
+
+**Source note:** [The Inverse of a Matrix](2-2-the-inverse-of-a-matrix.md)
+
+If $A$ is an invertible $n\times n$ matrix, then for every
+$\vec{b}\in\mathbb{R}^n$, the equation
+
+$$
+A\vec{x}=\vec{b}
+$$
+
+has the unique solution
+
+$$
+\vec{x}=A^{-1}\vec{b}.
+$$
+
+:::
+
+::: {#theorem-2-2-6 .callout-note title="Theorem 2.2.6 — Properties of Inverse Matrices"}
+
+**Textbook reference:** p.137
+
+**Source note:** [The Inverse of a Matrix](2-2-the-inverse-of-a-matrix.md)
+
+If $A$ and $B$ are invertible $n\times n$ matrices, then
+
+$$
+\left(A^{-1}\right)^{-1}=A,
+\qquad
+(AB)^{-1}=B^{-1}A^{-1},
+\qquad
+\left(A^T\right)^{-1}=\left(A^{-1}\right)^T.
+$$
+
+:::
+
+::: {#theorem-2-2-7 .callout-note title="Theorem 2.2.7 — Row-Equivalence Criterion for Invertibility"}
+
+**Textbook reference:** p.140
+
+**Source note:** [The Inverse of a Matrix](2-2-the-inverse-of-a-matrix.md)
+
+An $n\times n$ matrix $A$ is invertible if and only if $A$ is row equivalent
+to $I_n$. In that case, every sequence of elementary row operations that
+reduces $A$ to $I_n$ also transforms $I_n$ into $A^{-1}$.
+
+:::
+
 ## Chapter 2.9 – Dimension and Rank
 
 ::: {#theorem-2-9-1 .callout-note title="Theorem 2.9.1 — Rank Theorem"}
@@ -413,6 +497,36 @@ $$
 
 where $\operatorname{adj}(A)=[C_{ij}]^T$ is the transpose of the cofactor
 matrix of $A$.
+
+:::
+
+::: {#theorem-3-3-9 .callout-note title="Theorem 3.3.9 — Determinants as Area or Volume"}
+
+**Source note:** [Determinants as Area or Volume](3-3-determinants-as-area-or-volume.md)
+
+If $A$ is a $2\times2$ matrix, the area of the parallelogram determined by
+the columns of $A$ is $|\det(A)|$. If $A$ is a $3\times3$ matrix, the volume
+of the parallelepiped determined by the columns of $A$ is $|\det(A)|$.
+
+:::
+
+::: {#theorem-3-3-10 .callout-note title="Theorem 3.3.10 — Area and Volume Under Linear Transformations"}
+
+**Source note:** [Determinants and Linear Transformations](3-3-determinants-and-linear-transformations.md)
+
+Let $T\colon\mathbb{R}^2\to\mathbb{R}^2$ be determined by a $2\times2$
+matrix $A$. For every parallelogram $S$ in $\mathbb{R}^2$,
+
+$$
+\operatorname{area}(T(S))=|\det(A)|\operatorname{area}(S).
+$$
+
+Let $T\colon\mathbb{R}^3\to\mathbb{R}^3$ be determined by a $3\times3$
+matrix $A$. For every parallelepiped $S$ in $\mathbb{R}^3$,
+
+$$
+\operatorname{volume}(T(S))=|\det(A)|\operatorname{volume}(S).
+$$
 
 :::
 

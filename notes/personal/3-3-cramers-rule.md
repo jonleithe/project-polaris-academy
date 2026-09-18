@@ -12,8 +12,9 @@ properties developed in [Properties of Determinants](3-2-properties-of-determina
 and leads to a formula for the inverse of a matrix.
 
 This note follows the first five pages of the handwritten section 3.3 notes
-and covers Cramer's rule and the inverse formula. Volume and linear
-transformations will be covered in separate notes.
+and covers Cramer's rule and the inverse formula. The next pages develop the
+geometric interpretation in [Determinants as Area or Volume](3-3-determinants-as-area-or-volume.md).
+They continue in [Determinants and Linear Transformations](3-3-determinants-and-linear-transformations.md).
 
 ## Replacing one column
 
