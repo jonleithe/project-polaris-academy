@@ -27,10 +27,10 @@ help:
 		'      Render the Khan linear algebra notes as one Quarto book PDF.' \
 		'' \
 		'  make book' \
-		'      Render the theorem index, Khan Academy units 01–05, and personal notes as a Quarto book PDF.' \
+		'      Render the theorem index and personal notes as a Quarto book PDF.' \
 		'' \
 		'  make site' \
-		'      Render the home page, theorem index, Khan Academy units 01–05, and personal notes as a navigable HTML site.' \
+		'      Render the home page, theorem index, and personal notes as a navigable HTML site.' \
 		'' \
 		'  make preview' \
 		'      Render the Academy site and start a live preview.' \

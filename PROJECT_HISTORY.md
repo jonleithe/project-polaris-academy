@@ -4,6 +4,42 @@ This file records durable context and decisions from AI-assisted project work.
 It contains concise summaries rather than verbatim chat transcripts. The newest
 entry should be added at the top of the history.
 
+## 2026-09-20 — Returned published outputs to personal notes only
+
+- Removed the remaining Khan Academy Linear Algebra notes from the Academy
+  book and website. They remain available as source material and in the
+  broader all-notes build.
+- Restored the published order to the root front page, theorem index, and all
+  personal notes in deterministic path order. The generated book profile and
+  site sidebar still derive from that single ordered list.
+
+## 2026-09-20 — Moved vector foundations into the personal published sequence
+
+- Removed Khan Academy Unit 01, `01-vectors-and-spaces.md`, from the Academy
+  book and website while retaining it in the repository and broader all-notes
+  build.
+- Added the new personal Chapter 1.3, `1-3-vector-equations.md`, to the
+  automatically discovered personal sequence after moving the relevant
+  foundational material into it.
+- The generated book chapter list and website sidebar continue to derive from
+  the same source order: home page, theorem index, Khan Academy units 02–05,
+  then all personal notes in path order.
+
+## 2026-09-19 — Reframed Chapter 2.8 around subspaces
+
+- Made the new handwritten `2-8-subspaces-of-Rn.pdf` the primary source for
+  Chapter 2.8 and retitled the rendered note **Subspaces of $\mathbb{R}^n$**.
+- Expanded the chapter from a column/null-space treatment to cover the
+  subspace test, spans, bases, column space, and null space in that pedagogical
+  order. Retained the earlier handwritten note's sinusoidal-function example
+  and engineering interpretation.
+- Updated the theorem index and internal links for the renamed Markdown source
+  `2-8-subspaces-of-Rn.md`.
+- Audited the remaining handwritten linear-algebra scans against their
+  corresponding Markdown notes. The existing notes cover the source material;
+  corrected the matrix-multiplication compatibility condition from a reversed
+  prose statement to “columns of $A$ equal rows of $B$.”
+
 ## 2026-09-18 — Incorporated handwritten column and null space notes
 
 - Converted the eight-page `notes/hand-written/column-and-null-space.pdf`
