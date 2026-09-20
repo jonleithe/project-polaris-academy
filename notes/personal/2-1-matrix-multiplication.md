@@ -48,7 +48,11 @@ $$
 \greenD{a_{3n}} \cdot \greenD{b_{n2}}
 $$
 
-Matrix multiplication is only defined when the number of rows in A equals the number of columns in B. Using the convention $A$ is an $\maroonD{m} \times \greenD{n}$ matrix, and $B$ is an $\greenD{n} \times \goldD{p}$ matrix, the $\greenD{n}$'s have to match. The resulting matrix will have dimensions $\maroonD{m} \times \goldD{p}$.
+Matrix multiplication is only defined when the number of columns in $A$ equals
+the number of rows in $B$. Using the convention that $A$ is an
+$\maroonD{m} \times \greenD{n}$ matrix and $B$ is an
+$\greenD{n} \times \goldD{p}$ matrix, the $\greenD{n}$'s have to match. The
+resulting matrix has dimensions $\maroonD{m} \times \goldD{p}$.
 
 For a full size example, suppose we have:
 

@@ -325,30 +325,106 @@ reduces $A$ to $I_n$ also transforms $I_n$ into $A^{-1}$.
 
 :::
 
-## Chapter 2.8 – Column and Null Space
+## Chapter 2.3 – Characterizations of Invertible Matrices
 
-**Source note:** [Column and Null Space](2-8-column-and-null-space.md)
+::: {#theorem-2-3-8 .callout-note title="Theorem 2.3.8 — Invertible Matrix Theorem"}
 
-::: {.callout-note title="Column space and consistency"}
+**Textbook reference:** p.145; points m-q, p.189
 
-For $A\in\mathbb{R}^{m\times n}$, the column space is a subspace of
-$\mathbb{R}^m$. The system $A\vec{x}=\vec{b}$ is consistent if and only if
-$\vec{b}\in\operatorname{Col}(A)$.
+**Source note:** [Characterizations of Invertible Matrices](2-3-characterizations-of-invertible-matrices.md)
+
+Let $A$ be an $n\times n$ matrix. The following statements are equivalent:
+for a given $A$, either they are all true or they are all false.
+
+a. $A$ is invertible.
+b. $A$ is row equivalent to the $n\times n$ identity matrix.
+c. $A$ has $n$ pivot positions.
+d. The equation $A\vec{x}=\vec{0}$ has only the trivial solution.
+e. The columns of $A$ form a linearly independent set.
+f. The linear transformation $\vec{x}\mapsto A\vec{x}$ is one-to-one.
+g. For every $\vec{b}\in\mathbb{R}^n$, the equation
+   $A\vec{x}=\vec{b}$ has at least one solution.
+h. The columns of $A$ span $\mathbb{R}^n$.
+i. The linear transformation $\vec{x}\mapsto A\vec{x}$ maps
+   $\mathbb{R}^n$ onto $\mathbb{R}^n$.
+j. There is an $n\times n$ matrix $C$ such that $CA=I$.
+k. There is an $n\times n$ matrix $D$ such that $AD=I$.
+l. $A^T$ is invertible.
+m. The columns of $A$ form a basis for $\mathbb{R}^n$.
+n. $\operatorname{Col}(A)=\mathbb{R}^n$.
+o. $\operatorname{rank}(A)=n$.
+p. $\dim\bigl(\operatorname{Nul}(A)\bigr)=0$.
+q. $\operatorname{Nul}(A)=\{\vec{0}\}$.
 
 :::
 
-::: {.callout-note title="Pivot columns give a column-space basis"}
+## Chapter 2.8 – Subspaces of $\mathbb{R}^n$
 
-The columns of the original matrix $A$ corresponding to pivot columns in
-its row-echelon form constitute a basis for $\operatorname{Col}(A)$.
+**Source note:** [Subspaces of $\mathbb{R}^n$](2-8-subspaces-of-Rn.md)
+
+::: {#definition-2-8-1 .callout-note title="Definition 2.8.1 — Subspace"}
+
+**Textbook reference:** p.179
+
+A subset $H\subseteq\mathbb{R}^n$ is a subspace if it contains
+$\vec{0}$ and is closed under vector addition and scalar multiplication.
 
 :::
 
-::: {.callout-note title="The null space is a subspace"}
+::: {#definition-2-8-2 .callout-note title="Definition 2.8.2 — Column Space"}
 
-For $A\in\mathbb{R}^{m\times n}$, the set
-$\operatorname{Nul}(A)=\{\vec{x}\in\mathbb{R}^n:A\vec{x}=\vec{0}\}$
-is a subspace of $\mathbb{R}^n$.
+**Textbook reference:** p.180
+
+For an $m\times n$ matrix $A=[\vec{a}_1\ \cdots\ \vec{a}_n]$,
+
+$$
+\operatorname{Col}(A)=
+\operatorname{span}\{\vec{a}_1,\ldots,\vec{a}_n\}.
+$$
+
+It is a subspace of $\mathbb{R}^m$.
+
+:::
+
+::: {#definition-2-8-3 .callout-note title="Definition 2.8.3 — Null Space"}
+
+**Textbook reference:** p.181
+
+For $A\in\mathbb{R}^{m\times n}$,
+
+$$
+\operatorname{Nul}(A)=
+\{\vec{x}\in\mathbb{R}^n:A\vec{x}=\vec{0}\}.
+$$
+
+:::
+
+::: {#theorem-2-8-12 .callout-note title="Theorem 2.8.12 — The Null Space Is a Subspace"}
+
+**Textbook reference:** p.181
+
+For every $m\times n$ matrix $A$, the null space of $A$ is a subspace of
+$\mathbb{R}^n$. Equivalently, the solution set of every homogeneous system
+$A\vec{x}=\vec{0}$ is a subspace of $\mathbb{R}^n$.
+
+:::
+
+::: {#definition-2-8-4 .callout-note title="Definition 2.8.4 — Basis for a Subspace"}
+
+**Textbook reference:** p.181
+
+A basis for a subspace $H$ is a linearly independent set in $H$ that spans
+$H$.
+
+:::
+
+::: {#theorem-2-8-13 .callout-note title="Theorem 2.8.13 — Pivot Columns Form a Column-Space Basis"}
+
+**Textbook reference:** p.183
+
+The pivot columns of a matrix $A$ form a basis for $\operatorname{Col}(A)$.
+Determine their indices by row-reducing $A$, then take the columns with those
+indices from the original matrix.
 
 :::
 
@@ -375,35 +451,6 @@ Let $H$ be a $p$-dimensional subspace of $\mathbb{R}^n$.
 - Any linearly independent set of exactly $p$ vectors in $H$ is a basis for
   $H$.
 - Any set of exactly $p$ vectors that spans $H$ is a basis for $H$.
-
-:::
-
-::: {#theorem-2-9-3 .callout-note title="Theorem 2.9.3 — Invertible Matrix Theorem"}
-
-**Source note:** [Dimension and Rank](2-9-dimension-and-rank.md)
-
-Let $A$ be an $n\times n$ matrix. The following statements are equivalent:
-for a given $A$, either they are all true or they are all false.
-
-a. $A$ is invertible.
-b. $A$ is row equivalent to the $n\times n$ identity matrix.
-c. $A$ has $n$ pivot positions.
-d. The equation $A\vec{x}=\vec{0}$ has only the trivial solution.
-e. The columns of $A$ form a linearly independent set.
-f. The linear transformation $\vec{x}\mapsto A\vec{x}$ is one-to-one.
-g. For every $\vec{b}\in\mathbb{R}^n$, the equation
-   $A\vec{x}=\vec{b}$ has at least one solution.
-h. The columns of $A$ span $\mathbb{R}^n$.
-i. The linear transformation $\vec{x}\mapsto A\vec{x}$ maps
-   $\mathbb{R}^n$ onto $\mathbb{R}^n$.
-j. There is an $n\times n$ matrix $C$ such that $CA=I$.
-k. There is an $n\times n$ matrix $D$ such that $AD=I$.
-l. $A^T$ is invertible.
-m. The columns of $A$ form a basis for $\mathbb{R}^n$.
-n. $\operatorname{Col}(A)=\mathbb{R}^n$.
-o. $\operatorname{rank}(A)=n$.
-p. $\dim\bigl(\operatorname{Nul}(A)\bigr)=0$.
-q. $\operatorname{Nul}(A)=\{\vec{0}\}$.
 
 :::
 
@@ -557,7 +604,7 @@ $$
 
 :::
 
-## Chapter 4.1
+## Chapter 4.1 – Vector Spaces and Subspaces
 
 ::: {#theorem-4-1-1 .callout-note title="Theorem 4.1.1"}
 

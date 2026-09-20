@@ -12,7 +12,7 @@ columns, or equivalently the dimension of its column space. Together with the
 nullity, rank accounts for every input direction of a matrix transformation.
 
 For definitions and step-by-step basis calculations, see
-[Column and Null Space](2-8-column-and-null-space.md).
+[Subspaces of $\mathbb{R}^n$](2-8-subspaces-of-Rn.md).
 
 ## Dimension of a vector space
 
