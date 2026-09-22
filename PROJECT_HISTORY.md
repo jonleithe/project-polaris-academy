@@ -4,6 +4,15 @@ This file records durable context and decisions from AI-assisted project work.
 It contains concise summaries rather than verbatim chat transcripts. The newest
 entry should be added at the top of the history.
 
+## 2026-09-22 — Added Chapter 4.1 on vector spaces and subspaces
+
+- Converted the handwritten `4-1-vector-spaces-and-subspaces.pdf` into the
+  personal chapter `4-1-vector-spaces-and-subspaces.md`.
+- Covered the vector-space axioms, the subspace test, the fact that every span
+  is a subspace, and two worked span-membership examples.
+- Replaced the obsolete Chapter 4.1 theorem-index placeholder with **Every
+  Span Is a Subspace** and linked it to the new source note.
+
 ## 2026-09-20 — Returned published outputs to personal notes only
 
 - Removed the remaining Khan Academy Linear Algebra notes from the Academy

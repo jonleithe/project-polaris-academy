@@ -606,10 +606,16 @@ $$
 
 ## Chapter 4.1 – Vector Spaces and Subspaces
 
-::: {#theorem-4-1-1 .callout-note title="Theorem 4.1.1"}
+::: {#theorem-4-1-1 .callout-note title="Theorem 4.1.1 — Every Span Is a Subspace"}
 
-**Textbook reference:** p.38
+**Source note:** [Vector Spaces and Subspaces](4-1-vector-spaces-and-subspaces.md)
 
-Each matrix is row equivalent to one and only one reduced echelon matrix.
+If $\vec{v}_1,\ldots,\vec{v}_p$ belong to a vector space $V$, then
+
+$$
+\operatorname{span}\{\vec{v}_1,\ldots,\vec{v}_p\}
+$$
+
+is a subspace of $V$.
 
 :::

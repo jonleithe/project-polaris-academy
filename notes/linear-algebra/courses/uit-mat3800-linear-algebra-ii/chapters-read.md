@@ -1,5 +1,7 @@
 
-The following chapter from the text book is covered:
+# Textbook chapters covered
+
+The following chapter from the text book has been covered:
 
 | Chapter | Name |# of hand written pages | Published |
 |---|---|---|---|
@@ -15,3 +17,4 @@ The following chapter from the text book is covered:
 |3.1|Introduction to Determinants|4|Yes|
 |3.2|Properties of Determinants|5|Yes|
 |3.3|Cramer's Rule, Volume and Linear Transformations|8|Yes|
+|4.1|Vector Spaces and Subspaces|3|No|
